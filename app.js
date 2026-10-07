@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "projects.btnOpen": "Projeyi Aç",
       "projects.btnInspect": "Klasörü İncele",
       "projects.btnPlay": "Videoyu Oynat",
+      "projects.btnOpenLink": "Bağlantıyı Aç",
       "projects.empty": "Bu kategoride henüz proje bulunamadı.",
       "contact.heading": "Birlikte Çalışalım",
       "contact.subtitle": "Bir sonraki projenizi birlikte hayata geçirelim veya ekibiniz için değer yaratalım. Bir tık uzağınızdayım.",
@@ -154,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "projects.btnOpen": "Open Project",
       "projects.btnInspect": "View Folder",
       "projects.btnPlay": "Play Video",
+      "projects.btnOpenLink": "Open Link",
       "projects.empty": "No projects found in this category.",
       "contact.heading": "Let's Work Together",
       "contact.subtitle": "Let's bring your next project to life or create measurable value for your team. I'm just a click away.",
@@ -266,10 +268,20 @@ document.addEventListener('DOMContentLoaded', () => {
           </a>
         `;
       } else {
+        const directLink = (project.link && project.link.trim() !== '') ? project.link.trim() : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
+        const linkBtnHtml = directLink ? `
+          <a href="${directLink}" target="_blank" rel="noopener noreferrer" class="card-btn-icon" title="${dict['projects.btnOpenLink'] || 'Bağlantıyı Aç'}">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        ` : '';
+
         actionHtml = `
-          <button class="card-btn play-video-btn" data-id="${project.id}" data-video-src="${project.videoSrc}" data-title="${title}">
-            ${dict["projects.btnPlay"]} <i class="fa-solid fa-play"></i>
-          </button>
+          <div class="card-btn-group">
+            <button class="card-btn play-video-btn" data-id="${project.id}" data-video-src="${project.videoSrc}" data-title="${title}">
+              ${dict["projects.btnPlay"]} <i class="fa-solid fa-play"></i>
+            </button>
+            ${linkBtnHtml}
+          </div>
         `;
       }
 
@@ -421,8 +433,29 @@ document.addEventListener('DOMContentLoaded', () => {
       modalVideoCounter.textContent = `Video ${currentVideoIndex + 1} / ${videoProjectsList.length}`;
     }
 
-    const igLink = project.instagramUrl || project.link || "https://www.instagram.com/drayeditss/";
-    if (modalInstagramBtn) modalInstagramBtn.href = igLink;
+    // Direct Project Link (Reel / Video / Web)
+    const modalDirectLinkBtn = document.getElementById('modalDirectLinkBtn');
+    const modalDirectLinkText = document.getElementById('modalDirectLinkText');
+    const directLink = (project.link && project.link.trim() !== '') ? project.link.trim() : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
+
+    if (modalDirectLinkBtn) {
+      if (directLink) {
+        modalDirectLinkBtn.href = directLink;
+        modalDirectLinkBtn.style.display = 'inline-flex';
+        const isIg = directLink.includes('instagram.com');
+        if (modalDirectLinkText) {
+          modalDirectLinkText.textContent = isIg 
+            ? (currentLang === 'en' ? 'Open on Instagram' : "Instagram'da Gönderiyi Aç")
+            : (currentLang === 'en' ? 'Open Project Link' : 'Proje Bağlantısını Aç');
+        }
+      } else {
+        modalDirectLinkBtn.style.display = 'none';
+      }
+    }
+
+    const cleanHandle = authorHandle.replace(/^@+/, '');
+    const igProfile = `https://www.instagram.com/${cleanHandle}/`;
+    if (modalInstagramBtn) modalInstagramBtn.href = igProfile;
 
     videoSource.src = project.videoSrc || '';
     modalVideo.load();

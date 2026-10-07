@@ -1324,6 +1324,40 @@ body.light-mode .btn-secondary {
 
 .card-actions {
   display: flex;
+  width: 100%;
+}
+
+.card-btn-group {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.card-btn-group .play-video-btn {
+  flex: 1;
+}
+
+.card-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.card-btn-icon:hover {
+  background-color: rgba(6, 182, 212, 0.15);
+  border-color: var(--secondary);
+  color: var(--secondary);
+  transform: translateY(-2px);
 }
 
 .card-btn {
@@ -1813,6 +1847,31 @@ body.modal-open .laptop-stage-wrapper {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+}
+
+.studio-direct-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.studio-direct-link-btn:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(168, 85, 247, 0.3) 100%);
+  border-color: var(--secondary);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 .studio-insta-card {
