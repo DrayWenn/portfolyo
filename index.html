@@ -339,9 +339,14 @@
                   <button class="cine-ctrl-btn" id="ctrlPlayPauseBtn" title="Oynat / Durdur">
                     <i class="fa-solid fa-pause"></i>
                   </button>
-                  <button class="cine-ctrl-btn" id="ctrlMuteBtn" title="Sesi Aç / Kapat">
-                    <i class="fa-solid fa-volume-high"></i>
-                  </button>
+                  <div class="cine-volume-container" id="cineVolumeContainer">
+                    <button class="cine-ctrl-btn" id="ctrlMuteBtn" title="Sesi Aç / Kapat (M)">
+                      <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                    <div class="cine-volume-slider-box">
+                      <input type="range" class="cine-volume-range" id="ctrlVolumeSlider" min="0" max="1" step="0.02" value="1" title="Ses Seviyesi">
+                    </div>
+                  </div>
                   <span class="cinestudio-time" id="videoTime">0:00 / 0:00</span>
                 </div>
                 <div class="ctrl-group-right">

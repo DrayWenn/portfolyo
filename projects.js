@@ -7,32 +7,32 @@
 
 const PROJECTS_DATA = [
     {
-        "id": 3,
+        "id": 4,
         "title": {
-            "tr": "Dexter Edit",
-            "en": "Dexter Edit"
+            "tr": "Avatar Toph Edit",
+            "en": "Avatar Toph Edit"
         },
         "description": {
             "tr": "",
-            "en": "İnstagram'da 200bin izlenen video"
+            "en": ""
         },
         "category": "ae",
         "tags": {
             "tr": [
-                "Edit",
-                "After Effects",
+                "after effects",
+                "edit",
                 "Motion"
             ],
             "en": [
-                "Edit",
-                "After Effects",
+                "after effects",
+                "edit",
                 "Motion"
             ]
         },
-        "link": "https://www.instagram.com/p/DdCSH4psu3f/",
+        "link": "https://www.youtube.com/shorts/--SAeIfyCZw",
         "icon": "fa-play",
-        "videoSrc": "videos/gta-dexter.mp4",
-        "instagramUrl": "https://www.instagram.com/drayeditss/",
+        "videoSrc": "videos/avatar2-1.mp4",
+        "instagramUrl": "https://www.youtube.com/shorts/--SAeIfyCZw",
         "author": "drayeditss",
         "stats": {
             "likes": "10K",
@@ -69,5 +69,40 @@ const PROJECTS_DATA = [
         "link": "https://www.yildizforma.com",
         "icon": "fa-gears",
         "videoSrc": ""
+    },
+    {
+        "id": 3,
+        "title": {
+            "tr": "Dexter Edit",
+            "en": "Dexter Edit"
+        },
+        "description": {
+            "tr": "",
+            "en": "İnstagram'da 200bin izlenen video"
+        },
+        "category": "ae",
+        "tags": {
+            "tr": [
+                "Edit",
+                "After Effects",
+                "Motion"
+            ],
+            "en": [
+                "Edit",
+                "After Effects",
+                "Motion"
+            ]
+        },
+        "link": "https://www.instagram.com/p/DdCSH4psu3f/",
+        "icon": "fa-play",
+        "videoSrc": "videos/gta-dexter.mp4",
+        "instagramUrl": "https://www.instagram.com/drayeditss/",
+        "author": "drayeditss",
+        "stats": {
+            "likes": "10K",
+            "views": "100K",
+            "comments": "200",
+            "shares": "1K"
+        }
     }
 ];

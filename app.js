@@ -402,6 +402,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoProgressBar = document.getElementById('videoProgressBar');
   const ctrlPlayPauseBtn = document.getElementById('ctrlPlayPauseBtn');
   const ctrlMuteBtn = document.getElementById('ctrlMuteBtn');
+  const ctrlVolumeSlider = document.getElementById('ctrlVolumeSlider');
+  const cineVolumeContainer = document.getElementById('cineVolumeContainer');
   const videoTime = document.getElementById('videoTime');
   const ctrlFullscreenBtn = document.getElementById('ctrlFullscreenBtn');
 
@@ -412,6 +414,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentVideoIndex = 0;
   let videoProjectsList = [];
+  let userVolume = parseFloat(localStorage.getItem('cine-volume') || '0.9');
+  if (isNaN(userVolume) || userVolume < 0 || userVolume > 1) userVolume = 0.9;
 
   function getVideoProjects() {
     return PROJECTS_DATA.filter(p => p.category === 'ae' || (p.videoSrc && p.videoSrc.trim() !== ''));
@@ -448,9 +452,67 @@ document.addEventListener('DOMContentLoaded', () => {
     ctrlPlayPauseBtn.innerHTML = isPaused ? '<i class="fa-solid fa-play"></i>' : '<i class="fa-solid fa-pause"></i>';
   }
 
+  function updateVolumeUI(volume, isMuted) {
+    const effectiveVol = isMuted ? 0 : volume;
+    if (ctrlVolumeSlider) {
+      ctrlVolumeSlider.value = effectiveVol;
+      const pct = Math.round(effectiveVol * 100);
+      ctrlVolumeSlider.style.background = `linear-gradient(to right, #06b6d4 0%, #a855f7 ${pct}%, rgba(255, 255, 255, 0.22) ${pct}%, rgba(255, 255, 255, 0.22) 100%)`;
+      ctrlVolumeSlider.title = `Ses: %${pct}`;
+    }
+    if (ctrlMuteBtn) {
+      if (isMuted || effectiveVol === 0) {
+        ctrlMuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+        ctrlMuteBtn.title = 'Sesi Aç (M)';
+      } else if (effectiveVol <= 0.5) {
+        ctrlMuteBtn.innerHTML = '<i class="fa-solid fa-volume-low"></i>';
+        ctrlMuteBtn.title = 'Sesi Kapat (M)';
+      } else {
+        ctrlMuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        ctrlMuteBtn.title = 'Sesi Kapat (M)';
+      }
+    }
+  }
+
   function updateMuteUI(isMuted) {
-    if (!ctrlMuteBtn) return;
-    ctrlMuteBtn.innerHTML = isMuted ? '<i class="fa-solid fa-volume-xmark"></i>' : '<i class="fa-solid fa-volume-high"></i>';
+    const currentVol = (modalVideo && !isNaN(modalVideo.volume)) ? modalVideo.volume : userVolume;
+    updateVolumeUI(currentVol, isMuted);
+  }
+
+  function setVideoVolume(newVol, showFeedback = false) {
+    if (!modalVideo) return;
+    const clamped = Math.max(0, Math.min(1, parseFloat(newVol)));
+    if (clamped > 0) {
+      userVolume = clamped;
+      try { localStorage.setItem('cine-volume', clamped.toString()); } catch (_) {}
+    }
+
+    if (clamped === 0) {
+      modalVideo.muted = true;
+      modalVideo.volume = 0;
+      updateVolumeUI(0, true);
+      if (showFeedback) triggerCenterIcon('fa-volume-xmark');
+    } else {
+      modalVideo.muted = false;
+      modalVideo.volume = clamped;
+      updateVolumeUI(clamped, false);
+      if (showFeedback) triggerCenterIcon(clamped > 0.5 ? 'fa-volume-high' : 'fa-volume-low');
+    }
+  }
+
+  function toggleMute() {
+    if (!modalVideo) return;
+    if (modalVideo.muted || modalVideo.volume === 0) {
+      modalVideo.muted = false;
+      const restoreVol = (userVolume > 0.05) ? userVolume : 0.8;
+      modalVideo.volume = restoreVol;
+      updateVolumeUI(restoreVol, false);
+      triggerCenterIcon(restoreVol > 0.5 ? 'fa-volume-high' : 'fa-volume-low');
+    } else {
+      modalVideo.muted = true;
+      updateVolumeUI(modalVideo.volume, true);
+      triggerCenterIcon('fa-volume-xmark');
+    }
   }
 
   function openCineStudio(project) {
@@ -528,8 +590,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     videoSource.src = project.videoSrc || '';
     modalVideo.load();
+    modalVideo.volume = userVolume;
     modalVideo.muted = false;
-    updateMuteUI(false);
+    updateVolumeUI(userVolume, false);
 
     modal.classList.add('active');
     document.body.classList.add('modal-open');
@@ -539,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updatePlayPauseUI(false);
     }).catch(() => {
       modalVideo.muted = true;
-      updateMuteUI(true);
+      updateVolumeUI(userVolume, true);
       modalVideo.play().catch(() => {});
       updatePlayPauseUI(false);
     });
@@ -593,10 +656,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cineMiniNextBtn) cineMiniNextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateVideo('next'); });
 
   if (ctrlMuteBtn && modalVideo) {
-    ctrlMuteBtn.addEventListener('click', () => {
-      modalVideo.muted = !modalVideo.muted;
-      updateMuteUI(modalVideo.muted);
+    ctrlMuteBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMute();
     });
+  }
+
+  if (ctrlVolumeSlider && modalVideo) {
+    ctrlVolumeSlider.addEventListener('input', (e) => {
+      e.stopPropagation();
+      setVideoVolume(parseFloat(e.target.value), false);
+    });
+    ctrlVolumeSlider.addEventListener('change', (e) => {
+      e.stopPropagation();
+      setVideoVolume(parseFloat(e.target.value), false);
+    });
+    ctrlVolumeSlider.addEventListener('click', (e) => e.stopPropagation());
+    ctrlVolumeSlider.addEventListener('pointerdown', (e) => e.stopPropagation());
   }
 
   let isScrubbing = false;
@@ -687,10 +763,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('keydown', (e) => {
     if (!modal || !modal.classList.contains('active')) return;
-    if (e.key === 'Escape') closeVideoModal();
-    else if (e.key === 'ArrowRight') navigateVideo('next');
-    else if (e.key === 'ArrowLeft') navigateVideo('prev');
-    else if (e.key === ' ') {
+    if (e.key === 'Escape') {
+      closeVideoModal();
+    } else if (e.key === 'ArrowRight') {
+      navigateVideo('next');
+    } else if (e.key === 'ArrowLeft') {
+      navigateVideo('prev');
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      const current = modalVideo.muted ? 0 : modalVideo.volume;
+      setVideoVolume(Math.min(1, current + 0.1), true);
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      const current = modalVideo.muted ? 0 : modalVideo.volume;
+      setVideoVolume(Math.max(0, current - 0.1), true);
+    } else if (e.key.toLowerCase() === 'm') {
+      e.preventDefault();
+      toggleMute();
+    } else if (e.key === ' ') {
       e.preventDefault();
       togglePlayPause();
     }
