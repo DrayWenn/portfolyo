@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetim Paneli | Umut Yazıcı Portfolyo</title>
+    <meta name="description" content="Portfolyo projelerini ve videolarını ekleme, düzenleme ve sıralama paneli.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- ===== Üst Bar ===== -->
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-dot"></span>
+            <span class="brand-tag">&lt;UY /&gt;</span>
+            <span class="brand-sep">/</span>
+            <h1 class="brand-title">Yönetim Paneli</h1>
+        </div>
+        <div class="topbar-actions">
+            <a href="../index.html" target="_blank" class="btn btn-ghost" id="viewSiteBtn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Siteyi Gör
+            </a>
+            <button class="btn btn-primary" id="newProjectBtn">
+                <i class="fa-solid fa-plus"></i> Yeni Proje
+            </button>
+        </div>
+    </header>
+
+    <main class="layout">
+        <!-- ===== Araç Çubuğu ===== -->
+        <section class="toolbar" aria-label="Filtreler">
+            <div class="stats" id="stats">
+                <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">Toplam</span></div>
+                <div class="stat"><span class="stat-num" id="statVideo">0</span><span class="stat-label">Video</span></div>
+                <div class="stat"><span class="stat-num" id="statWeb">0</span><span class="stat-label">Web</span></div>
+            </div>
+            <div class="toolbar-right">
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" id="searchInput" placeholder="Proje ara…" autocomplete="off">
+                </div>
+                <div class="segmented" id="filterTabs" role="tablist">
+                    <button class="seg-btn active" data-filter="all" id="filterAll">Tümü</button>
+                    <button class="seg-btn" data-filter="ae" id="filterAe"><i class="fa-solid fa-film"></i> Videolar</button>
+                    <button class="seg-btn" data-filter="web" id="filterWeb"><i class="fa-solid fa-globe"></i> Web</button>
+                </div>
+            </div>
+        </section>
+
+        <p class="hint" id="reorderHint"><i class="fa-solid fa-grip-vertical"></i> Kartları sürükleyerek sitedeki sıralamayı değiştirebilirsiniz.</p>
+
+        <!-- ===== Proje Kartları ===== -->
+        <section class="grid" id="projectGrid" aria-live="polite"></section>
+
+        <div class="empty" id="emptyState" hidden>
+            <i class="fa-solid fa-film"></i>
+            <h2>Burada henüz bir şey yok</h2>
+            <p>İlk videonu yüklemek için “Yeni Proje”ye tıkla ya da bir video dosyasını bu sayfaya sürükle.</p>
+        </div>
+
+        <div class="loading" id="loadingState">
+            <span class="spinner"></span> Projeler yükleniyor…
+        </div>
+
+        <div class="error-box" id="serverError" hidden>
+            <i class="fa-solid fa-plug-circle-xmark"></i>
+            <div>
+                <h2>Sunucuya bağlanılamadı</h2>
+                <p>Paneli kullanmak için <code>admin/baslat.bat</code> dosyasına çift tıklayın, açılan adresi kullanın.<br>
+                (Bu sayfayı doğrudan dosya olarak açtıysanız kayıt yapılamaz.)</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== Kaydetme Barı ===== -->
+    <div class="savebar" id="saveBar" aria-live="polite">
+        <span class="savebar-text"><i class="fa-solid fa-circle-exclamation"></i> <span id="saveBarText">Kaydedilmemiş değişiklikler var</span></span>
+        <div class="savebar-actions">
+            <button class="btn btn-ghost" id="discardBtn"><i class="fa-solid fa-rotate-left"></i> Geri Al</button>
+            <button class="btn btn-primary" id="saveBtn"><i class="fa-solid fa-floppy-disk"></i> Kaydet <kbd>Ctrl S</kbd></button>
+        </div>
+    </div>
+
+    <!-- ===== Düzenleme Paneli (Drawer) ===== -->
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="drawerTitle">
+        <div class="drawer-header">
+            <div>
+                <span class="drawer-kicker" id="drawerKicker">Düzenle</span>
+                <h2 class="drawer-title" id="drawerTitle">Proje</h2>
+            </div>
+            <button class="icon-btn" id="drawerClose" title="Kapat (Esc)"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <form class="drawer-body" id="projectForm" novalidate>
+            <!-- Kategori -->
+            <div class="field">
+                <label class="label">Kategori</label>
+                <div class="cat-picker" id="catPicker">
+                    <label class="cat-option">
+                        <input type="radio" name="category" value="ae" id="catAe">
+                        <span><i class="fa-solid fa-film"></i> Video / After Effects</span>
+                    </label>
+                    <label class="cat-option">
+                        <input type="radio" name="category" value="web" id="catWeb">
+                        <span><i class="fa-solid fa-globe"></i> Web Projesi</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Video -->
+            <div class="field" id="videoField">
+                <label class="label">Video</label>
+                <div class="video-zone" id="videoZone">
+                    <div class="video-preview" id="videoPreview" hidden>
+                        <video id="previewVideo" controls preload="metadata" playsinline></video>
+                        <div class="video-meta">
+                            <span class="video-path" id="videoPathLabel"></span>
+                            <div class="video-meta-actions">
+                                <button type="button" class="btn btn-ghost btn-sm" id="replaceVideoBtn"><i class="fa-solid fa-arrows-rotate"></i> Değiştir</button>
+                                <button type="button" class="btn btn-danger-ghost btn-sm" id="removeVideoBtn"><i class="fa-solid fa-trash"></i> Kaldır</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropzone" id="dropzone">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p><strong>Videoyu buraya sürükle</strong> ya da <span class="link">seç</span></p>
+                        <small>MP4, WEBM, MOV · en fazla 2 GB</small>
+                    </div>
+                    <div class="upload-progress" id="uploadProgress" hidden>
+                        <div class="upload-row">
+                            <span id="uploadName">video.mp4</span>
+                            <span id="uploadPercent">0%</span>
+                        </div>
+                        <div class="progress-track"><div class="progress-fill" id="uploadFill"></div></div>
+                        <button type="button" class="btn btn-ghost btn-sm" id="cancelUploadBtn">İptal</button>
+                    </div>
+                    <input type="file" id="fileInput" accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov,.m4v" hidden>
+                </div>
+                <details class="advanced">
+                    <summary>Video yolunu elle gir</summary>
+                    <input type="text" class="input mono" id="videoSrcInput" placeholder="videos/ornek.mp4 veya ../After Effects Projeleri/ornek.mp4">
+                </details>
+            </div>
+
+            <!-- Başlık -->
+            <div class="field">
+                <div class="label-row">
+                    <label class="label" for="titleTr">Başlık</label>
+                    <div class="lang-tabs" data-group="title">
+                        <button type="button" class="lang-tab active" data-lang="tr">TR</button>
+                        <button type="button" class="lang-tab" data-lang="en">EN</button>
+                    </div>
+                </div>
+                <input type="text" class="input lang-input" data-group="title" data-lang="tr" id="titleTr" placeholder="Örn: Mentalist Edit" required>
+                <input type="text" class="input lang-input" data-group="title" data-lang="en" id="titleEn" placeholder="English title (boşsa TR kullanılır)" hidden>
+            </div>
+
+            <!-- Açıklama -->
+            <div class="field">
+                <div class="label-row">
+                    <label class="label" for="descTr">Açıklama</label>
+                    <div class="lang-tabs" data-group="desc">
+                        <button type="button" class="lang-tab active" data-lang="tr">TR</button>
+                        <button type="button" class="lang-tab" data-lang="en">EN</button>
+                    </div>
+                </div>
+                <textarea class="input lang-input" data-group="desc" data-lang="tr" id="descTr" rows="3" placeholder="Kısa bir açıklama…"></textarea>
+                <textarea class="input lang-input" data-group="desc" data-lang="en" id="descEn" rows="3" placeholder="Short description…" hidden></textarea>
+            </div>
+
+            <!-- Etiketler -->
+            <div class="field">
+                <div class="label-row">
+                    <label class="label">Etiketler</label>
+                    <div class="lang-tabs" data-group="tags">
+                        <button type="button" class="lang-tab active" data-lang="tr">TR</button>
+                        <button type="button" class="lang-tab" data-lang="en">EN</button>
+                    </div>
+                </div>
+                <div class="chips lang-input" data-group="tags" data-lang="tr" id="tagsTr"></div>
+                <div class="chips lang-input" data-group="tags" data-lang="en" id="tagsEn" hidden></div>
+                <small class="help">Yazıp Enter’a basın. Silmek için etikete tıklayın.</small>
+            </div>
+
+            <!-- Bağlantılar -->
+            <div class="field-grid">
+                <div class="field">
+                    <label class="label" for="linkInput">Proje Linki</label>
+                    <input type="text" class="input" id="linkInput" placeholder="https://…">
+                </div>
+                <div class="field" data-only="ae">
+                    <label class="label" for="instagramInput">Instagram Linki</label>
+                    <input type="text" class="input" id="instagramInput" placeholder="https://www.instagram.com/reel/…">
+                </div>
+                <div class="field" data-only="ae">
+                    <label class="label" for="authorInput">Hesap Adı</label>
+                    <input type="text" class="input" id="authorInput" placeholder="drayeditss">
+                </div>
+            </div>
+
+            <!-- İkon -->
+            <div class="field">
+                <label class="label">Kart İkonu</label>
+                <div class="icon-grid" id="iconGrid"></div>
+            </div>
+        </form>
+
+        <div class="drawer-footer">
+            <button type="button" class="btn btn-danger-ghost" id="deleteProjectBtn"><i class="fa-solid fa-trash"></i> Sil</button>
+            <div class="drawer-footer-right">
+                <button type="button" class="btn btn-ghost" id="cancelEditBtn">Vazgeç</button>
+                <button type="button" class="btn btn-primary" id="applyEditBtn"><i class="fa-solid fa-check"></i> Uygula</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===== Onay Penceresi ===== -->
+    <div class="dialog-backdrop" id="confirmDialog" hidden>
+        <div class="dialog" role="alertdialog" aria-labelledby="confirmTitle">
+            <div class="dialog-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3 id="confirmTitle">Emin misin?</h3>
+            <p id="confirmText"></p>
+            <label class="checkbox" id="confirmCheckWrap" hidden>
+                <input type="checkbox" id="confirmCheck"> <span id="confirmCheckLabel"></span>
+            </label>
+            <div class="dialog-actions">
+                <button class="btn btn-ghost" id="confirmCancel">Vazgeç</button>
+                <button class="btn btn-danger" id="confirmOk">Sil</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sayfaya video sürükleme katmanı -->
+    <div class="page-drop" id="pageDrop">
+        <div class="page-drop-inner">
+            <i class="fa-solid fa-film"></i>
+            <p>Bırak, yeni video projesi oluşturalım</p>
+        </div>
+    </div>
+
+    <div class="toasts" id="toasts"></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

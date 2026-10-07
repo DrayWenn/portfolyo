@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umut Yazıcı — Özgeçmiş (CV)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #090a0f;
+      --bg-card: #12141d;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --primary: #a855f7;
+      --secondary: #06b6d4;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .cv-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .no-print-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .btn-back, .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-back {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: #fff;
+      border: none;
+    }
+
+    .btn-back:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .btn-print:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .cv-header {
+      margin-bottom: 32px;
+    }
+
+    .cv-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cv-subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .cv-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .cv-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cv-contact-item i {
+      color: var(--primary);
+    }
+
+    .cv-section {
+      margin-bottom: 32px;
+    }
+
+    .cv-section-h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cv-summary-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .tech-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .tech-card h4 {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .tech-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .exp-item {
+      margin-bottom: 20px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .exp-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .exp-date {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .exp-org {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .exp-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-pill-cv {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+    }
+
+    @media print {
+      body {
+        background-color: #fff !important;
+        color: #111 !important;
+        padding: 0 !important;
+      }
+
+      .cv-wrapper {
+        border: none !important;
+        box-shadow: none !important;
+        background-color: #fff !important;
+        padding: 0 !important;
+      }
+
+      .no-print-bar {
+        display: none !important;
+      }
+
+      .cv-title {
+        color: #000 !important;
+        background: none !important;
+        -webkit-text-fill-color: #000 !important;
+      }
+
+      .cv-subtitle, .cv-contacts, .cv-summary-text, .tech-card p, .exp-desc {
+        color: #333 !important;
+      }
+
+      .cv-section-h2 {
+        color: #000 !important;
+        border-bottom: 2px solid #ddd !important;
+      }
+
+      .exp-date {
+        color: #444 !important;
+      }
+
+      .exp-org {
+        color: #222 !important;
+      }
+
+      .tech-card {
+        background: #f8f9fa !important;
+        border: 1px solid #ddd !important;
+      }
+
+      .skill-pill-cv {
+        background: #f1f3f5 !important;
+        color: #111 !important;
+        border: 1px solid #ccc !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-wrapper">
+    <div class="no-print-bar">
+      <a href="index.html" class="btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Portfolyoya Dön
+      </a>
+      <button onclick="window.print()" class="btn-print">
+        <i class="fa-solid fa-print"></i> Yazdır / PDF Olarak Kaydet
+      </button>
+    </div>
+
+    <header class="cv-header">
+      <h1 class="cv-title">Umut Yazıcı</h1>
+      <p class="cv-subtitle">Frontend Developer & Dijital İçerik Uzmanı</p>
+      <div class="cv-contacts">
+        <div class="cv-contact-item"><i class="fa-solid fa-location-dot"></i> İstanbul, Türkiye</div>
+        <div class="cv-contact-item"><i class="fa-solid fa-envelope"></i> obumut8@gmail.com</div>
+        <div class="cv-contact-item"><i class="fa-brands fa-github"></i> github.com/DrayWenn</div>
+      </div>
+    </header>
+
+    <section class="cv-section">
+      <h2 class="cv-section-h2"><i class="fa-solid fa-user"></i> Özet</h2>
+      <p class="cv-summary-text">
+        Web programlama, dijital içerik üretimi ve sosyal medya yönetimi alanlarında deneyimli bir geliştiriciyim. HTML, CSS, JavaScript ve PHP kullanarak e-ticaret siteleri ve özel yönetim sistemleri geliştirdim. Ödeme altyapıları (iyzico/PayTR API) ve kargo entegrasyonlarını kurdum. Adobe After Effects ile sosyal medya için yüksek dönüşümlü video/animasyon içerikleri ürettim. 4 yılı aşkın süredir e-ticaret operasyonları, dijital pazarlama ve sosyal medya yönetimi yürütüyorum.
+      </p>
+    </section>
+
+    <section class="cv-section">
+      <h2 class="cv-section-h2"><i class="fa-solid fa-code"></i> Teknik Yetkinlikler</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>Yazılım & Web Development</h4>
+          <p>JavaScript (ES6+), HTML5, CSS3, PHP (Custom Architecture), Responsive Design, REST API, MySQL, SQLite</p>
+        </div>
+        <div class="tech-card">
+          <h4>E-Ticaret & Entegrasyon</h4>
+          <p>Sanal POS Sistemleri, Ödeme Altyapıları (iyzico / PayTR), Kargo API Entegrasyonu, Sipariş & Stok Yönetimi</p>
+        </div>
+        <div class="tech-card">
+          <h4>Dijital Pazarlama & Analiz</h4>
+          <p>Google Ads (PMax & Arama Ağı), Dönüşüm Takibi, Temel SEO, Performans Pazarlaması</p>
+        </div>
+        <div class="tech-card">
+          <h4>Tasarım & Motion Graphics</h4>
+          <p>Adobe After Effects, Motion Design, Video Editing / Masking, Adobe Photoshop, UI/UX</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2 class="cv-section-h2"><i class="fa-solid fa-briefcase"></i> Deneyim</h2>
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-title">E-Ticaret & Dijital İçerik Uzmanı</h3>
+          <span class="exp-date">2022 - Günümüz (4+ Yıl)</span>
+        </div>
+        <p class="exp-org">Freelance / Girişimci</p>
+        <p class="exp-desc">
+          • Sıfırdan kurulan e-ticaret markasının uçtan uca yazılım, ödeme ve kargo altyapılarının kurulması.<br>
+          • Adobe After Effects ile sosyal medya kanalları ve reklam kampanyaları için yüksek dönüşümlü video ve animasyon içeriklerinin üretilmesi.<br>
+          • Google Ads (PMax) kampanyalarının kurgulanması, reklam bütçesinin optimizasyonu ve satış trafiğinin artırılması.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-title">Özel Altyapılı E-Ticaret Platformu (Canlı Proje)</h3>
+          <span class="exp-date">2023 - 2024</span>
+        </div>
+        <p class="exp-org">FormaArena / Yıldız Forma</p>
+        <p class="exp-desc">
+          • Hazır CMS kullanmadan; custom PHP & JavaScript altyapısı ile sıfırdan geliştirilen canlı e-ticaret platformu.<br>
+          • Sanal POS ödeme sistemlerinin API/Webhook mimarisiyle güvenli şekilde entegre edilmesi.<br>
+          • Dinamik sepet, ürün kategorizasyonu ve mobil uyumlu duyarlı arayüz kodlanması.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-title">Sosyal Medya Yöneticisi</h3>
+          <span class="exp-date">2021 - 2025</span>
+        </div>
+        <p class="exp-org">Instagram / Freelance</p>
+        <p class="exp-desc">
+          • Instagram üzerinden 3 yılı aşkın süre boyunca sayfa yönetimi, içerik stratejisi ve müşteri ilişkileri yürütülmesi.<br>
+          • Görsel ve video içerik kurgusuyla etkileşim oranlarının artırılması.
+        </p>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2 class="cv-section-h2"><i class="fa-solid fa-graduation-cap"></i> Eğitim</h2>
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-title">Bilgisayar Programcılığı</h3>
+          <span class="exp-date">Devam Ediyor</span>
+        </div>
+        <p class="exp-org">Atatürk Üniversitesi (Uzaktan Eğitim)</p>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2 class="cv-section-h2"><i class="fa-solid fa-star"></i> Kişisel Beceriler</h2>
+      <div class="skills-list">
+        <span class="skill-pill-cv">Analitik Düşünme & Problem Çözme</span>
+        <span class="skill-pill-cv">Proje & Zaman Yönetimi</span>
+        <span class="skill-pill-cv">Hızlı Adaptasyon & Kendi Kendine Öğrenme</span>
+        <span class="skill-pill-cv">Sonuç Odaklı Çalışma</span>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

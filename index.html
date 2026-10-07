@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umut Yazıcı | Web Geliştirici & Motion Designer</title>
+  <meta name="description" content="Umut Yazıcı — Web geliştirme, e-ticaret altyapıları, After Effects motion design ve dijital içerik üretimi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 3D Laptop Stage -->
+  <div class="laptop-stage-wrapper" id="laptopStageWrapper" aria-hidden="true">
+    <div class="laptop-3d" id="laptop3D">
+      <div class="laptop-lid">
+        <div class="laptop-screen-bezel">
+          <div class="laptop-webcam"></div>
+          <div class="laptop-screen">
+            <div class="editor-header">
+              <div class="editor-traffic-lights">
+                <span class="traffic-dot red"></span>
+                <span class="traffic-dot yellow"></span>
+                <span class="traffic-dot green"></span>
+              </div>
+              <div class="editor-tabs">
+                <div class="editor-tab active" data-file="developer.js">
+                  <i class="fa-brands fa-js" style="color: #f7df1e;"></i> developer.js
+                </div>
+                <div class="editor-tab" data-file="yildizforma.js">
+                  <i class="fa-brands fa-js" style="color: #f7df1e;"></i> yildizforma.js
+                </div>
+              </div>
+              <div class="editor-branch">
+                <i class="fa-solid fa-code-branch"></i> main
+              </div>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-line-numbers">
+                <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
+                <span>06</span><span>07</span><span>08</span><span>09</span><span>10</span>
+              </div>
+              <pre class="code-content"><code id="laptopCode"><span class="c-kw">const</span> <span class="c-var">developer</span> = {
+  <span class="c-prop">name</span>: <span class="c-str">'Umut Yazıcı'</span>,
+  <span class="c-prop">role</span>: <span class="c-str">'Frontend & Motion Designer'</span>,
+  <span class="c-prop">projects</span>: [<span class="c-str">'Yıldız Forma'</span>, <span class="c-str">'FormaArena'</span>],
+  <span class="c-prop">status</span>: <span class="c-str">'Open to Work 🚀'</span>,
+  <span class="c-fn">build</span>: () => <span class="c-str">'Clean Code & Smooth UI ✨'</span>
+};</code></pre>
+            </div>
+
+            <div class="editor-terminal">
+              <span class="terminal-status"><i class="fa-solid fa-circle-check"></i> System: Ready</span>
+            </div>
+            <div class="screen-glare"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="laptop-base">
+        <div class="laptop-keyboard">
+          <div class="kb-row kb-row-1"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="kb-row kb-row-2"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="kb-row kb-row-3"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="kb-row kb-row-space"><span></span><span></span><span class="kb-space"></span><span></span><span></span></div>
+        </div>
+        <div class="laptop-trackpad"></div>
+        <div class="laptop-notch-cutout"></div>
+      </div>
+
+      <div class="laptop-shadow"></div>
+      <div class="laptop-glow-under"></div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" title="Umut Yazıcı">
+        <span class="logo-dot"></span>
+        <span class="logo-code-tag">&lt;UY /&gt;</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#hakkimda" class="nav-link" data-i18n="nav.about">Hakkımda & CV</a>
+        <a href="#projeler" class="nav-link" data-i18n="nav.projects">Projeler</a>
+        <a href="#iletisim" class="nav-link" data-i18n="nav.contact">İletişim</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" id="langSwitch" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="tr" title="Türkçe">TR</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="en" title="English">EN</button>
+        </div>
+        <button class="mode-toggle" id="modeToggle" title="Dark / Light Mod">
+          <i class="fa-solid fa-moon" id="modeIcon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span data-i18n="hero.statusBadge">Freelance & Projeler İçin Müsait</span>
+      </div>
+      <h1 class="hero-title">
+        <span data-i18n="hero.greetingPrefix">Merhaba, Ben</span> <span class="text-gradient">Umut Yazıcı</span> 👋
+      </h1>
+      <p class="hero-subtitle">
+        <span data-i18n="hero.subtitlePrefix">Ben bir </span><span id="typewriter" class="typewriter-text"></span><span data-i18n="hero.subtitleSuffix"> geliştiriyor ve yönetiyorum.</span>
+      </p>
+      <div class="hero-ctas">
+        <a href="#projeler" class="btn btn-primary" data-i18n="hero.ctaProjects">
+          <i class="fa-solid fa-layer-group"></i> Projelerimi İncele
+        </a>
+        <a href="#hakkimda" class="btn btn-secondary" data-i18n="hero.ctaAbout">
+          <i class="fa-solid fa-user"></i> Hakkımda & CV
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num">4+</span>
+          <span class="stat-label" data-i18n="hero.stat1Label">Yıl Deneyim</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label" data-i18n="hero.stat2Label">Tamamlanan Proje</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label" data-i18n="hero.stat3Label">Farklı Alan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & CV -->
+  <section id="hakkimda" class="about-section">
+    <div class="about-card">
+      <div class="about-avatar-top">
+        <div class="about-avatar-container">
+          <img src="avatar.png" alt="Umut Yazıcı" class="about-avatar" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=umut'">
+          <div class="avatar-glow"></div>
+        </div>
+        <div class="about-name-center">
+          <h2 class="about-title">Umut Yazıcı</h2>
+          <span class="about-role">Frontend Developer & Motion Designer</span>
+          <span class="about-badge" data-i18n="about.badge">Web Geliştirici & Dijital İçerik Uzmanı</span>
+          <span class="about-location" data-i18n="about.location"><i class="fa-solid fa-location-dot"></i> İstanbul, Türkiye</span>
+        </div>
+      </div>
+
+      <div class="about-body">
+        <p class="about-text" data-i18n="about.bio">
+          Sıfırdan geliştirdiğim e-ticaret platformlarına <strong>ödeme altyapılarını</strong> API/Webhook mimarisiyle entegre ettim; güvenli ödeme akışları, otomatik sipariş onayı ve iade süreçlerini eksiksiz kurdum. <strong>Kargo entegrasyonları</strong> ile sipariş takip sistemleri oluşturdum, operasyonları otomatize ettim. <strong>Google Ads</strong> (PMax & Arama Ağı) kampanyaları kurguladım, dönüşüm takibini yapılandırdım ve reklam bütçelerini satışa çevirecek şekilde optimize ettim.
+        </p>
+        <div class="skills-mini">
+          <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</div>
+          <div class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</div>
+          <div class="skill-pill"><i class="fa-brands fa-php"></i> <span data-i18n="about.skillCustomPhp">PHP (Özel Mimari)</span></div>
+          <div class="skill-pill"><i class="fa-solid fa-database"></i> MySQL / SQLite</div>
+          <div class="skill-pill"><i class="fa-solid fa-credit-card"></i> iyzico & PayTR API</div>
+          <div class="skill-pill"><i class="fa-brands fa-google"></i> Google Ads (PMax)</div>
+          <div class="skill-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</div>
+          <div class="skill-pill"><i class="fa-solid fa-bezier-curve"></i> Motion Design</div>
+          <div class="skill-pill"><i class="fa-brands fa-instagram"></i> <span data-i18n="about.skillSocial">Sosyal Medya Yönetimi</span></div>
+          <div class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git / GitHub</div>
+        </div>
+      </div>
+
+      <div class="tech-section">
+        <h3 class="cv-subheading"><i class="fa-solid fa-code"></i> <span data-i18n="about.techHeading">Teknik Yetkinlik Alanları</span></h3>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h4 data-i18n="about.card1Title">Yazılım & Web Development</h4>
+            <p data-i18n="about.card1Desc">JavaScript (ES6+), HTML5, CSS3, PHP (Özel Mimari), Responsive Tasarım, REST API, MySQL, SQLite</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <h4 data-i18n="about.card2Title">E-Ticaret & Entegrasyon</h4>
+            <p data-i18n="about.card2Desc">Sanal POS Sistemleri, Ödeme Altyapıları (iyzico / PayTR), Kargo API Entegrasyonu, Sipariş & Stok Yönetimi</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h4 data-i18n="about.card3Title">Dijital Pazarlama & Analiz</h4>
+            <p data-i18n="about.card3Desc">Google Ads (PMax & Arama Ağı), Dönüşüm Takibi, Temel SEO, Performans Pazarlaması</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-icon"><i class="fa-solid fa-photo-film"></i></div>
+            <h4 data-i18n="about.card4Title">Tasarım & Motion Graphics</h4>
+            <p data-i18n="about.card4Desc">Adobe After Effects, Motion Design, Video Düzenleme / Maskeleme, Adobe Photoshop, UI/UX</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-container">
+        <div class="cv-header">
+          <h3 class="cv-section-title"><i class="fa-solid fa-briefcase"></i> <span data-i18n="cv.heading">Deneyim & Eğitim</span></h3>
+          <a href="cv.html" target="_blank" class="btn btn-secondary btn-sm download-cv-btn">
+            <i class="fa-solid fa-print"></i> <span data-i18n="cv.downloadBtn">CV Yazdır / PDF İndir</span>
+          </a>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date" data-i18n="cv.item1Date">2022 - Günümüz (4+ Yıl)</div>
+            <div class="timeline-content">
+              <h4 data-i18n="cv.item1Title">Frontend & E-Ticaret Geliştirici | Dijital İçerik Uzmanı</h4>
+              <p class="timeline-org" data-i18n="cv.item1Org">Freelance / Girişimci</p>
+              <ul class="timeline-bullet-list">
+                <li data-i18n="cv.item1Bullet1">Sıfırdan kurulan e-ticaret markasının uçtan uca yazılım (Custom PHP/JS), ödeme ve kargo altyapılarının kurulumu.</li>
+                <li data-i18n="cv.item1Bullet2">Adobe After Effects ile sosyal medya kanalları ve reklam kampanyaları için yüksek dönüşümlü video/animasyon içeriklerinin üretilmesi.</li>
+                <li data-i18n="cv.item1Bullet3">Google Ads (PMax) kampanyalarının kurgulanması, reklam bütçesinin optimizasyonu ve satış trafiğinin artırılması.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023 - 2024</div>
+            <div class="timeline-content">
+              <h4><span data-i18n="cv.item2Title">Özel Altyapılı E-Ticaret Platformu</span> <span class="timeline-live-badge" data-i18n="cv.liveBadge">Canlı Proje</span></h4>
+              <p class="timeline-org">FormaArena / Yıldız Forma</p>
+              <ul class="timeline-bullet-list">
+                <li data-i18n="cv.item2Bullet1">Hazır CMS kullanmadan; custom PHP & JavaScript altyapısı ile sıfırdan geliştirilen canlı e-ticaret platformu.</li>
+                <li data-i18n="cv.item2Bullet2">Sanal POS ödeme sistemlerinin API/Webhook mimarisiyle güvenli entegrasyonu.</li>
+                <li data-i18n="cv.item2Bullet3">Dinamik sepet, ürün kategorizasyonu ve mobil uyumlu responsive arayüz kodlaması.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2021 - 2025</div>
+            <div class="timeline-content">
+              <h4 data-i18n="cv.item3Title">Sosyal Medya Yöneticisi</h4>
+              <p class="timeline-org">Instagram / Freelance</p>
+              <ul class="timeline-bullet-list">
+                <li data-i18n="cv.item3Bullet1">3+ yıl boyunca Instagram sayfa yönetimi, içerik stratejisi ve müşteri ilişkileri yürütülmesi.</li>
+                <li data-i18n="cv.item3Bullet2">After Effects ve Photoshop ile görsel/video kurguları yapılarak etkileşim oranlarının artırılması.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date" data-i18n="cv.item4Date">Devam Ediyor</div>
+            <div class="timeline-content">
+              <h4 data-i18n="cv.item4Title">Bilgisayar Programcılığı</h4>
+              <p class="timeline-org" data-i18n="cv.item4Org">Atatürk Üniversitesi — Uzaktan Eğitim</p>
+              <p class="timeline-desc" data-i18n="cv.item4Desc">Yazılım geliştirme ve web teknolojileri altyapısı üzerine önlisans öğrenimi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="personal-skills-section">
+        <h3 class="cv-subheading"><i class="fa-solid fa-star"></i> <span data-i18n="skills.heading">Kişisel Beceriler</span></h3>
+        <div class="personal-skills-grid">
+          <span class="skill-badge-card"><i class="fa-solid fa-brain"></i> <span data-i18n="skills.item1">Analitik Düşünme & Problem Çözme</span></span>
+          <span class="skill-badge-card"><i class="fa-solid fa-list-check"></i> <span data-i18n="skills.item2">Proje & Zaman Yönetimi</span></span>
+          <span class="skill-badge-card"><i class="fa-solid fa-bolt"></i> <span data-i18n="skills.item3">Hızlı Adaptasyon & Kendi Kendine Öğrenme</span></span>
+          <span class="skill-badge-card"><i class="fa-solid fa-bullseye"></i> <span data-i18n="skills.item4">Sonuç Odaklı Çalışma</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projeler" class="projects-section">
+    <div class="section-header">
+      <h2 class="section-title" data-i18n="projects.heading">Projelerim</h2>
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tümü</button>
+        <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb">Site Projeleri</button>
+        <button class="filter-btn" data-filter="ae" data-i18n="projects.filterAe">After Effects Projeleri</button>
+      </div>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </section>
+
+  <!-- Contact -->
+  <section id="iletisim" class="contact-section">
+    <div class="contact-container">
+      <h2 class="contact-title" data-i18n="contact.heading">Birlikte Çalışalım</h2>
+      <p class="contact-subtitle" data-i18n="contact.subtitle">Yeni projeler, iş birlikleri veya teknik danışmanlık için ulaşabilirsiniz.</p>
+      <div class="contact-links">
+        <a href="mailto:obumut8@gmail.com" class="contact-card email">
+          <i class="fa-solid fa-envelope"></i>
+          <span data-i18n="contact.emailLabel">E-Posta</span>
+          <span class="contact-detail">obumut8@gmail.com</span>
+        </a>
+        <a href="https://github.com/DrayWenn" target="_blank" rel="noopener noreferrer" class="contact-card github">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+          <span class="contact-detail" data-i18n="contact.viewProfile">Profili İncele</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Showcase Modal -->
+  <div id="videoModal" class="modal">
+    <div class="cinestudio-modal-wrapper">
+      <button class="cinestudio-close-btn" id="closeModalBtn" title="Kapat">&times;</button>
+      <div class="cinestudio-card">
+        <div class="cinestudio-screen-side">
+          <div class="screen-ambient-glow" id="screenAmbientGlow"></div>
+          <div class="cinestudio-player-box">
+            <video id="modalVideo" playsinline webkit-playsinline loop preload="auto" disablepictureinpicture disableremoteplayback>
+              <source id="videoSource" src="" type="video/mp4">
+              Tarayıcınız video oynatmayı desteklemiyor.
+            </video>
+            <div class="cinestudio-tap-overlay" id="videoTapOverlay">
+              <div class="cinestudio-center-icon" id="playerCenterIcon">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <button class="cinestudio-nav-btn prev" id="cinePrevBtn" title="Önceki Video">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="cinestudio-nav-btn next" id="cineNextBtn" title="Sonraki Video">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <div class="cinestudio-controls-bar">
+              <div class="cinestudio-progress-track" id="videoProgressContainer">
+                <div class="cinestudio-progress-fill" id="videoProgressBar"></div>
+              </div>
+              <div class="cinestudio-controls-row">
+                <div class="ctrl-group-left">
+                  <button class="cine-ctrl-btn" id="ctrlPlayPauseBtn" title="Oynat / Durdur">
+                    <i class="fa-solid fa-pause"></i>
+                  </button>
+                  <button class="cine-ctrl-btn" id="ctrlMuteBtn" title="Sesi Aç / Kapat">
+                    <i class="fa-solid fa-volume-high"></i>
+                  </button>
+                  <span class="cinestudio-time" id="videoTime">0:00 / 0:00</span>
+                </div>
+                <div class="ctrl-group-right">
+                  <button class="cine-ctrl-btn" id="ctrlFullscreenBtn" title="Tam Ekran">
+                    <i class="fa-solid fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cinestudio-info-side">
+          <div class="info-top">
+            <div class="studio-badge-row">
+              <span class="studio-pill"><i class="fa-solid fa-sparkles"></i> Motion Design</span>
+              <span class="studio-pill category"><i class="fa-brands fa-adobe"></i> After Effects</span>
+            </div>
+            <h3 id="modalTitle" class="studio-project-title">Mentalist Edit</h3>
+            <p id="modalDescription" class="studio-project-desc">Ses senkronizasyonu ve renk düzenlemesi odaklı After Effects çalışması.</p>
+            <div class="studio-tags-box" id="modalTagsBox">
+              <span><i class="fa-brands fa-adobe"></i> After Effects</span>
+              <span><i class="fa-solid fa-palette"></i> Color Grading</span>
+            </div>
+          </div>
+
+          <a id="modalInstagramBtn" href="https://www.instagram.com/drayeditss/" target="_blank" rel="noopener noreferrer" class="studio-insta-card">
+            <div class="insta-avatar-wrap">
+              <img src="drayeditss_avatar.jpg" alt="drayeditss" class="insta-avatar-img">
+            </div>
+            <div class="insta-info">
+              <div class="insta-handle-row">
+                <span class="insta-handle" id="modalAuthor">@drayeditss</span>
+                <i class="fa-brands fa-instagram insta-icon"></i>
+              </div>
+              <span class="insta-sub">Instagram'da İzle</span>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square insta-arrow"></i>
+          </a>
+
+          <div class="studio-nav-footer">
+            <span class="video-counter" id="modalVideoCounter">Video 1 / 4</span>
+            <div class="nav-mini-buttons">
+              <button class="mini-nav-btn" id="cineMiniPrevBtn" title="Önceki Video (←)">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+              <button class="mini-nav-btn" id="cineMiniNextBtn" title="Sonraki Video (→)">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p data-i18n="footer.copyright">&copy; 2026 Umut Yazıcı. Tüm Hakları Saklıdır.</p>
+      <p class="footer-sub" data-i18n="footer.sub">Web Geliştirme · Dijital İçerik · Sosyal Medya — İstanbul, Türkiye</p>
+    </div>
+  </footer>
+
+  <script src="projects.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

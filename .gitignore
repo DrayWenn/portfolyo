@@ -1,0 +1,13 @@
+# Admin otomatik yedekleri
+admin/yedekler/
+
+# Sistem ve Editör dosyaları
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node logları ve geçici dosyalar
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
