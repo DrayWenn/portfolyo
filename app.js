@@ -214,6 +214,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectsGrid = document.getElementById('projectsGrid');
   const filterButtons = document.querySelectorAll('.filter-btn');
 
+  function detectPlatform(url) {
+    if (!url) return {
+      type: 'generic',
+      name: 'Web',
+      icon: 'fa-solid fa-arrow-up-right-from-square',
+      label: { tr: 'Proje Bağlantısını Aç', en: 'Open Project Link' },
+      profileSub: { tr: 'Bağlantıyı Aç', en: 'Open Link' }
+    };
+    const u = url.toLowerCase();
+    if (u.includes('youtube.com/shorts') || u.includes('youtu.be') || u.includes('youtube.com')) {
+      const isShorts = u.includes('/shorts');
+      return {
+        type: 'youtube',
+        name: isShorts ? 'YouTube Shorts' : 'YouTube',
+        icon: 'fa-brands fa-youtube',
+        label: {
+          tr: isShorts ? "YouTube Shorts'ta İzle" : "YouTube'da İzle",
+          en: isShorts ? 'Watch on YouTube Shorts' : 'Watch on YouTube'
+        },
+        profileSub: { tr: "YouTube'da İncele", en: 'View on YouTube' }
+      };
+    }
+    if (u.includes('tiktok.com')) {
+      return {
+        type: 'tiktok',
+        name: 'TikTok',
+        icon: 'fa-brands fa-tiktok',
+        label: { tr: "TikTok'ta İzle", en: 'Watch on TikTok' },
+        profileSub: { tr: "TikTok'ta İncele", en: 'View on TikTok' }
+      };
+    }
+    if (u.includes('instagram.com')) {
+      const isReel = u.includes('/reel/') || u.includes('/p/');
+      return {
+        type: 'instagram',
+        name: 'Instagram',
+        icon: 'fa-brands fa-instagram',
+        label: {
+          tr: isReel ? "Instagram'da Gönderiyi Aç" : "Instagram'da İzle",
+          en: isReel ? 'View on Instagram' : 'Watch on Instagram'
+        },
+        profileSub: { tr: "Instagram'da İzle", en: 'View on Instagram' }
+      };
+    }
+    return {
+      type: 'generic',
+      name: 'Web',
+      icon: 'fa-solid fa-arrow-up-right-from-square',
+      label: { tr: 'Proje Bağlantısını Aç', en: 'Open Project Link' },
+      profileSub: { tr: 'Profili İncele', en: 'View Profile' }
+    };
+  }
+
   function renderProjects(projectsToRender) {
     if (!projectsGrid) return;
     projectsGrid.innerHTML = '';
@@ -269,11 +322,15 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       } else {
         const directLink = (project.link && project.link.trim() !== '') ? project.link.trim() : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
-        const linkBtnHtml = directLink ? `
-          <a href="${directLink}" target="_blank" rel="noopener noreferrer" class="card-btn-icon" title="${dict['projects.btnOpenLink'] || 'Bağlantıyı Aç'}">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-        ` : '';
+        let linkBtnHtml = '';
+        if (directLink) {
+          const platform = detectPlatform(directLink);
+          linkBtnHtml = `
+            <a href="${directLink}" target="_blank" rel="noopener noreferrer" class="card-btn-icon card-platform-${platform.type}" title="${platform.label[currentLang] || platform.label.tr}">
+              <i class="${platform.icon}"></i>
+            </a>
+          `;
+        }
 
         actionHtml = `
           <div class="card-btn-group">
@@ -433,29 +490,41 @@ document.addEventListener('DOMContentLoaded', () => {
       modalVideoCounter.textContent = `Video ${currentVideoIndex + 1} / ${videoProjectsList.length}`;
     }
 
-    // Direct Project Link (Reel / Video / Web)
+    // Direct Project Link (YouTube / TikTok / Instagram / Web)
     const modalDirectLinkBtn = document.getElementById('modalDirectLinkBtn');
-    const modalDirectLinkText = document.getElementById('modalDirectLinkText');
     const directLink = (project.link && project.link.trim() !== '') ? project.link.trim() : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
 
     if (modalDirectLinkBtn) {
       if (directLink) {
+        const platform = detectPlatform(directLink);
         modalDirectLinkBtn.href = directLink;
+        modalDirectLinkBtn.className = `studio-direct-link-btn platform-${platform.type}`;
         modalDirectLinkBtn.style.display = 'inline-flex';
-        const isIg = directLink.includes('instagram.com');
-        if (modalDirectLinkText) {
-          modalDirectLinkText.textContent = isIg 
-            ? (currentLang === 'en' ? 'Open on Instagram' : "Instagram'da Gönderiyi Aç")
-            : (currentLang === 'en' ? 'Open Project Link' : 'Proje Bağlantısını Aç');
-        }
+        modalDirectLinkBtn.innerHTML = `<i class="${platform.icon}"></i> <span>${platform.label[currentLang] || platform.label.tr}</span>`;
       } else {
         modalDirectLinkBtn.style.display = 'none';
       }
     }
 
     const cleanHandle = authorHandle.replace(/^@+/, '');
-    const igProfile = `https://www.instagram.com/${cleanHandle}/`;
-    if (modalInstagramBtn) modalInstagramBtn.href = igProfile;
+    const modalPlatformIcon = document.getElementById('modalPlatformIcon');
+    const modalPlatformSub = document.getElementById('modalPlatformSub');
+    const platform = detectPlatform(directLink);
+
+    if (modalPlatformIcon) {
+      modalPlatformIcon.className = `${platform.icon} insta-icon`;
+    }
+    if (modalPlatformSub) {
+      modalPlatformSub.textContent = platform.profileSub[currentLang] || platform.profileSub.tr;
+    }
+
+    if (modalInstagramBtn) {
+      if (directLink && (directLink.includes('youtube.com') || directLink.includes('youtu.be') || directLink.includes('tiktok.com'))) {
+        modalInstagramBtn.href = directLink;
+      } else {
+        modalInstagramBtn.href = project.instagramUrl || `https://www.instagram.com/${cleanHandle}/`;
+      }
+    }
 
     videoSource.src = project.videoSrc || '';
     modalVideo.load();

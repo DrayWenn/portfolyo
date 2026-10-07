@@ -1874,6 +1874,58 @@ body.modal-open .laptop-stage-wrapper {
   transform: translateY(-1px);
 }
 
+/* Platform-Specific Styles (YouTube, TikTok, Instagram) */
+.studio-direct-link-btn.platform-youtube {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.18) 0%, rgba(220, 38, 38, 0.22) 100%);
+  border-color: rgba(255, 0, 0, 0.45);
+  color: #fff;
+}
+.studio-direct-link-btn.platform-youtube:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.35) 0%, rgba(220, 38, 38, 0.4) 100%);
+  border-color: #ff3333;
+  box-shadow: 0 4px 16px rgba(255, 0, 0, 0.3);
+}
+
+.studio-direct-link-btn.platform-tiktok {
+  background: linear-gradient(135deg, rgba(255, 0, 80, 0.18) 0%, rgba(0, 242, 234, 0.15) 100%);
+  border-color: rgba(255, 0, 80, 0.45);
+  color: #fff;
+}
+.studio-direct-link-btn.platform-tiktok:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 80, 0.32) 0%, rgba(0, 242, 234, 0.25) 100%);
+  border-color: #ff0050;
+  box-shadow: 0 4px 16px rgba(255, 0, 80, 0.25);
+}
+
+.studio-direct-link-btn.platform-instagram {
+  background: linear-gradient(135deg, rgba(225, 48, 108, 0.18) 0%, rgba(131, 58, 180, 0.22) 100%);
+  border-color: rgba(225, 48, 108, 0.45);
+  color: #fff;
+}
+.studio-direct-link-btn.platform-instagram:hover {
+  background: linear-gradient(135deg, rgba(225, 48, 108, 0.32) 0%, rgba(131, 58, 180, 0.35) 100%);
+  border-color: #f43f5e;
+  box-shadow: 0 4px 16px rgba(225, 48, 108, 0.3);
+}
+
+.card-btn-icon.card-platform-youtube:hover {
+  color: #ff3333;
+  border-color: rgba(255, 0, 0, 0.45);
+  background-color: rgba(255, 0, 0, 0.12);
+}
+
+.card-btn-icon.card-platform-tiktok:hover {
+  color: #00f2ea;
+  border-color: rgba(255, 0, 80, 0.45);
+  background-color: rgba(255, 0, 80, 0.12);
+}
+
+.card-btn-icon.card-platform-instagram:hover {
+  color: #f43f5e;
+  border-color: rgba(225, 48, 108, 0.45);
+  background-color: rgba(225, 48, 108, 0.12);
+}
+
 .studio-insta-card {
   display: flex;
   align-items: center;
