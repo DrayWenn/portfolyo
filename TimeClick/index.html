@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeClick – Zaman Tahmin Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+<div class="app-container">
+
+    
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">⏱️</span>
+            <h1>TimeClick</h1>
+        </div>
+        <div class="header-right">
+            <div class="mode-switcher">
+                <button id="tabMode1" class="mode-tab active">📝 Yazılı Tahmin</button>
+                <button id="tabMode2" class="mode-tab">🟢 Butonla Yakalama</button>
+            </div>
+            <button id="btnLobbyOpen" class="btn-online-lobby">🌐 Online Oyna</button>
+        </div>
+    </header>
+
+    
+    <main class="game-card">
+
+        <div id="soundVisualizer" class="sound-visualizer">
+            <div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div id="statusMessage" class="status-message">
+            Oyuna başlamak için yeşil butona tıklayın!
+        </div>
+
+        
+        <div id="startSection" class="game-section active">
+            <button id="btnStart" class="btn-arcade-dome">
+                <div class="dome-reflection"></div>
+                <span id="startBtnIcon" class="btn-icon">▶</span>
+                <span id="startBtnText" class="btn-text">BAŞLAT</span>
+            </button>
+        </div>
+
+        
+        <div id="playingSection" class="game-section">
+            <div class="listening-box">
+                <p class="listening-text">🔔 Sistem Süresi Çalıyor...</p>
+                <p class="listening-subtext">Sessizce bekleyin, durdurma sesi her an gelebilir!</p>
+            </div>
+        </div>
+
+        
+        <div id="guessSectionMode1" class="game-section">
+            <div class="guess-box">
+                <label for="guessInput" class="guess-label">İki ses arası kaç saniye geçti?</label>
+                <div class="text-input-wrapper">
+                    <input type="number" id="guessInput" step="0.01" min="0" max="30" placeholder="0.00" autofocus autocomplete="off">
+                    <span class="text-input-unit">saniye</span>
+                </div>
+                <div class="quick-guesses">
+                    <button class="btn-quick" data-val="0.50">0.50s</button>
+                    <button class="btn-quick" data-val="1.30">1.30s</button>
+                    <button class="btn-quick" data-val="2.50">2.50s</button>
+                    <button class="btn-quick" data-val="4.20">4.20s</button>
+                </div>
+                <button id="btnSubmitGuess" class="btn-action">Tahmini Onayla 🚀</button>
+            </div>
+        </div>
+
+        
+        <div id="guessSectionMode2" class="game-section">
+            <div class="button-match-box">
+                <p id="mode2Instruction" class="match-instruction">🎯 Sıra sende! Yeşil butona basarak başlat ve sistemle aynı sürede durdur!</p>
+                <button id="btnPlayerAction" class="btn-arcade-dome">
+                    <div class="dome-reflection"></div>
+                    <span id="playerActionIcon" class="btn-icon">▶</span>
+                    <span id="playerActionText" class="btn-text">BAŞLAT</span>
+                </button>
+            </div>
+        </div>
+
+        
+        <div id="resultSection" class="game-section">
+            <div class="result-box">
+                <div id="resultRatingBadge" class="rating-badge">MÜKEMMEL!</div>
+                <div class="result-stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Sistem Süresi</span>
+                        <span id="resActualTime" class="stat-value highlight-actual">0.00s</span>
+                    </div>
+                    <div class="stat-card">
+                        <span id="lblUserStat" class="stat-label">Senin Tahminin</span>
+                        <span id="resUserGuess" class="stat-value">0.00s</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Hata Payı</span>
+                        <span id="resTimeDiff" class="stat-value highlight-diff">0.00s</span>
+                    </div>
+                </div>
+                <div class="accuracy-container">
+                    <div class="accuracy-label-row">
+                        <span>Doğruluk Oranı</span>
+                        <span id="resAccuracyPercent" class="accuracy-percent">%0</span>
+                    </div>
+                    <div class="accuracy-bar-bg">
+                        <div id="resAccuracyBar" class="accuracy-bar-fill" style="width:0%"></div>
+                    </div>
+                </div>
+                <button id="btnNextRound" class="btn-arcade-dome btn-next">
+                    <span class="btn-icon">↻</span>
+                    <span class="btn-text">YENİ ROUND</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    
+    <footer class="footer-panel">
+        <div class="stat-pill">Oynanan Round: <strong id="statRounds">0</strong></div>
+        <div class="stat-pill">En İyi: <strong id="statBestAcc">%0</strong></div>
+    </footer>
+</div>
+
+<div id="onlineLobbyModal" class="modal-overlay">
+    <div class="modal-card lobby-card">
+
+        <button id="btnCloseLobby" class="modal-close">×</button>
+
+        <div class="lobby-header">
+            <div class="lobby-icon">🌐</div>
+            <div>
+                <h2 class="lobby-title">Online Çok Oyunculu</h2>
+                <p class="lobby-sub">Arkadaşlarınla gerçek zamanlı yarış!</p>
+            </div>
+        </div>
+
+        
+        <div id="lobbyStatus" class="lobby-status" style="display:none"></div>
+
+        
+        <div class="form-group">
+            <label for="inputNickname">Oyuncu Adın</label>
+            <input type="text" id="inputNickname" placeholder="KralOyuncu" maxlength="14" autocomplete="off">
+        </div>
+
+        <div class="lobby-two-col">
+
+            
+            <div class="lobby-panel create-panel">
+                <div class="panel-icon">🎮</div>
+                <h3>Yeni Oda Aç</h3>
+                <p class="panel-desc">Oda oluştur, kodunu paylaş ve oyna!</p>
+                
+                <label for="selectGameMode">Oyun Modu</label>
+                <select id="selectGameMode">
+                    <option value="2" selected>🟢 Butonla Yakalama</option>
+                    <option value="1">📝 Yazılı Tahmin</option>
+                </select>
+
+                <label for="selectTargetScore">Kazanma Hedefi</label>
+                <select id="selectTargetScore">
+                    <option value="3" selected>İlk 3 Puana Ulaşan</option>
+                    <option value="5">İlk 5 Puana Ulaşan</option>
+                    <option value="10">İlk 10 Puana Ulaşan</option>
+                </select>
+                <button id="btnCreateRoom" class="btn-lobby-action btn-create">
+                    🎮 Oda Oluştur
+                </button>
+            </div>
+
+            
+            <div class="lobby-panel join-panel">
+                <div class="panel-icon">🔑</div>
+                <h3>Odaya Katıl</h3>
+                <p class="panel-desc">Arkadaşının kodunu gir ve katıl!</p>
+                <label for="inputJoinCode">Oda Kodu</label>
+                <input type="text" id="inputJoinCode" placeholder="X7K2" maxlength="6"
+                       autocomplete="off" style="text-transform:uppercase; letter-spacing:4px; font-weight:700; font-size:1.2rem;">
+                <button id="btnJoinRoom" class="btn-lobby-action btn-join">
+                    🚀 Katıl
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="onlineRoomCard" class="modal-overlay">
+    <div class="modal-card room-card">
+
+        
+        <div class="room-top">
+            <div class="room-code-block">
+                <span class="room-code-label">ODA KODU</span>
+                <div class="room-code-row">
+                    <strong id="txtRoomCode" class="room-code-val">----</strong>
+                    <button id="btnCopyRoomCode" class="btn-copy-code">📋 Kopyala</button>
+                </div>
+            </div>
+            <div id="txtTargetScoreBadge" class="target-badge">İlk 3 Puana Ulaşan Kazanır</div>
+        </div>
+
+        <div class="scoreboard-header">
+            <span>ODADAKİ OYUNCULAR</span>
+            <span>TOPLAM PUAN</span>
+        </div>
+        <div id="onlinePlayersList" class="players-list"></div>
+
+        
+        <div class="room-actions">
+            <button id="btnHostStartRound" class="btn-start-match" style="display:none">
+                ▶ MAÇI BAŞLAT
+            </button>
+            <button id="btnLeaveRoom" class="btn-leave-room">↩ Odadan Çık</button>
+        </div>
+
+    </div>
+</div>
+
+<div id="onlineRoundResultModal" class="modal-overlay">
+    <div class="modal-card round-result-card">
+        
+        <div class="round-result-header">
+            <span id="lblResultRoundNum" class="round-badge">ROUND 1 SONUCU</span>
+        </div>
+
+        
+        <div class="secret-time-box">
+            <span class="secret-time-title">🎯 SİSTEMİN SÜRESİ</span>
+            <strong id="lblSecretTimeVal" class="secret-time-val">0.00s</strong>
+        </div>
+
+        <div id="lblRoundWinnerBanner" class="round-winner-banner">👑 Ahmet Bu Raundu Kazandı! (+1 Puan)</div>
+
+        
+        <div id="onlineComparisonList" class="versus-grid">
+            
+        </div>
+
+        
+        <div id="nextRoundCountdownBox" class="countdown-box">
+            <span id="lblCountdownText">⏳ Sonraki round <strong>5</strong> saniye içinde başlıyor...</span>
+            <div class="countdown-bar-bg">
+                <div id="nextRoundProgressBar" class="countdown-bar-fill"></div>
+            </div>
+        </div>
+
+        <div class="round-result-actions">
+            <button id="btnHostForceNextRound" class="btn-lobby-action btn-create" style="display: none;">
+                ▶ Hemen Sonraki Rounda Geç
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div id="winnerOverlay" class="modal-overlay">
+    <div class="modal-card winner-card">
+        <div class="confetti-row">🎊 🏆 🎊</div>
+        <h1 id="txtWinnerName" class="winner-name">ŞAMPİYON!</h1>
+        <p id="txtWinnerSub" class="winner-sub">Hedef puana ulaştı ve maçı kazandı!</p>
+        <div id="finalScoreboardList" class="final-scoreboard-list"></div>
+        <div class="winner-actions">
+            <button id="btnRestartMatch" class="btn-lobby-action btn-create" style="display:none;">
+                🔄 Yeni Maç Başlat
+            </button>
+            <button id="btnCloseWinnerModal" class="btn-leave-room">Kapat</button>
+        </div>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="audio.js"></script>
+<script src="game.js"></script>
+<script src="online.js"></script>
+</body>
+</html>

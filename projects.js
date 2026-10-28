@@ -1,6 +1,35 @@
-// Umut Yazıcı Portfolyo - Proje Verileri
+// Portfolyo Proje Verileri
 
 const PROJECTS_DATA = [
+    {
+        "id": 8,
+        "title": {
+            "tr": "Vikings Edit",
+            "en": "Vikings Edit"
+        },
+        "description": {
+            "tr": "Ritim, geçiş ve atmosfer odaklı After Effects video kurgusu.",
+            "en": "Rhythm, transition and atmosphere focused After Effects video edit."
+        },
+        "category": "ae",
+        "tags": {
+            "tr": [
+                "After Effects",
+                "Motion Blur",
+                "Edit"
+            ],
+            "en": [
+                "After Effects",
+                "Motion Blur",
+                "Edit"
+            ]
+        },
+        "link": "https://www.instagram.com/p/DYC_ICOphRq/",
+        "icon": "fa-film",
+        "videoSrc": "videos/i-wish-i-wish-i-her-sey-iskandinavya-nin-kucuk-bir-koyunde-u-1.mp4",
+        "instagramUrl": "https://www.instagram.com/p/DYC_ICOphRq/",
+        "author": "drayeditss"
+    },
     {
         "id": 2,
         "title": {
@@ -31,32 +60,61 @@ const PROJECTS_DATA = [
         "videoSrc": ""
     },
     {
-        "id": 8,
+        "id": 9,
         "title": {
             "tr": "Hayrunisa Hacıismailoğlu — Portfolyo Sitesi",
             "en": "Hayrunisa Hacıismailoğlu — Portfolio Website"
         },
         "description": {
-            "tr": "Video prodüksiyon, kurgu ve seslendirme çalışmalarını sergilemek için özel video oynatıcı, çoklu dil (TR/EN) ve yönetim paneli ile geliştirdiğim kişisel portfolyo web sitesi.",
-            "en": "Custom personal portfolio website built with an interactive video showcase player, bilingual (TR/EN) support, and a local admin panel."
+            "tr": "3D interaktif fotoğraf makinesi sahnesi, özel video oynatıcı (CineStudio), çoklu dil desteği (TR/EN) ve pembe/koyu tema geçişleriyle geliştirdiğim kişisel portfolyo sitesi.",
+            "en": "Custom portfolio website built with an interactive 3D camera stage, CineStudio video player, TR/EN language support, and pink/dark mode."
         },
         "category": "web",
         "tags": {
             "tr": [
-                "HTML5 / CSS3",
+                "HTML5 & CSS3",
                 "JavaScript",
-                "Node.js Panel",
-                "Responsive UI"
+                "3D CSS",
+                "Responsive"
             ],
             "en": [
-                "HTML5 / CSS3",
+                "HTML5 & CSS3",
                 "JavaScript",
-                "Node.js Panel",
-                "Responsive UI"
+                "3D CSS",
+                "Responsive"
             ]
         },
         "link": "hayrunisa/index.html",
-        "icon": "fa-laptop-code",
+        "icon": "fa-camera-retro",
+        "videoSrc": ""
+    },
+    {
+        "id": 10,
+        "title": {
+            "tr": "TimeClick — Refleks & Zaman Tahmin Oyunu",
+            "en": "TimeClick — Reflex & Time Estimation Game"
+        },
+        "description": {
+            "tr": "Görsel ipucu olmadan geçen süreyi tahmin etmeye ve hedef saniyeyi yakalamaya dayalı, çok oyunculu oda destekli web tabanlı refleks oyunu.",
+            "en": "Web-based reflex and time estimation game with blind timer modes, sound engine and multiplayer room support."
+        },
+        "category": "web",
+        "tags": {
+            "tr": [
+                "JavaScript",
+                "Oyun Geliştirme",
+                "Socket.IO",
+                "CSS Animasyon"
+            ],
+            "en": [
+                "JavaScript",
+                "Game Dev",
+                "Socket.IO",
+                "CSS Animation"
+            ]
+        },
+        "link": "TimeClick/index.html",
+        "icon": "fa-gamepad",
         "videoSrc": ""
     },
     {
@@ -138,10 +196,10 @@ const PROJECTS_DATA = [
                 "Sound Design"
             ]
         },
-        "link": "https://www.instagram.com/p/Davf4lIMlyD/",
+        "link": "https://www.tiktok.com/@drayedit.vfx/video/7661980134123162900",
         "icon": "fa-film",
         "videoSrc": "videos/cayelindenoteye.mp4",
-        "instagramUrl": "https://www.instagram.com/p/Davf4lIMlyD/",
+        "instagramUrl": "https://www.tiktok.com/@drayedit.vfx/video/7661980134123162900",
         "author": "drayeditss"
     },
     {

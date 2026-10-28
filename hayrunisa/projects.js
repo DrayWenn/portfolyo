@@ -4,20 +4,20 @@ const PROJECTS_DATA = [
     {
         "id": 1,
         "title": {
-            "tr": "Zootropolis — Karakter Dublajı & Seslendirme",
-            "en": "Zootropolis — Character Dubbing & Voiceover"
+            "tr": "Zootropolis 1 Animasyonu — Karakter Seslendirmesi",
+            "en": "Zootropolis 1 Animation — Character Dubbing"
         },
         "description": {
-            "tr": "Etkili Konuşma ve Diksiyon sertifikalı seslendirme çalışması; animasyon karakter dublajı, ses temizleme ve kurgusu.",
-            "en": "Character dubbing, voiceover performance, audio cleanup and editing."
+            "tr": "Etkili Konuşma ve Diksiyon sertifikalı seslendirme çalışması; Zootropolis animasyon karakter dublajı, ses temizleme ve kurgusu.",
+            "en": "Certified voiceover performance; Zootropolis character dubbing, audio cleanup and editing."
         },
         "category": "ae",
         "tags": {
-            "tr": ["Dublaj", "Seslendirme", "Diksiyon", "Ses Kurgusu"],
-            "en": ["Dubbing", "Voiceover", "Diction", "Audio Editing"]
+            "tr": ["Seslendirme", "Dublaj", "Diksiyon", "Ses Kurgusu"],
+            "en": ["Voiceover", "Dubbing", "Diction", "Audio Editing"]
         },
-        "link": "https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/",
-        "instagramUrl": "https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/",
+        "link": "https://www.youtube.com/shorts/jU0AXRs-gl4",
+        "instagramUrl": "https://www.youtube.com/shorts/jU0AXRs-gl4",
         "icon": "fa-microphone-lines",
         "videoSrc": "videos/zootropolis-dublaj.mp4",
         "author": "Hayrunisa Hacıismailoğlu"
@@ -81,12 +81,33 @@ const PROJECTS_DATA = [
         },
         "link": "https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/",
         "instagramUrl": "https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/",
-        "icon": "fa-video",
+        "icon": "fa-industry",
         "videoSrc": "",
         "author": "Hayrunisa Hacıismailoğlu"
     },
     {
         "id": 5,
+        "title": {
+            "tr": "Nişan Videosu — Çekim & Sinematik Kurgu",
+            "en": "Engagement Film — Cinematography & Edit"
+        },
+        "description": {
+            "tr": "Özel gün videografisi; sinematik kamera çekimi, müzik senkronu ve renk düzenlemesi ile duygusal hikaye kurgusu.",
+            "en": "Event videography; cinematic camera work, music synchronization and color grading."
+        },
+        "category": "ae",
+        "tags": {
+            "tr": ["Etkinlik", "Videografi", "Renk Kurgusu", "Sinematik"],
+            "en": ["Event", "Videography", "Color Grading", "Cinematic"]
+        },
+        "link": "https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/",
+        "instagramUrl": "https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/",
+        "icon": "fa-heart",
+        "videoSrc": "",
+        "author": "Hayrunisa Hacıismailoğlu"
+    },
+    {
+        "id": 6,
         "title": {
             "tr": "Rivaİstanbul — Stüdyo Çekimleri & 5 Hesap Yönetimi",
             "en": "Rivaİstanbul — Studio Photography & Social Media"
@@ -102,11 +123,12 @@ const PROJECTS_DATA = [
         },
         "link": "https://www.instagram.com/rivaistanbulshop",
         "instagramUrl": "https://www.instagram.com/rivaistanbulshop",
-        "icon": "fa-camera",
-        "videoSrc": ""
+        "icon": "fa-camera-retro",
+        "videoSrc": "",
+        "author": "@rivaistanbulshop"
     },
     {
-        "id": 6,
+        "id": 7,
         "title": {
             "tr": "Jungle Coffee Sakarya — Kafe İçerik & Marka Yönetimi",
             "en": "Jungle Coffee — Cafe Content & Brand Strategy"
@@ -117,16 +139,17 @@ const PROJECTS_DATA = [
         },
         "category": "web",
         "tags": {
-            "tr": ["Mekan Çekimi", "Reels Kurgu", "İçerik Stratejisi", "Sosyal Medya"],
-            "en": ["Venue Shoot", "Reels Editing", "Content Strategy", "Social Media"]
+            "tr": ["Mekan Çekimi", "Reels Kurgu", "İçerik Stratejisi", "Kafe"],
+            "en": ["Venue Shoot", "Reels Editing", "Content Strategy", "Cafe"]
         },
         "link": "https://www.instagram.com/jungle.sakarya",
         "instagramUrl": "https://www.instagram.com/jungle.sakarya",
-        "icon": "fa-store",
-        "videoSrc": ""
+        "icon": "fa-mug-hot",
+        "videoSrc": "",
+        "author": "@jungle.sakarya"
     },
     {
-        "id": 7,
+        "id": 8,
         "title": {
             "tr": "Grafik & Dergi Tasarımı — InDesign & Tipografi",
             "en": "Graphic & Magazine Design — InDesign & Typography"
@@ -145,4 +168,3 @@ const PROJECTS_DATA = [
         "videoSrc": ""
     }
 ];
-

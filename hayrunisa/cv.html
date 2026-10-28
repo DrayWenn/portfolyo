@@ -6,28 +6,36 @@
   <title>Hayrunisa Hacıismailoğlu — Özgeçmiş (CV)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg-dark: #090a0f;
-      --bg-card: #12141d;
-      --border-color: rgba(255, 255, 255, 0.1);
-      --primary: #a855f7;
-      --secondary: #06b6d4;
-      --text-primary: #f3f4f6;
-      --text-secondary: #9ca3af;
-      --text-muted: #6b7280;
+      --bg-dark: #fff5f8;
+      --bg-card: #ffffff;
+      --border-color: rgba(236, 72, 153, 0.2);
+      --primary: #ec4899;
+      --secondary: #fb7185;
+      --accent: #f43f5e;
+      --text-primary: #374151;
+      --text-secondary: #64748b;
+      --text-muted: #94a3b8;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       background-color: var(--bg-dark);
       color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.6;
       padding: 40px 20px;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(251, 113, 133, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
     }
 
     .cv-wrapper {
@@ -35,9 +43,10 @@
       margin: 0 auto;
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 48px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 45px rgba(236, 72, 153, 0.08);
+      position: relative;
     }
 
     .no-print-bar {
@@ -54,7 +63,7 @@
       align-items: center;
       gap: 8px;
       padding: 10px 20px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
@@ -63,107 +72,276 @@
     }
 
     .btn-back {
-      background: rgba(255,255,255,0.05);
-      color: var(--text-primary);
-      border: 1px solid var(--border-color);
+      background: rgba(236, 72, 153, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(236, 72, 153, 0.2);
     }
 
     .btn-print {
       background: linear-gradient(135deg, var(--secondary), var(--primary));
       color: #fff;
       border: none;
+      box-shadow: 0 6px 16px rgba(236, 72, 153, 0.25);
     }
 
-    .cv-header { margin-bottom: 32px; }
+    .btn-back:hover {
+      background: rgba(236, 72, 153, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .btn-print:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(236, 72, 153, 0.35);
+    }
+
+    .cv-header {
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cv-header-info {
+      flex: 1;
+    }
+
+    .cv-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.25);
+    }
 
     .cv-title {
       font-family: 'Outfit', sans-serif;
-      font-size: 2.3rem;
+      font-size: 2.4rem;
       font-weight: 800;
       margin-bottom: 4px;
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
     }
 
     .cv-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: var(--primary);
       margin-bottom: 16px;
     }
 
     .cv-contacts {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
       font-size: 0.9rem;
       color: var(--text-secondary);
     }
 
-    .cv-contact-item { display: flex; align-items: center; gap: 8px; }
-    .cv-contact-item i { color: var(--primary); }
-    .cv-section { margin-bottom: 32px; }
+    .cv-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cv-contact-item i {
+      color: var(--primary);
+    }
+
+    .cv-contact-item a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .cv-contact-item a:hover {
+      color: var(--primary);
+    }
+
+    .cv-section {
+      margin-bottom: 32px;
+    }
 
     .cv-section-h2 {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--secondary);
+      color: var(--primary);
       margin-bottom: 16px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(236, 72, 153, 0.15);
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .cv-summary-text { color: var(--text-secondary); font-size: 0.95rem; }
+    .cv-summary-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
 
     .tech-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
     }
 
     .tech-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 14px;
+      background: #fffbfa;
+      border: 1px solid rgba(236, 72, 153, 0.15);
+      border-radius: 14px;
+      padding: 16px;
+      transition: transform 0.2s;
     }
 
-    .tech-card h4 { font-size: 0.9rem; color: var(--text-primary); margin-bottom: 6px; font-weight: 600; }
-    .tech-card p { font-size: 0.85rem; color: var(--text-secondary); }
-    .exp-item { margin-bottom: 20px; }
-    .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-    .exp-title { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
-    .exp-date { font-size: 0.85rem; color: var(--primary); font-weight: 600; }
-    .exp-org { font-size: 0.9rem; color: var(--secondary); font-weight: 500; margin-bottom: 8px; }
-    .exp-desc { font-size: 0.9rem; color: var(--text-secondary); }
-    .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .skill-pill-cv {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border-color);
-      padding: 6px 14px;
-      border-radius: 20px;
+    .tech-card:hover {
+      border-color: var(--primary);
+    }
+
+    .tech-card h4 {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tech-card h4 i {
+      color: var(--primary);
+    }
+
+    .tech-card p {
       font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .exp-item {
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid rgba(236, 72, 153, 0.2);
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 8px rgba(236, 72, 153, 0.5);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .exp-title {
+      font-size: 1.05rem;
+      font-weight: 700;
       color: var(--text-primary);
     }
 
+    .exp-date {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .exp-org {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .exp-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-pill-cv {
+      background: rgba(236, 72, 153, 0.08);
+      border: 1px solid rgba(236, 72, 153, 0.2);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
     @media print {
-      body { background-color: #fff !important; color: #111 !important; padding: 0 !important; }
-      .cv-wrapper { border: none !important; box-shadow: none !important; background-color: #fff !important; padding: 0 !important; }
-      .no-print-bar { display: none !important; }
-      .cv-title { color: #000 !important; background: none !important; -webkit-text-fill-color: #000 !important; }
-      .cv-subtitle, .cv-contacts, .cv-summary-text, .tech-card p, .exp-desc { color: #333 !important; }
-      .cv-section-h2 { color: #000 !important; border-bottom: 2px solid #ddd !important; }
-      .exp-date { color: #444 !important; }
-      .exp-org { color: #222 !important; }
-      .tech-card { background: #f8f9fa !important; border: 1px solid #ddd !important; }
-      .skill-pill-cv { background: #f1f3f5 !important; color: #111 !important; border: 1px solid #ccc !important; }
+      body {
+        background-color: #fff !important;
+        background-image: none !important;
+        color: #111 !important;
+        padding: 0 !important;
+      }
+
+      .cv-wrapper {
+        border: none !important;
+        box-shadow: none !important;
+        background-color: #fff !important;
+        padding: 0 !important;
+      }
+
+      .no-print-bar {
+        display: none !important;
+      }
+
+      .cv-title {
+        color: #000 !important;
+        background: none !important;
+        -webkit-text-fill-color: #000 !important;
+      }
+
+      .cv-subtitle, .cv-contacts, .cv-summary-text, .tech-card p, .exp-desc {
+        color: #333 !important;
+      }
+
+      .cv-section-h2 {
+        color: #000 !important;
+        border-bottom: 2px solid #ddd !important;
+      }
+
+      .exp-date, .exp-org {
+        color: #444 !important;
+      }
+
+      .tech-card {
+        background: #f8f9fa !important;
+        border: 1px solid #ddd !important;
+      }
+
+      .skill-pill-cv {
+        background: #f1f3f5 !important;
+        color: #111 !important;
+        border: 1px solid #ccc !important;
+      }
     }
   </style>
 </head>
@@ -180,95 +358,151 @@
     </div>
 
     <header class="cv-header">
-      <h1 class="cv-title">Hayrunisa Hacıismailoğlu</h1>
-      <p class="cv-subtitle">Video Prodüksiyon · Kurgu · Sosyal Medya & Seslendirme</p>
-      <div class="cv-contacts">
-        <div class="cv-contact-item"><i class="fa-solid fa-location-dot"></i> Sakarya / Bursa, Türkiye</div>
-        <div class="cv-contact-item"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/hayrunisa-hacıismailoğlu</div>
+      <div class="cv-header-info">
+        <h1 class="cv-title">Hayrunisa Hacıismailoğlu</h1>
+        <p class="cv-subtitle">Filmmaker · Videographer · Video Editor · Graphic Designer</p>
+        <div class="cv-contacts">
+          <div class="cv-contact-item"><i class="fa-solid fa-location-dot"></i> Sakarya & İstanbul, Türkiye</div>
+          <div class="cv-contact-item"><i class="fa-solid fa-envelope"></i> <a href="mailto:asinuryah158@gmail.com">asinuryah158@gmail.com</a></div>
+          <div class="cv-contact-item"><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/" target="_blank">LinkedIn Profili</a></div>
+        </div>
       </div>
+      <img src="avatar.png" alt="Hayrunisa Hacıismailoğlu" class="cv-avatar">
     </header>
 
     <section class="cv-section">
-      <h2 class="cv-section-h2"><i class="fa-solid fa-user"></i> Özet</h2>
+      <h2 class="cv-section-h2"><i class="fa-solid fa-user"></i> Hakkımda & Profesyonel Özet</h2>
       <p class="cv-summary-text">
-        Senaryo aşamasından çekim, ışıklandırma ve kurguya kadar video prodüksiyon süreçlerini uçtan uca yürüten görsel iletişim ve medya prodüksiyon uzmanıyım. Belgesel, tanıtım filmi ve kısa film projelerinin yanı sıra markalar için stüdyo ve mekan fotoğrafçılığı, Reels üretimi ve çoklu sosyal medya hesap yönetimi yapıyorum. Aynı zamanda Etkili Konuşma ve Diksiyon sertifikasıyla karakter dublajı ve seslendirme çalışmaları gerçekleştiriyorum.
+        Sakarya Üniversitesi Yeni Medya ve İletişim bölümü mezunu olarak, üretken, öğrenmeye açık ve çok yönlü bir görsel hikâye anlatıcısıyım. Belgesel, kısa film, stüdyo fotoğrafçılığı ve video kurgu alanlarında aktif çalışarak hem teknik donanımımı hem de anlatı gücümü geliştirdim. Kuleşov Etkisi üzerine deneysel kısa film, Köfteci İsmail 1928 Bellek Belgeseli ve Ayaz Kauçuk (Melasty) kurumsal firma belgeseli gibi prodüksiyonlarda kurgu, ışık kontrolü ve senaryo aşamalarını yürüttüm. Adobe InDesign ile dergi tasarımı, tipografi, afiş tasarımları, çizgi film ve film dublajı ile TRT 2 set tecrübesine sahip, kurgu ile sahayı birleştiren disiplinli bir üreticiyim.
       </p>
     </section>
 
     <section class="cv-section">
-      <h2 class="cv-section-h2"><i class="fa-solid fa-clapperboard"></i> Uzmanlık Alanları</h2>
+      <h2 class="cv-section-h2"><i class="fa-solid fa-wand-magic-sparkles"></i> Uzmanlık & Teknik Yetkinlikler</h2>
       <div class="tech-grid">
         <div class="tech-card">
-          <h4>Video Prodüksiyon & Kurgu</h4>
-          <p>Belgesel, Kısa Film ve Tanıtım Filmi Çekimi, Işıklandırma, Senaryo Yazımı, Adobe Premiere Pro Montaj</p>
+          <h4><i class="fa-solid fa-film"></i> Video Kurgu & Post-Prodüksiyon</h4>
+          <p>Adobe Premiere Pro, CapCut, InShot, Kurgu Yazma, Ritim & Kuleşov Kurgusu, Color Grading, Dinamik Geçişler</p>
         </div>
         <div class="tech-card">
-          <h4>Fotoğrafçılık & Sosyal Medya</h4>
-          <p>Stüdyo Ürün/Model Çekimi, Mekan Çekimleri, Reels Kurgusu, Instagram/TikTok/YouTube Hesap Yönetimi</p>
+          <h4><i class="fa-solid fa-camera"></i> Videography & Stüdyo Fotoğrafçılığı</h4>
+          <p>Saha & Stüdyo Çekimleri, Işıklandırma Kontrolü, Profesyonel Kamera Kullanımı, Ürün & Mekân Çekimleri</p>
         </div>
         <div class="tech-card">
-          <h4>Dublaj & Seslendirme</h4>
-          <p>Etkili Konuşma ve Diksiyon Sertifikalı Karakter Seslendirmesi, Ses Temizleme ve Audio Kurgu</p>
+          <h4><i class="fa-solid fa-palette"></i> Grafik & Dergi Tasarımı</h4>
+          <p>Adobe InDesign (Çok Sayfalı Dergi Mizanpajı), Tipografi, Afiş Tasarımı, Marka Kimliği & Sosyal Medya Görselleri</p>
         </div>
         <div class="tech-card">
-          <h4>Grafik & Basılı Tasarım</h4>
-          <p>Adobe InDesign ile Dergi Mizanpajı, Afiş ve Tipografi Tasarımı, Kurumsal Sunum Hazırlama</p>
+          <h4><i class="fa-solid fa-microphone-lines"></i> Seslendirme, Dublaj & Yönetim</h4>
+          <p>Film & Çizgi Film Dublajı, Etkili Konuşma & Diksiyon Sertifikası, Çoklu Hesap Sosyal Medya & İçerik Yönetimi</p>
         </div>
       </div>
     </section>
 
     <section class="cv-section">
-      <h2 class="cv-section-h2"><i class="fa-solid fa-briefcase"></i> Deneyim & Seçili Projeler</h2>
+      <h2 class="cv-section-h2"><i class="fa-solid fa-briefcase"></i> Profesyonel Deneyim & Projeler</h2>
+      
       <div class="exp-item">
         <div class="exp-header">
-          <h3 class="exp-title">Rivaİstanbul & Jungle Coffee Sakarya</h3>
-          <span class="exp-date">Sosyal Medya & Fotoğrafçılık</span>
+          <h3 class="exp-title">Stüdyo Fotoğrafçısı & Sosyal Medya Yöneticisi</h3>
+          <span class="exp-date">2024 - 2025</span>
         </div>
-        <p class="exp-org">Sosyal Medya Yöneticisi & Fotoğrafçı</p>
+        <p class="exp-org">Rivaİstanbul (@rivaistanbulshop)</p>
         <p class="exp-desc">
-          • Rivaİstanbul bünyesinde 5 farklı kurumsal hesabın (Instagram, TikTok, YouTube) yönetimi; stüdyoda ürün ve model fotoğraf çekimleri.<br>
-          • Jungle Coffee Sakarya (@jungle.sakarya) için mekan içi fotoğraf ve video çekimleri, Reels kurguları ve sosyal medya içerik yönetimi.
+          • Stüdyo ortamında profesyonel ürün ve moda fotoğraf çekimlerinin gerçekleştirilmesi.<br>
+          • Markanın Instagram, TikTok ve YouTube olmak üzere 5 farklı kurumsal hesabının stratejik yönetimi ve video içerik üretimi.
         </p>
       </div>
 
       <div class="exp-item">
         <div class="exp-header">
-          <h3 class="exp-title">Köfteci İsmail 1928 & Ayaz Kauçuk (Melasty)</h3>
-          <span class="exp-date">Belgesel & Tanıtım Filmi</span>
+          <h3 class="exp-title">Sosyal Medya & İçerik Üreticisi</h3>
+          <span class="exp-date">2024</span>
         </div>
-        <p class="exp-org">Yönetmen / Kurgu & Prodüksiyon</p>
+        <p class="exp-org">Jungle Coffee Sakarya (@jungle.sakarya)</p>
         <p class="exp-desc">
-          • Köfteci İsmail 1928 bellek belgeselinin senaryo yazımı, çekim yönetimi ve post-prodüksiyon kurgusu.<br>
-          • Ayaz Kauçuk (Melasty) fabrika tanıtım filmi çekimlerinde ışıklandırma kontrolü ve kurgu süreci.
+          • Mekân tanıtım videolarının, Reels içeriklerinin ve atmosfer fotoğraflarının çekimi ve kurgulanması.<br>
+          • Etkileşim odaklı sosyal medya planlaması ve marka iletişimi.
         </p>
       </div>
 
       <div class="exp-item">
         <div class="exp-header">
-          <h3 class="exp-title">Kısa Film, Dublaj & Tasarım Projeleri</h3>
-          <span class="exp-date">Yaratıcı Prodüksiyon</span>
+          <h3 class="exp-title">Yönetmen, Kurgucu & Işıklandırma Kontrolü</h3>
+          <span class="exp-date">2024 - 2025</span>
         </div>
-        <p class="exp-org">Kurgu, Seslendirme & Grafik Tasarım</p>
+        <p class="exp-org">Köfteci İsmail 1928 & Melasty (Ayaz Kauçuk)</p>
         <p class="exp-desc">
-          • Kuleşov Etkisi üzerine kısa film senaryo, yönetmenlik ve Premiere Pro montajı.<br>
-          • Animasyon ve film sahneleri için karakter dublajı ve ses düzenleme.<br>
-          • Adobe InDesign ile dergi mizanpajı, afiş tipografisi ve TÜBİTAK proje görselleştirmeleri.
+          • <strong>Köfteci İsmail 1928 — Bellek Belgeseli:</strong> Tarihi markanın belgesel kurgusu, proje yönetimi ve anlatı tasarımı.<br>
+          • <strong>Ayaz Kauçuk (Melasty) Firma Belgeseli:</strong> Tanıtım filmi çekimleri, kurgu, senaryo ve profesyonel ışıklandırma kontrolü.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-title">İçerik Üreticisi & Video Editörü</h3>
+          <span class="exp-date">2024</span>
+        </div>
+        <p class="exp-org">Qubbe Medya</p>
+        <p class="exp-desc">
+          • Kamera önü sunuculuk, haber metni yazımı, video montaj ve kurgu süreçlerinin uçtan uca yürütülmesi.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-title">Prodüksiyon Asistanlığı & Set Fotoğrafçılığı</h3>
+          <span class="exp-date">2023 - 2024</span>
+        </div>
+        <p class="exp-org">TRT 2 — Ramazan Sosyolojisi</p>
+        <p class="exp-desc">
+          • Televizyon seti prodüksiyon akışına katkı ve kamera arkası set fotoğrafçılığı deneyimi.
         </p>
       </div>
     </section>
 
     <section class="cv-section">
-      <h2 class="cv-section-h2"><i class="fa-solid fa-star"></i> Yetkinlikler & Sertifikalar</h2>
+      <h2 class="cv-section-h2"><i class="fa-solid fa-graduation-cap"></i> Eğitim & Sertifikalar</h2>
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-title">Sakarya Üniversitesi — Yeni Medya ve İletişim</h3>
+          <span class="exp-date">Lisans Mezunu</span>
+        </div>
+        <p class="exp-org">İletişim Fakültesi</p>
+        <p class="exp-desc">
+          Görsel İletişim Tasarımı, Video Prodüksiyon, Dergi & Tipografi (InDesign), TÜBİTAK Proje Hazırlığı ve Akademik Tez İncelemeleri.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3 class="exp-title">Etkili Konuşma ve Diksiyon Sertifikası</h3>
+          <span class="exp-date">Resmi Sertifikalı</span>
+        </div>
+        <p class="exp-org">Diksiyon & Seslendirme Eğitimi</p>
+        <p class="exp-desc">
+          Profesyonel ses kullanımı, doğru tonlama, artikülasyon ve film/çizgi film dublaj teknikleri.
+        </p>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2 class="cv-section-h2"><i class="fa-solid fa-star"></i> Yetenekler & Araçlar</h2>
       <div class="skills-list">
-        <span class="skill-pill-cv">Etkili Konuşma ve Diksiyon Sertifikası</span>
         <span class="skill-pill-cv">Adobe Premiere Pro</span>
-        <span class="skill-pill-cv">Adobe InDesign & Photoshop</span>
-        <span class="skill-pill-cv">Kamera & Işıklandırma</span>
-        <span class="skill-pill-cv">Senaryo & Kurgu Yazımı</span>
+        <span class="skill-pill-cv">Adobe InDesign</span>
+        <span class="skill-pill-cv">CapCut & InShot</span>
+        <span class="skill-pill-cv">Fotoğrafçılık & Işık</span>
+        <span class="skill-pill-cv">Belgesel Kurgusu</span>
+        <span class="skill-pill-cv">Diksiyon & Dublaj</span>
+        <span class="skill-pill-cv">Senaryo Yazımı</span>
+        <span class="skill-pill-cv">Kuleşov Kurgusu</span>
+        <span class="skill-pill-cv">Sosyal Medya Yönetimi</span>
+        <span class="skill-pill-cv">Tipografi & Mizanpaj</span>
+        <span class="skill-pill-cv">Proje Yönetimi</span>
       </div>
     </section>
   </div>
 
 </body>
 </html>
-

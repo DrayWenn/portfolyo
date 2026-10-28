@@ -1,85 +1,144 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hayrunisa Hacıismailoğlu | Portfolyo</title>
-  <meta name="description" content="Hayrunisa Hacıismailoğlu — Video prodüksiyon, kurgu, seslendirme/dublaj, fotoğrafçılık ve sosyal medya yönetimi.">
+  <title>Hayrunisa Hacıismailoğlu | Video Editörü · İçerik Üreticisi · Seslendirme Sanatçısı</title>
+  <meta name="description"
+    content="Hayrunisa Hacıismailoğlu — Yeni Medya ve İletişim Mezunu, Video Editörü, İçerik Üreticisi ve Seslendirme Sanatçısı. Kurgu, seslendirme, set fotoğrafçılığı ve saha prodüksiyonu.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="laptop-stage-wrapper" id="laptopStageWrapper" aria-hidden="true">
-    <div class="laptop-3d" id="laptop3D">
-      <div class="laptop-lid">
-        <div class="laptop-screen-bezel">
-          <div class="laptop-webcam"></div>
-          <div class="laptop-screen">
-            <div class="editor-header">
-              <div class="editor-traffic-lights">
-                <span class="traffic-dot red"></span>
-                <span class="traffic-dot yellow"></span>
-                <span class="traffic-dot green"></span>
-              </div>
-              <div class="editor-tabs">
-                <div class="editor-tab active" data-file="produksiyon.js">
-                  <i class="fa-solid fa-clapperboard" style="color: #a855f7;"></i> produksiyon.js
-                </div>
-                <div class="editor-tab" data-file="projeler.js">
-                  <i class="fa-solid fa-film" style="color: #06b6d4;"></i> projeler.js
-                </div>
-              </div>
-              <div class="editor-branch">
-                <i class="fa-solid fa-video"></i> studio
-              </div>
-            </div>
+  
+  <div class="camera-stage-wrapper" id="cameraStageWrapper" aria-label="3D Fotoğraf Makinesi">
+    <div class="camera-3d" id="camera3D">
+      
+      <div class="camera-flash-fx" id="cameraFlashFx"></div>
 
-            <div class="editor-body">
-              <div class="code-line-numbers">
-                <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
-                <span>06</span><span>07</span><span>08</span><span>09</span><span>10</span>
-              </div>
-              <pre class="code-content"><code id="laptopCode"><span class="c-kw">const</span> <span class="c-var">profil</span> = {
-  <span class="c-prop">isim</span>: <span class="c-str">'Hayrunisa Hacıismailoğlu'</span>,
-  <span class="c-prop">uzmanlik</span>: <span class="c-str">'Video Kurgu & Prodüksiyon'</span>,
-  <span class="c-prop">alanlar</span>: [<span class="c-str">'Belgesel'</span>, <span class="c-str">'Dublaj'</span>, <span class="c-str">'Sosyal Medya'</span>],
-  <span class="c-prop">araclar</span>: [<span class="c-str">'Premiere Pro'</span>, <span class="c-str">'InDesign'</span>, <span class="c-str">'Photoshop'</span>]
-};</code></pre>
-            </div>
+      
+      <div class="camera-top-plate">
+        <div class="deck-dial dial-shutter-speed" title="Enstantane Kadranı">
+          <span class="dial-notch"></span>
+          <span class="dial-val">1000</span>
+        </div>
+        <div class="deck-dial dial-exp-comp" title="Pozlama Kadranı">
+          <span class="dial-notch"></span>
+          <span class="dial-val">±0</span>
+        </div>
 
-            <div class="editor-terminal">
-              <span class="terminal-status"><i class="fa-solid fa-circle-check"></i> studio: hazır</span>
+        <div class="camera-viewfinder-prism">
+          <div class="prism-top-bevel"></div>
+          <div class="camera-brand-emblem">
+            <span class="brand-name">HAYRUNİSA</span>
+            <span class="brand-sub">CINEMA 4K</span>
+          </div>
+          <div class="cold-shoe-mount">
+            <span class="shoe-bracket"></span>
+          </div>
+        </div>
+
+        <div class="deck-switch-cluster">
+          <div class="power-switch-lever">
+            <span class="switch-dot on"></span>
+          </div>
+          <button class="camera-shutter-btn" id="cameraShutterBtn" type="button" title="Deklanşör (Fotoğraf Çek)">
+            <span class="shutter-core"></span>
+            <span class="shutter-thread"></span>
+          </button>
+        </div>
+      </div>
+
+      
+      <div class="camera-body-main">
+        
+        <div class="leather-wrap"></div>
+        <div class="camera-red-dot" title="Rangefinder Edition">H</div>
+
+        
+        <div class="front-handgrip"></div>
+
+        
+        <div class="camera-lens-assembly">
+          <div class="lens-mount-flange"></div>
+          <div class="lens-barrel-outer">
+            <div class="lens-focus-ridges"></div>
+            <div class="lens-bezel-ring">
+              <span class="lens-engraving">F=50mm 1:1.2 ASPHERICAL · NANO COATING</span>
             </div>
-            <div class="screen-glare"></div>
+            <div class="lens-aperture-core">
+              <div class="lens-glass-deep">
+                <div class="lens-element-coating"></div>
+                <div class="aperture-blades-iris">
+                  <div class="aperture-opening"></div>
+                </div>
+                <div class="reflection-ring r1"></div>
+                <div class="reflection-ring r2"></div>
+                <div class="optical-flare-spark"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="camera-screen-dock">
+          <div class="cam-screen-header">
+            <div class="rec-badge">
+              <span class="rec-dot"></span>
+              <span class="rec-txt">STANDBY</span>
+            </div>
+            <span class="format-txt">PRORES 422</span>
+            <span class="bat-txt"><i class="fa-solid fa-battery-three-quarters"></i> 88%</span>
+          </div>
+
+          <div class="cam-viewfinder-grid">
+            <div class="cinema-frame-lines"></div>
+            <div class="center-cross-marker"></div>
+            <div class="audio-vu-meters">
+              <div class="vu-bar ch1"><span class="vu-level"></span></div>
+              <div class="vu-bar ch2"><span class="vu-level"></span></div>
+            </div>
+            <div class="screen-watermark">
+              <i class="fa-solid fa-film"></i>
+              <span>CINE · 24.00 FPS</span>
+            </div>
+          </div>
+
+          <div class="cam-screen-footer">
+            <span class="stat-pill">SS 1/50</span>
+            <span class="stat-pill">T 1.4</span>
+            <span class="stat-pill">ISO 400</span>
+            <span class="stat-pill wb">5600K</span>
           </div>
         </div>
       </div>
 
-      <div class="laptop-base">
-        <div class="laptop-keyboard">
-          <div class="kb-row kb-row-1"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="kb-row kb-row-2"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="kb-row kb-row-3"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="kb-row kb-row-space"><span></span><span></span><span class="kb-space"></span><span></span><span></span></div>
-        </div>
-        <div class="laptop-trackpad"></div>
-        <div class="laptop-notch-cutout"></div>
+      
+      <div class="camera-base-plate">
+        <div class="battery-door-latch"></div>
+        <div class="camera-tripod-socket"></div>
       </div>
 
-      <div class="laptop-shadow"></div>
-      <div class="laptop-glow-under"></div>
+      
+      <div class="camera-shadow"></div>
+      <div class="camera-glow-under"></div>
     </div>
   </div>
 
+  
   <header class="navbar">
     <div class="nav-container">
       <a href="#" class="logo" title="Hayrunisa Hacıismailoğlu">
         <span class="logo-dot"></span>
-        <span class="logo-code-tag">&lt;HH /&gt;</span>
+        <span class="logo-code-tag"><i class="fa-solid fa-camera-retro"></i> HAYRUNİSA</span>
       </a>
       <nav class="nav-links">
         <a href="#hakkimda" class="nav-link" data-i18n="nav.about">Hakkımda & CV</a>
@@ -87,33 +146,40 @@
         <a href="#iletisim" class="nav-link" data-i18n="nav.contact">İletişim</a>
       </nav>
       <div class="nav-actions">
-        <div class="lang-switch" id="langSwitch" role="group" aria-label="Dil seçimi">
+        <div class="lang-switch" id="langSwitch" role="group" aria-label="Language selector">
           <button class="lang-btn active" data-lang="tr" title="Türkçe">TR</button>
           <span class="lang-divider">/</span>
           <button class="lang-btn" data-lang="en" title="English">EN</button>
         </div>
-        <button class="mode-toggle" id="modeToggle" title="Tema Değiştir">
-          <i class="fa-solid fa-moon" id="modeIcon"></i>
+        <button class="mode-toggle" id="modeToggle" title="Dark / Light Mod">
+          <i class="fa-solid fa-sun" id="modeIcon"></i>
         </button>
       </div>
     </div>
   </header>
 
+  
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge">
         <span class="pulse-dot"></span>
-        <span data-i18n="hero.statusBadge">Yeni Projelere & İş Tekliflerine Açık</span>
+        <span data-i18n="hero.statusBadge">Yeni Projelere Açık</span>
       </div>
       <h1 class="hero-title">
-        <span data-i18n="hero.greetingPrefix">Merhaba, Ben</span> <span class="text-gradient">Hayrunisa Hacıismailoğlu</span>
+        <span data-i18n="hero.greetingPrefix">Merhaba, Ben</span> <span class="text-gradient">Hayrunisa
+          Hacıismailoğlu</span> 🎙️
       </h1>
       <p class="hero-subtitle">
-        <span data-i18n="hero.subtitlePrefix">Yaratıcı bakış açısıyla </span><span id="typewriter" class="typewriter-text"></span><span data-i18n="hero.subtitleSuffix"> üretiyor ve yönetiyorum.</span>
+        <span data-i18n="hero.subtitlePrefix">Görsel hikayeler anlatıyor, </span><span id="typewriter"
+          class="typewriter-text"></span><span data-i18n="hero.subtitleSuffix"> üretiyorum.</span>
       </p>
       <div class="hero-ctas">
         <a href="#projeler" class="btn btn-primary" data-i18n="hero.ctaProjects">
           <i class="fa-solid fa-layer-group"></i> Projelerimi İncele
+        </a>
+        <a href="https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/" target="_blank"
+          rel="noopener noreferrer" class="btn btn-secondary" title="LinkedIn Profili">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
         </a>
         <a href="#hakkimda" class="btn btn-secondary" data-i18n="hero.ctaAbout">
           <i class="fa-solid fa-user"></i> Hakkımda & CV
@@ -121,81 +187,96 @@
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <span class="stat-num">8+</span>
-          <span class="stat-label" data-i18n="hero.stat1Label">Prodüksiyon & Proje</span>
+          <span class="stat-num">4+</span>
+          <span class="stat-label" data-i18n="hero.stat1Label">Yıl Medya & Kurgu</span>
         </div>
         <div class="hero-stat">
-          <span class="stat-num">6+</span>
-          <span class="stat-label" data-i18n="hero.stat2Label">Yönetilen Marka Hesabı</span>
+          <span class="stat-num">15+</span>
+          <span class="stat-label" data-i18n="hero.stat2Label">Tamamlanan Proje</span>
         </div>
         <div class="hero-stat">
           <span class="stat-num">4</span>
-          <span class="stat-label" data-i18n="hero.stat3Label">Uzmanlık Alanı</span>
+          <span class="stat-label" data-i18n="hero.stat3Label">Ana Uzmanlık Alanı</span>
         </div>
       </div>
     </div>
   </section>
 
+  
   <section id="hakkimda" class="about-section">
     <div class="about-card">
       <div class="about-avatar-top">
         <div class="about-avatar-container">
-          <img src="hayrunisa.jpg" alt="Hayrunisa Hacıismailoğlu" class="about-avatar">
+          <img src="avatar.png" alt="Hayrunisa Hacıismailoğlu" class="about-avatar" onerror="this.src='hayrunisa.jpg'">
           <div class="avatar-glow"></div>
         </div>
         <div class="about-name-center">
           <h2 class="about-title">Hayrunisa Hacıismailoğlu</h2>
-          <span class="about-role">Video Prodüksiyon · Kurgu · Sosyal Medya & Seslendirme</span>
-          <span class="about-badge" data-i18n="about.badge">Görsel İletişim & Medya Prodüksiyon Uzmanı</span>
-          <span class="about-location" data-i18n="about.location"><i class="fa-solid fa-location-dot"></i> Sakarya / Bursa, Türkiye</span>
+          <span class="about-role">Filmmaker · Videographer · Video Editor · Graphic Designer</span>
+          <span class="about-badge" data-i18n="about.badge">Sakarya Üniversitesi · Yeni Medya ve İletişim Mezunu</span>
+          <span class="about-location" data-i18n="about.location"><i class="fa-solid fa-location-dot"></i> Sakarya /
+            İstanbul, Türkiye</span>
         </div>
       </div>
 
       <div class="about-body">
         <p class="about-text" data-i18n="about.bio">
-          Senaryo aşamasından çekim, ışıklandırma ve kurguya kadar video prodüksiyon süreçlerini uçtan uca yürütüyorum. Belgesel, tanıtım filmi ve kısa film projelerinin yanı sıra markalar için <strong>stüdyo ve mekan fotoğrafçılığı</strong>, <strong>Reels üretimi</strong> ve <strong>çoklu sosyal medya hesap yönetimi</strong> yapıyorum. Aynı zamanda <strong>Etkili Konuşma ve Diksiyon</strong> sertifikasıyla karakter dublajı ve seslendirme çalışmaları gerçekleştiriyorum.
+          Sakarya Üniversitesi Yeni Medya ve İletişim bölümünden mezun, üretken, öğrenmeye açık ve çok yönlü bir görsel
+          hikâye anlatıcısıyım. Belgesel, kısa film, stüdyo fotoğrafçılığı ve video kurgu alanlarında aktif çalışarak
+          hem teknik donanımımı hem de anlatı gücümü geliştirdim. <strong>Köfteci İsmail 1928 belgeseli</strong>,
+          <strong>Ayaz Kauçuk (Melasty) belgeseli</strong> ve <strong>Kuleşov etkisi kısa filmi</strong> gibi projelerde
+          görev aldım. Nişan videosu çekimi/kurgusu, sosyal medya yönetimi, dergi tasarımı (InDesign), çizgi film/film
+          dublajı ve TÜBİTAK proje hazırlığı gibi çok yönlü alanlarda profesyonel üretimler gerçekleştirdim.
         </p>
         <div class="skills-mini">
           <div class="skill-pill"><i class="fa-solid fa-film"></i> Adobe Premiere Pro</div>
-          <div class="skill-pill"><i class="fa-solid fa-book-open"></i> Adobe InDesign</div>
-          <div class="skill-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Adobe Photoshop</div>
-          <div class="skill-pill"><i class="fa-solid fa-video"></i> Kamera & Işıklandırma</div>
-          <div class="skill-pill"><i class="fa-solid fa-pen-nib"></i> Senaryo & Kurgu Yazımı</div>
-          <div class="skill-pill"><i class="fa-solid fa-microphone-lines"></i> Dublaj & Seslendirme</div>
-          <div class="skill-pill"><i class="fa-solid fa-camera"></i> Stüdyo & Ürün Fotoğrafçılığı</div>
+          <div class="skill-pill"><i class="fa-solid fa-scissors"></i> CapCut & InShot</div>
+          <div class="skill-pill"><i class="fa-solid fa-book-open"></i> Adobe InDesign (Dergi)</div>
+          <div class="skill-pill"><i class="fa-solid fa-palette"></i> Grafik & Afiş Tasarımı</div>
+          <div class="skill-pill"><i class="fa-solid fa-microphone-lines"></i> Film & Çizgi Film Dublajı</div>
+          <div class="skill-pill"><i class="fa-solid fa-camera"></i> Stüdyo & Set Fotoğrafçılığı</div>
+          <div class="skill-pill"><i class="fa-solid fa-video"></i> Nişan & Etkinlik Videografisi</div>
+          <div class="skill-pill"><i class="fa-solid fa-clapperboard"></i> Belgesel & Kısa Film</div>
           <div class="skill-pill"><i class="fa-brands fa-instagram"></i> Sosyal Medya Yönetimi</div>
+          <div class="skill-pill"><i class="fa-solid fa-award"></i> Diksiyon Sertifikası</div>
         </div>
       </div>
 
       <div class="tech-section">
-        <h3 class="cv-subheading"><i class="fa-solid fa-clapperboard"></i> <span data-i18n="about.techHeading">Uzmanlık Alanları</span></h3>
+        <h3 class="cv-subheading"><i class="fa-solid fa-wand-magic-sparkles"></i> <span
+            data-i18n="about.techHeading">Temel Uzmanlık Alanları</span></h3>
         <div class="tech-grid">
           <div class="tech-card">
-            <div class="tech-card-icon"><i class="fa-solid fa-video"></i></div>
-            <h4 data-i18n="about.card1Title">Video Prodüksiyon & Kurgu</h4>
-            <p data-i18n="about.card1Desc">Belgesel, Kısa Film ve Tanıtım Filmi Çekimi, Işıklandırma, Senaryo Yazımı, Adobe Premiere Pro Montaj</p>
+            <div class="tech-card-icon"><i class="fa-solid fa-film"></i></div>
+            <h4 data-i18n="about.card1Title">Filmmaking & Video Editing</h4>
+            <p data-i18n="about.card1Desc">Adobe Premiere Pro, CapCut, InShot. Köfteci İsmail 1928 belgeseli, Melasty
+              fabrika belgeseli, Kuleşov Etkisi ve nişan videoları kurgusu.</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-icon"><i class="fa-solid fa-bezier-curve"></i></div>
+            <h4 data-i18n="about.card2Title">Graphic Design & Tipografi</h4>
+            <p data-i18n="about.card2Desc">Adobe InDesign ile dergi tasarımı, afiş ve tipografi çalışmaları, görsel
+              kimlik, ürün tanıtım sunumu ve TÜBİTAK proje tasarımı.</p>
           </div>
           <div class="tech-card">
             <div class="tech-card-icon"><i class="fa-solid fa-camera-retro"></i></div>
-            <h4 data-i18n="about.card2Title">Fotoğrafçılık & Sosyal Medya</h4>
-            <p data-i18n="about.card2Desc">Stüdyo Ürün/Model Çekimi, Mekan Çekimleri, Reels Kurgusu, Instagram/TikTok/YouTube Hesap Yönetimi</p>
+            <h4 data-i18n="about.card3Title">Videography & Fotoğrafçılık</h4>
+            <p data-i18n="about.card3Desc">Saha prodüksiyonu, TRT 2 set fotoğrafçılığı, Rivaİstanbul stüdyo ürün
+              çekimleri, nişan çekimleri, ışıklandırma ve kamera açıları.</p>
           </div>
           <div class="tech-card">
             <div class="tech-card-icon"><i class="fa-solid fa-microphone-lines"></i></div>
-            <h4 data-i18n="about.card3Title">Dublaj & Seslendirme</h4>
-            <p data-i18n="about.card3Desc">Etkili Konuşma ve Diksiyon Sertifikalı Karakter Seslendirmesi, Ses Temizleme ve Audio Kurgu</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-card-icon"><i class="fa-solid fa-palette"></i></div>
-            <h4 data-i18n="about.card4Title">Grafik & Basılı Tasarım</h4>
-            <p data-i18n="about.card4Desc">Adobe InDesign ile Dergi Mizanpajı, Afiş ve Tipografi Tasarımı, Kurumsal Sunum Hazırlama</p>
+            <h4 data-i18n="about.card4Title">Dublaj, Ses & Sosyal Medya</h4>
+            <p data-i18n="about.card4Desc">Karakter ve çizgi film dublajı, Etkili Konuşma & Diksiyon Sertifikası,
+              Rivaİstanbul (5 hesap) ve Jungle Coffee marka iletişimi.</p>
           </div>
         </div>
       </div>
 
       <div class="cv-container">
         <div class="cv-header">
-          <h3 class="cv-section-title"><i class="fa-solid fa-briefcase"></i> <span data-i18n="cv.heading">Deneyim & Projeler</span></h3>
+          <h3 class="cv-section-title"><i class="fa-solid fa-briefcase"></i> <span data-i18n="cv.heading">Deneyim &
+              Eğitim</span></h3>
           <a href="cv.html" target="_blank" class="btn btn-secondary btn-sm download-cv-btn">
             <i class="fa-solid fa-print"></i> <span data-i18n="cv.downloadBtn">CV Yazdır / PDF İndir</span>
           </a>
@@ -204,40 +285,92 @@
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-date">Sosyal Medya & Fotoğrafçılık</div>
+            <div class="timeline-date" data-i18n="cv.item1Date">2025</div>
             <div class="timeline-content">
-              <h4>Rivaİstanbul & Jungle Coffee Sakarya</h4>
-              <p class="timeline-org">Sosyal Medya Yöneticisi & Fotoğrafçı</p>
+              <h4 data-i18n="cv.item1Title">Sosyal Medya Uzmanı & Stüdyo Fotoğrafçılığı</h4>
+              <p class="timeline-org" data-i18n="cv.item1Org">Rivaİstanbul (Bursa) — @rivaistanbulshop</p>
               <ul class="timeline-bullet-list">
-                <li>Rivaİstanbul bünyesinde 5 farklı kurumsal hesabın (Instagram, TikTok, YouTube) içerik planlaması ve yönetimi; stüdyoda ürün ve model fotoğraf çekimleri.</li>
-                <li>Jungle Coffee Sakarya (@jungle.sakarya) için mekan içi fotoğraf/video çekimleri ve Reels kurgularının hazırlanması.</li>
+                <li data-i18n="cv.item1Bullet1">5 farklı kurumsal hesabın Instagram, TikTok ve YouTube platformlarında
+                  sosyal medya uzmanlığı, içerik stratejisi ve reklam yönetimi.</li>
+                <li data-i18n="cv.item1Bullet2">Profesyonel stüdyo ortamında ürün ve model fotoğraf çekimleri,
+                  ışıklandırma kontrolü ve estetik düzenlemeler.</li>
+                <li data-i18n="cv.item1Bullet3">Sosyal medya pazarlaması, çevrimiçi reklamcılık ve viral video
+                  prodüksiyonu ile yüksek takipçi ve satış dönüşümü.</li>
               </ul>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-date">Belgesel & Kurumsal Film</div>
+            <div class="timeline-date">2026</div>
             <div class="timeline-content">
-              <h4>Köfteci İsmail 1928 & Ayaz Kauçuk (Melasty)</h4>
-              <p class="timeline-org">Yönetmen / Kurgu & Prodüksiyon</p>
+              <h4><span data-i18n="cv.item2Title">Video Editörü & İçerik Geliştirici</span></h4>
+              <p class="timeline-org">QUBBE MEDYA</p>
               <ul class="timeline-bullet-list">
-                <li>Köfteci İsmail 1928 bellek belgeselinin senaryo yazımı, çekim yönetimi ve post-prodüksiyon kurgusunun gerçekleştirilmesi.</li>
-                <li>Ayaz Kauçuk (Melasty) fabrika tanıtım ve belgesel çekimlerinde ışıklandırma kontrolü ve kurgu süreci.</li>
+                <li data-i18n="cv.item2Bullet1">QUBBE MEDYA bünyesinde dinamik video kurguları, röportaj montajları ve
+                  video düzenleme süreçleri.</li>
+                <li data-i18n="cv.item2Bullet2">Kamera önü sunuculuk, haber metni yazımı, içerik geliştirme ve
+                  post-prodüksiyon koordinasyonu.</li>
               </ul>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-date">Sinema, Dublaj & Tasarım</div>
+            <div class="timeline-date">2024 - 2025</div>
             <div class="timeline-content">
-              <h4>Kısa Film, Seslendirme ve Basılı Tasarım Projeleri</h4>
-              <p class="timeline-org">Yaratıcı Prodüksiyon</p>
+              <h4 data-i18n="cv.item3Title">Belgesel, Tanıtım & Kısa Film Projeleri</h4>
+              <p class="timeline-org">KÖFTECİ İSMAİL 1928 · Ayaz Kauçuk (Melasty) · Bağımsız Kurgu</p>
               <ul class="timeline-bullet-list">
-                <li>Kuleşov Etkisi üzerine kurmaca kısa film yönetmenliği ve kurgusu; özel gün/nişan sinematik video çekim ve montajı.</li>
-                <li>Animasyon ve film sahneleri için karakter dublajı, seslendirme ve ses düzenleme çalışmaları.</li>
-                <li>Adobe InDesign ile dergi tasarımı, afiş tipografisi ve TÜBİTAK proje görselleştirmeleri.</li>
+                <li data-i18n="cv.item3Bullet1"><strong>KÖFTECİ İSMAİL 1928 - Bellek Belgeseli:</strong> Proje yönetimi,
+                  senaryo yazımı, editörlük ve post-prodüksiyon video kurgusu.</li>
+                <li data-i18n="cv.item3Bullet2"><strong>Ayaz Kauçuk (Melasty) Belgeseli:</strong> Fabrika tanıtım filmi
+                  çekimleri, ışıklandırma kontrolü, kurgu yazma ve video prodüksiyonu.</li>
+                <li data-i18n="cv.item3Bullet3"><strong>Nişan Kısa Filmim & Kuleşov Etkisi:</strong> Senaryo yazımı,
+                  film prodüksiyonu, teorik kurgu altyapısı ve montaj yönetimi.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date" data-i18n="cv.item4Date">2025</div>
+            <div class="timeline-content">
+              <h4 data-i18n="cv.item4Title">Sosyal Medya & Video İçerik Yöneticisi</h4>
+              <p class="timeline-org">Sakarya Jungle Coffee — @jungle.sakarya</p>
+              <ul class="timeline-bullet-list">
+                <li data-i18n="cv.item4Bullet1">@jungle.sakarya hesabının içerik stratejisinin planlanması ve sosyal
+                  medya hesap yönetimi.</li>
+                <li data-i18n="cv.item4Bullet2">Mekan içi video çekimleri, dinamik Reels kurguları ve etkileşimi yüksek
+                  içerik üretimi.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023 - 2024</div>
+            <div class="timeline-content">
+              <h4>Prodüksiyon Asistanlığı & Set Fotoğrafçılığı</h4>
+              <p class="timeline-org">TRT 2 — Ramazan Sosyolojisi Programı</p>
+              <ul class="timeline-bullet-list">
+                <li>TRT 2 ekranlarında yayınlanan prestijli program setinde prodüksiyon asistanlığı desteği.</li>
+                <li>Set ve kamera arkası fotoğrafçılığı ile görsel arşivin ve kamera açılarının belgelenmesi.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Lisans & Sertifika</div>
+            <div class="timeline-content">
+              <h4>Sakarya Üniversitesi — Yeni Medya ve İletişim Mezunu</h4>
+              <p class="timeline-org">İletişim Fakültesi Mezunu · Diksiyon Sertifikalı</p>
+              <ul class="timeline-bullet-list">
+                <li>Sakarya Üniversitesi İletişim Fakültesi Lisans Derecesi — Sinema, kurgu kuramları, dergi tasarımı ve
+                  dijital medya.</li>
+                <li><strong>Etkili Konuşma ve Diksiyon Sertifikası:</strong> Karakter seslendirme, dublaj, artikülasyon
+                  ve tonlama uzmanlığı.</li>
               </ul>
             </div>
           </div>
@@ -245,48 +378,58 @@
       </div>
 
       <div class="personal-skills-section">
-        <h3 class="cv-subheading"><i class="fa-solid fa-star"></i> <span data-i18n="skills.heading">Yetkinlikler & Sertifikalar</span></h3>
+        <h3 class="cv-subheading"><i class="fa-solid fa-star"></i> <span data-i18n="skills.heading">Kişisel
+            Beceriler</span></h3>
         <div class="personal-skills-grid">
-          <span class="skill-badge-card"><i class="fa-solid fa-certificate"></i> <span>Etkili Konuşma ve Diksiyon Sertifikası</span></span>
-          <span class="skill-badge-card"><i class="fa-solid fa-clapperboard"></i> <span>Senaryo & Kurgu Yönetimi</span></span>
-          <span class="skill-badge-card"><i class="fa-solid fa-lightbulb"></i> <span>Kreatif İçerik & Marka İletişimi</span></span>
-          <span class="skill-badge-card"><i class="fa-solid fa-users"></i> <span>Ekip & Set Koordinasyonu</span></span>
+          <span class="skill-badge-card"><i class="fa-solid fa-brain"></i> <span data-i18n="skills.item1">Analitik
+              Düşünme & Problem Çözme</span></span>
+          <span class="skill-badge-card"><i class="fa-solid fa-list-check"></i> <span data-i18n="skills.item2">Proje &
+              Zaman Yönetimi</span></span>
+          <span class="skill-badge-card"><i class="fa-solid fa-bolt"></i> <span data-i18n="skills.item3">Hızlı
+              Adaptasyon & Kendi Kendine Öğrenme</span></span>
+          <span class="skill-badge-card"><i class="fa-solid fa-bullseye"></i> <span data-i18n="skills.item4">Sonuç
+              Odaklı Çalışma</span></span>
         </div>
       </div>
     </div>
   </section>
 
+  
   <section id="projeler" class="projects-section">
     <div class="section-header">
       <h2 class="section-title" data-i18n="projects.heading">Projelerim</h2>
       <div class="filter-tabs">
         <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tümü</button>
-        <button class="filter-btn" data-filter="ae" data-i18n="projects.filterAe"><i class="fa-solid fa-film"></i> Video & Dublaj</button>
-        <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb"><i class="fa-solid fa-camera"></i> Sosyal Medya & Tasarım</button>
+        <button class="filter-btn" data-filter="ae" data-i18n="projects.filterAe"><i class="fa-solid fa-film"></i> Videolar & Prodüksiyon</button>
+        <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb"><i class="fa-solid fa-globe"></i> Web & Sosyal Medya</button>
       </div>
     </div>
     <div class="projects-grid" id="projectsGrid"></div>
   </section>
 
+  
   <section id="iletisim" class="contact-section">
     <div class="contact-container">
-      <h2 class="contact-title" data-i18n="contact.heading">İletişim</h2>
-      <p class="contact-subtitle" data-i18n="contact.subtitle">Prodüksiyon, sosyal medya yönetimi veya seslendirme projeleri için LinkedIn üzerinden ulaşabilirsiniz.</p>
+      <h2 class="contact-title" data-i18n="contact.heading">Birlikte Çalışalım</h2>
+      <p class="contact-subtitle" data-i18n="contact.subtitle">Bir sonraki projenizi birlikte hayata geçirelim veya
+        ekibiniz için değer yaratalım. Bir tık uzağınızdayım.</p>
       <div class="contact-links">
-        <a href="https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/" target="_blank" rel="noopener noreferrer" class="contact-card email">
-          <i class="fa-brands fa-linkedin"></i>
-          <span>LinkedIn</span>
-          <span class="contact-detail">Hayrunisa Hacıismailoğlu</span>
+        <a href="mailto:asinuryah158@gmail.com" class="contact-card email">
+          <i class="fa-solid fa-envelope"></i>
+          <span data-i18n="contact.emailLabel">E-Posta</span>
+          <span class="contact-detail">asinuryah158@gmail.com</span>
         </a>
-        <a href="https://www.instagram.com/jungle.sakarya" target="_blank" rel="noopener noreferrer" class="contact-card github">
-          <i class="fa-brands fa-instagram"></i>
-          <span>Instagram Çalışmaları</span>
-          <span class="contact-detail">Projeleri İncele</span>
+        <a href="https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/" target="_blank"
+          rel="noopener noreferrer" class="contact-card github">
+          <i class="fa-brands fa-linkedin"></i>
+          <span data-i18n="contact.githubLabel">LinkedIn</span>
+          <span class="contact-detail" data-i18n="contact.viewProfile">Profili İncele</span>
         </a>
       </div>
     </div>
   </section>
 
+  
   <div id="videoModal" class="modal">
     <div class="cinestudio-modal-wrapper">
       <button class="cinestudio-close-btn" id="closeModalBtn" title="Kapat">&times;</button>
@@ -294,7 +437,8 @@
         <div class="cinestudio-screen-side">
           <div class="screen-ambient-glow" id="screenAmbientGlow"></div>
           <div class="cinestudio-player-box">
-            <video id="modalVideo" playsinline webkit-playsinline loop preload="auto" disablepictureinpicture disableremoteplayback>
+            <video id="modalVideo" playsinline webkit-playsinline loop preload="auto" disablepictureinpicture
+              disableremoteplayback>
               <source id="videoSource" src="" type="video/mp4">
               Tarayıcınız video oynatmayı desteklemiyor.
             </video>
@@ -323,7 +467,8 @@
                       <i class="fa-solid fa-volume-high"></i>
                     </button>
                     <div class="cine-volume-slider-box">
-                      <input type="range" class="cine-volume-range" id="ctrlVolumeSlider" min="0" max="1" step="0.02" value="1" title="Ses Seviyesi">
+                      <input type="range" class="cine-volume-range" id="ctrlVolumeSlider" min="0" max="1" step="0.02"
+                        value="1" title="Ses Seviyesi">
                     </div>
                   </div>
                   <span class="cinestudio-time" id="videoTime">0:00 / 0:00</span>
@@ -341,35 +486,42 @@
         <div class="cinestudio-info-side">
           <div class="info-top">
             <div class="studio-badge-row">
-              <span class="studio-pill"><i class="fa-solid fa-film"></i> Prodüksiyon</span>
-              <span class="studio-pill category"><i class="fa-solid fa-clapperboard"></i> Kurgu</span>
+              <span class="studio-pill"><i class="fa-solid fa-sparkles"></i> Motion Design</span>
+              <span class="studio-pill category"><i class="fa-brands fa-adobe"></i> After Effects</span>
             </div>
-            <h3 id="modalTitle" class="studio-project-title">Proje Başlığı</h3>
-            <p id="modalDescription" class="studio-project-desc">Proje açıklaması.</p>
-            <div class="studio-tags-box" id="modalTagsBox"></div>
+            <h3 id="modalTitle" class="studio-project-title">Mentalist Edit</h3>
+            <p id="modalDescription" class="studio-project-desc">Ses senkronizasyonu ve renk düzenlemesi odaklı After
+              Effects çalışması.</p>
+            <div class="studio-tags-box" id="modalTagsBox">
+              <span><i class="fa-brands fa-adobe"></i> After Effects</span>
+              <span><i class="fa-solid fa-palette"></i> Color Grading</span>
+            </div>
           </div>
 
-          <a id="modalDirectLinkBtn" href="#" target="_blank" rel="noopener noreferrer" class="studio-direct-link-btn" style="display: none;">
+          
+          <a id="modalDirectLinkBtn" href="#" target="_blank" rel="noopener noreferrer" class="studio-direct-link-btn"
+            style="display: none;">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <span id="modalDirectLinkText">Bağlantıyı Aç</span>
           </a>
 
-          <a id="modalInstagramBtn" href="https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/" target="_blank" rel="noopener noreferrer" class="studio-insta-card">
+          <a id="modalInstagramBtn" href="https://www.instagram.com/drayeditss/" target="_blank"
+            rel="noopener noreferrer" class="studio-insta-card">
             <div class="insta-avatar-wrap">
-              <img src="hayrunisa.jpg" alt="Hayrunisa Hacıismailoğlu" class="insta-avatar-img">
+              <img src="drayeditss_avatar.jpg" alt="drayeditss" class="insta-avatar-img">
             </div>
             <div class="insta-info">
               <div class="insta-handle-row">
-                <span class="insta-handle" id="modalAuthor">Hayrunisa Hacıismailoğlu</span>
-                <i class="fa-brands fa-linkedin insta-icon" id="modalPlatformIcon"></i>
+                <span class="insta-handle" id="modalAuthor">@drayeditss</span>
+                <i class="fa-brands fa-instagram insta-icon" id="modalPlatformIcon"></i>
               </div>
-              <span class="insta-sub" id="modalPlatformSub">LinkedIn Profilini Aç</span>
+              <span class="insta-sub" id="modalPlatformSub">Instagram'da İzle</span>
             </div>
             <i class="fa-solid fa-arrow-up-right-from-square insta-arrow"></i>
           </a>
 
           <div class="studio-nav-footer">
-            <span class="video-counter" id="modalVideoCounter">Video 1 / 2</span>
+            <span class="video-counter" id="modalVideoCounter">Video 1 / 4</span>
             <div class="nav-mini-buttons">
               <button class="mini-nav-btn" id="cineMiniPrevBtn" title="Önceki Video (←)">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -384,15 +536,17 @@
     </div>
   </div>
 
+  
   <footer class="footer">
     <div class="footer-container">
-      <p data-i18n="footer.copyright">&copy; 2026 Hayrunisa Hacıismailoğlu. Tüm Hakları Saklıdır.</p>
-      <p class="footer-sub" data-i18n="footer.sub">Video Prodüksiyon · Kurgu · Dublaj · Sosyal Medya Yönetimi</p>
+      <p class="footer-creator" data-i18n="footer.copyright">&copy; 2026 Crafted by <strong>Umut Yazıcı</strong></p>
+      <p class="footer-sub" data-i18n="footer.sub">Tasarım & Geliştirme: Umut Yazıcı — Hayrunisa Hacıismailoğlu için
+        özel olarak hazırlandı.</p>
     </div>
   </footer>
 
   <script src="projects.js"></script>
   <script src="app.js"></script>
 </body>
-</html>
 
+</html>

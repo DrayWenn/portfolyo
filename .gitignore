@@ -2,6 +2,10 @@
 admin/yedekler/
 hayrunisa/admin/yedekler/
 
+# Bağımlılıklar
+node_modules/
+**/node_modules/
+
 # Sistem ve Editör dosyaları
 .DS_Store
 Thumbs.db

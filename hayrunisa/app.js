@@ -4,109 +4,168 @@ document.addEventListener('DOMContentLoaded', () => {
       "nav.about": "Hakkımda & CV",
       "nav.projects": "Projeler",
       "nav.contact": "İletişim",
-      "hero.statusBadge": "Yeni Projelere & İş Tekliflerine Açık",
+      "hero.statusBadge": "Yeni Projelere Açık",
       "hero.greetingPrefix": "Merhaba, Ben",
-      "hero.subtitlePrefix": "Yaratıcı bakış açısıyla ",
-      "hero.subtitleSuffix": " üretiyor ve yönetiyorum.",
+      "hero.subtitlePrefix": "Görsel hikayeler anlatıyor, ",
+      "hero.subtitleSuffix": " üretiyorum.",
       "hero.ctaProjects": '<i class="fa-solid fa-layer-group"></i> Projelerimi İncele',
       "hero.ctaAbout": '<i class="fa-solid fa-user"></i> Hakkımda & CV',
-      "hero.stat1Label": "Prodüksiyon & Proje",
-      "hero.stat2Label": "Yönetilen Marka Hesabı",
-      "hero.stat3Label": "Uzmanlık Alanı",
+      "hero.stat1Label": "Yıl Medya & Kurgu",
+      "hero.stat2Label": "Tamamlanan Proje",
+      "hero.stat3Label": "Ana Uzmanlık Alanı",
       "typewriter.words": [
-        "belgesel ve tanıtım filmleri",
-        "kurgu ve kısa film projeleri",
-        "karakter dublajı ve seslendirme",
-        "stüdyo ve mekan fotoğrafçılığı",
-        "sosyal medya içerik stratejileri"
+        "belgesel & kısa filmler",
+        "profesyonel video kurguları",
+        "film & çizgi film dublajları",
+        "yaratıcı dergi & afiş tasarımları",
+        "stüdyo & etkinlik videoları"
       ],
-      "about.badge": "Görsel İletişim & Medya Prodüksiyon Uzmanı",
-      "about.location": '<i class="fa-solid fa-location-dot"></i> Sakarya / Bursa, Türkiye',
-      "about.bio": "Senaryo aşamasından çekim, ışıklandırma ve kurguya kadar video prodüksiyon süreçlerini uçtan uca yürütüyorum. Belgesel, tanıtım filmi ve kısa film projelerinin yanı sıra markalar için <strong>stüdyo ve mekan fotoğrafçılığı</strong>, <strong>Reels üretimi</strong> ve <strong>çoklu sosyal medya hesap yönetimi</strong> yapıyorum. Aynı zamanda <strong>Etkili Konuşma ve Diksiyon</strong> sertifikasıyla karakter dublajı ve seslendirme çalışmaları gerçekleştiriyorum.",
-      "about.techHeading": "Uzmanlık Alanları",
-      "about.card1Title": "Video Prodüksiyon & Kurgu",
-      "about.card1Desc": "Belgesel, Kısa Film ve Tanıtım Filmi Çekimi, Işıklandırma, Senaryo Yazımı, Adobe Premiere Pro Montaj",
-      "about.card2Title": "Fotoğrafçılık & Sosyal Medya",
-      "about.card2Desc": "Stüdyo Ürün/Model Çekimi, Mekan Çekimleri, Reels Kurgusu, Instagram/TikTok/YouTube Hesap Yönetimi",
-      "about.card3Title": "Dublaj & Seslendirme",
-      "about.card3Desc": "Etkili Konuşma ve Diksiyon Sertifikalı Karakter Seslendirmesi, Ses Temizleme ve Audio Kurgu",
-      "about.card4Title": "Grafik & Basılı Tasarım",
-      "about.card4Desc": "Adobe InDesign ile Dergi Mizanpajı, Afiş ve Tipografi Tasarımı, Kurumsal Sunum Hazırlama",
-      "cv.heading": "Deneyim & Projeler",
+      "about.badge": "Sakarya Üniversitesi · Yeni Medya ve İletişim Mezunu",
+      "about.location": '<i class="fa-solid fa-location-dot"></i> Sakarya / İstanbul, Türkiye',
+      "about.bio": "Sakarya Üniversitesi Yeni Medya ve İletişim bölümünden mezun, üretken, öğrenmeye açık ve çok yönlü bir görsel hikâye anlatıcısıyım. Belgesel, kısa film, stüdyo fotoğrafçılığı ve video kurgu alanlarında aktif çalışarak hem teknik donanımımı hem de anlatı gücümü geliştirdim. <strong>Köfteci İsmail 1928 belgeseli</strong>, <strong>Ayaz Kauçuk (Melasty) belgeseli</strong> ve <strong>Kuleşov etkisi kısa filmi</strong> gibi projelerde görev aldım. Nişan videosu çekimi/kurgusu, sosyal medya yönetimi, dergi tasarımı (InDesign), çizgi film/film dublajı ve TÜBİTAK proje hazırlığı gibi çok yönlü alanlarda profesyonel üretimler gerçekleştirdim.",
+      "about.techHeading": "Temel Uzmanlık Alanları",
+      "about.card1Title": "Filmmaking & Video Editing",
+      "about.card1Desc": "Adobe Premiere Pro, CapCut, InShot. Köfteci İsmail 1928 belgeseli, Melasty fabrika belgeseli, Kuleşov Etkisi ve nişan videoları kurgusu.",
+      "about.card2Title": "Graphic Design & Tipografi",
+      "about.card2Desc": "Adobe InDesign ile dergi tasarımı, afiş ve tipografi çalışmaları, görsel kimlik, ürün tanıtım sunumu ve TÜBİTAK proje tasarımı.",
+      "about.card3Title": "Videography & Fotoğrafçılık",
+      "about.card3Desc": "Saha prodüksiyonu, TRT 2 set fotoğrafçılığı, Rivaİstanbul stüdyo ürün çekimleri, nişan çekimleri, ışıklandırma ve kamera açıları.",
+      "about.card4Title": "Dublaj, Ses & Sosyal Medya",
+      "about.card4Desc": "Karakter ve çizgi film dublajı, Etkili Konuşma & Diksiyon Sertifikası, Rivaİstanbul (5 hesap) ve Jungle Coffee marka iletişimi.",
+      "cv.heading": "Deneyim & Eğitim",
       "cv.downloadBtn": "CV Yazdır / PDF İndir",
-      "skills.heading": "Yetkinlikler & Sertifikalar",
-      "projects.heading": "Projelerim",
+      "cv.liveBadge": "",
+      "cv.item1Date": "2024 - 2025",
+      "cv.item1Title": "Sosyal Medya Uzmanı & Stüdyo Fotoğrafçılığı",
+      "cv.item1Org": "Rivaİstanbul (Bursa) — @rivaistanbulshop",
+      "cv.item1Bullet1": "5 farklı kurumsal hesabın Instagram, TikTok ve YouTube platformlarında sosyal medya uzmanlığı, içerik stratejisi ve reklam yönetimi.",
+      "cv.item1Bullet2": "Profesyonel stüdyo ortamında ürün ve model fotoğraf çekimleri, ışıklandırma kontrolü ve estetik düzenlemeler.",
+      "cv.item1Bullet3": "Sosyal medya pazarlaması, çevrimiçi reklamcılık ve viral video prodüksiyonu ile yüksek takipçi ve satış dönüşümü.",
+      "cv.item2Date": "2024",
+      "cv.item2Title": "Video Editörü & İçerik Geliştirici",
+      "cv.item2Org": "QUBBE MEDYA",
+      "cv.item2Bullet1": "QUBBE MEDYA bünyesinde dinamik video kurguları, röportaj montajları ve video düzenleme süreçleri.",
+      "cv.item2Bullet2": "Kamera önü sunuculuk, haber metni yazımı, içerik geliştirme ve post-prodüksiyon koordinasyonu.",
+      "cv.item3Date": "2024 - 2025",
+      "cv.item3Title": "Belgesel, Tanıtım & Kısa Film Projeleri",
+      "cv.item3Org": "KÖFTECİ İSMAİL 1928 · Ayaz Kauçuk (Melasty) · Bağımsız Kurgu",
+      "cv.item3Bullet1": "KÖFTECİ İSMAİL 1928 - Bellek Belgeseli: Proje yönetimi, senaryo yazımı, editörlük ve post-prodüksiyon video kurgusu.",
+      "cv.item3Bullet2": "Ayaz Kauçuk (Melasty) Belgeseli: Fabrika tanıtım filmi çekimleri, ışıklandırma kontrolü, kurgu yazma ve video prodüksiyonu.",
+      "cv.item3Bullet3": "Nişan Kısa Filmim & Kuleşov Etkisi: Senaryo yazımı, film prodüksiyonu, teorik kurgu altyapısı ve montaj yönetimi.",
+      "cv.item4Date": "2024",
+      "cv.item4Title": "Sosyal Medya & Video İçerik Yöneticisi",
+      "cv.item4Org": "Sakarya Jungle Coffee — @jungle.sakarya",
+      "cv.item4Bullet1": "@jungle.sakarya hesabının içerik stratejisinin planlanması ve sosyal medya hesap yönetimi.",
+      "cv.item4Bullet2": "Mekan içi video çekimleri, dinamik Reels kurguları ve etkileşimi yüksek içerik üretimi.",
+      "skills.heading": "Öne Çıkan Yetkinlikler",
+      "projects.heading": "Projelerim & İşlerim",
       "projects.filterAll": "Tümü",
-      "projects.filterWeb": '<i class="fa-solid fa-camera"></i> Sosyal Medya & Tasarım',
-      "projects.filterAe": '<i class="fa-solid fa-film"></i> Video & Dublaj',
-      "projects.badgeWeb": "Sosyal Medya / Tasarım",
-      "projects.badgeAe": "Video Prodüksiyon",
-      "projects.badgeVideo": "Video & Dublaj",
-      "projects.btnOpen": "Projeyi İncele",
+      "projects.filterAe": "Videolar & Prodüksiyon",
+      "projects.filterWeb": "Web & Sosyal Medya",
+      "projects.filterVideo": "Film & Belgesel",
+      "projects.filterSocial": "Sosyal Medya & Fotoğraf",
+      "projects.filterAudio": "Dublaj & Seslendirme",
+      "projects.badgeWeb": "Web / Sosyal Medya",
+      "projects.badgeAe": "Video",
+      "projects.badgeVideo": "Prodüksiyon",
+      "projects.btnOpen": "Projeyi Aç",
       "projects.btnInspect": "Klasörü İncele",
       "projects.btnPlay": "Videoyu Oynat",
       "projects.btnOpenLink": "Bağlantıyı Aç",
       "projects.empty": "Bu kategoride henüz proje bulunamadı.",
-      "contact.heading": "İletişim",
-      "contact.subtitle": "Prodüksiyon, sosyal medya yönetimi veya seslendirme projeleri için LinkedIn üzerinden ulaşabilirsiniz.",
-      "footer.copyright": "&copy; 2026 Hayrunisa Hacıismailoğlu. Tüm Hakları Saklıdır.",
-      "footer.sub": "Video Prodüksiyon · Kurgu · Dublaj · Sosyal Medya Yönetimi"
+      "contact.heading": "Birlikte Üretelim",
+      "contact.subtitle": "Yeni video projeleri, freelance kurgu, sosyal medya yönetimi ve seslendirme işbirlikleri için benimle iletişime geçin.",
+      "contact.emailLabel": "E-Posta",
+      "contact.githubLabel": "LinkedIn",
+      "contact.viewProfile": "Profili İncele",
+      "modal.title": "Video Ön İzleme",
+      "modal.videoErrorTitle": "Video Dosyası Bulunamadı",
+      "modal.videoErrorDesc": "dosyası ilgili klasörde bulunamadı.<br>Lütfen projenin doğru konumda olduğundan emin olun.",
+      "footer.copyright": '&copy; 2026 Crafted by <strong>Umut Yazıcı</strong>',
+      "footer.sub": "Tasarım & Geliştirme: Umut Yazıcı — Hayrunisa Hacıismailoğlu için özel olarak hazırlandı."
     },
     en: {
       "nav.about": "About & CV",
       "nav.projects": "Projects",
       "nav.contact": "Contact",
-      "hero.statusBadge": "Open to New Projects & Job Offers",
+      "hero.statusBadge": "Open to New Projects",
       "hero.greetingPrefix": "Hello, I'm",
-      "hero.subtitlePrefix": "I produce and manage ",
-      "hero.subtitleSuffix": " with a creative vision.",
+      "hero.subtitlePrefix": "I tell visual stories and produce ",
+      "hero.subtitleSuffix": " with creativity.",
       "hero.ctaProjects": '<i class="fa-solid fa-layer-group"></i> View Projects',
       "hero.ctaAbout": '<i class="fa-solid fa-user"></i> About & CV',
-      "hero.stat1Label": "Productions & Projects",
-      "hero.stat2Label": "Managed Brand Accounts",
-      "hero.stat3Label": "Core Domains",
+      "hero.stat1Label": "Years Media & Edit",
+      "hero.stat2Label": "Completed Projects",
+      "hero.stat3Label": "Core Disciplines",
       "typewriter.words": [
-        "documentaries and corporate films",
-        "narrative short film edits",
-        "character dubbing and voiceover",
-        "studio and venue photography",
-        "social media content strategies"
+        "documentaries & short films",
+        "professional video edits",
+        "film & animation voiceovers",
+        "creative magazine & poster designs",
+        "studio & event cinematography"
       ],
-      "about.badge": "Visual Communication & Media Production Specialist",
-      "about.location": '<i class="fa-solid fa-location-dot"></i> Sakarya / Bursa, Turkey',
-      "about.bio": "I manage video production processes end-to-end from scriptwriting to shooting, lighting, and editing. Alongside documentary, promo film, and short film projects, I handle <strong>studio and venue photography</strong>, <strong>Reels production</strong>, and <strong>multi-account social media management</strong> for brands. I also perform certified character dubbing and voiceover work.",
-      "about.techHeading": "Core Competencies",
-      "about.card1Title": "Video Production & Editing",
-      "about.card1Desc": "Documentary, Short Film & Promo Shooting, Lighting, Scriptwriting, Adobe Premiere Pro Editing",
-      "about.card2Title": "Photography & Social Media",
-      "about.card2Desc": "Studio Product/Model Shoots, Venue Photography, Reels Editing, IG/TikTok/YouTube Management",
-      "about.card3Title": "Dubbing & Voiceover",
-      "about.card3Desc": "Certified Character Voiceover, Dubbing, Audio Cleanup & Sound Editing",
-      "about.card4Title": "Graphic & Editorial Design",
-      "about.card4Desc": "Editorial Magazine Layout with Adobe InDesign, Poster Typography, Corporate Presentations",
-      "cv.heading": "Experience & Projects",
+      "about.badge": "Sakarya University · New Media & Communication Graduate",
+      "about.location": '<i class="fa-solid fa-location-dot"></i> Sakarya / Istanbul, Turkey',
+      "about.bio": "Graduate of Sakarya University New Media and Communication, I am a productive, curious, and versatile visual storyteller. Working across documentary, short films, studio photography, and video editing, I developed strong narrative and technical skills. Experienced in projects including the Köfteci İsmail 1928 documentary, Melasty corporate documentary, Kuleshov effect short film, engagement cinematography, InDesign magazine layouts, voiceover/dubbing and TÜBİTAK research projects.",
+      "about.techHeading": "Core Areas of Expertise",
+      "about.card1Title": "Filmmaking & Video Editing",
+      "about.card1Desc": "Adobe Premiere Pro, CapCut, InShot. Köfteci İsmail 1928 documentary, Melasty factory film, Kuleshov Effect and engagement edits.",
+      "about.card2Title": "Graphic Design & Typography",
+      "about.card2Desc": "Editorial magazine layouts in InDesign, posters, typography, brand presentation decks, and TÜBİTAK creative designs.",
+      "about.card3Title": "Videography & Photography",
+      "about.card3Desc": "Field production, TRT 2 set photography, Rivaİstanbul studio product sessions, venue shoots, lighting and camera angles.",
+      "about.card4Title": "Dubbing, Voice & Social Media",
+      "about.card4Desc": "Character and cartoon dubbing, Diction Certificate, managing 5 Rivaİstanbul accounts and Jungle Coffee brand communication.",
+      "cv.heading": "Experience & Education",
       "cv.downloadBtn": "Print CV / Download PDF",
-      "skills.heading": "Competencies & Certificates",
-      "projects.heading": "Projects",
+      "cv.liveBadge": "",
+      "cv.item1Date": "2024 - 2025",
+      "cv.item1Title": "Social Media Specialist & Studio Photography",
+      "cv.item1Org": "Rivaİstanbul (Bursa) — @rivaistanbulshop",
+      "cv.item1Bullet1": "Management of 5 corporate brand accounts across IG, TikTok and YT; social media strategy and advertising.",
+      "cv.item1Bullet2": "Professional studio product and model photography, lighting control, and aesthetic compositions.",
+      "cv.item1Bullet3": "Social media marketing, online ads and viral video production driving audience growth and sales conversion.",
+      "cv.item2Date": "2024",
+      "cv.item2Title": "Video Editor & Content Developer",
+      "cv.item2Org": "QUBBE MEDYA",
+      "cv.item2Bullet1": "Dynamic video editing, interview montage, and social media video production at QUBBE MEDYA.",
+      "cv.item2Bullet2": "On-camera presenting, news copy writing, content development and post-production coordination.",
+      "cv.item3Date": "2024 - 2025",
+      "cv.item3Title": "Documentary, Promo & Short Film Projects",
+      "cv.item3Org": "KÖFTECİ İSMAİL 1928 · Ayaz Kauçuk (Melasty) · Independent",
+      "cv.item3Bullet1": "KÖFTECİ İSMAİL 1928 Memory Documentary: Project management, scriptwriting, editing and post-production.",
+      "cv.item3Bullet2": "Ayaz Kauçuk (Melasty) Documentary: Factory promotional filming, lighting control, script writing and video production.",
+      "cv.item3Bullet3": "Engagement Film & Kuleshov Effect: Scriptwriting, cinematography, montage theory and Premiere Pro editing.",
+      "cv.item4Date": "2024",
+      "cv.item4Title": "Social Media & Video Content Lead",
+      "cv.item4Org": "Sakarya Jungle Coffee — @jungle.sakarya",
+      "cv.item4Bullet1": "Content strategy planning and social media page management for @jungle.sakarya.",
+      "cv.item4Bullet2": "In-venue photo and video shooting, high-engagement creative Reels and brand identity communication.",
+      "skills.heading": "Key Competencies",
+      "projects.heading": "Featured Works & Portfolio",
       "projects.filterAll": "All",
-      "projects.filterWeb": '<i class="fa-solid fa-camera"></i> Social Media & Design',
-      "projects.filterAe": '<i class="fa-solid fa-film"></i> Video & Dubbing',
-      "projects.badgeWeb": "Social Media / Design",
-      "projects.badgeAe": "Video Production",
-      "projects.badgeVideo": "Video & Dubbing",
-      "projects.btnOpen": "View Project",
+      "projects.filterVideo": "Film & Documentary",
+      "projects.filterSocial": "Social Media & Photos",
+      "projects.filterAudio": "Dubbing & Voiceover",
+      "projects.btnOpen": "Open Project",
       "projects.btnInspect": "View Folder",
       "projects.btnPlay": "Play Video",
       "projects.btnOpenLink": "Open Link",
       "projects.empty": "No projects found in this category.",
-      "contact.heading": "Contact",
-      "contact.subtitle": "Feel free to reach out on LinkedIn for video production, social media management, or voiceover projects.",
-      "footer.copyright": "&copy; 2026 Hayrunisa Hacıismailoğlu. All Rights Reserved.",
-      "footer.sub": "Video Production · Editing · Dubbing · Social Media Management"
+      "contact.heading": "Let's Collaborate",
+      "contact.subtitle": "Get in touch for new video projects, promotional films, social media management, or voiceover collaborations.",
+      "contact.emailLabel": "Email",
+      "contact.githubLabel": "LinkedIn",
+      "contact.viewProfile": "View Profile",
+      "modal.title": "Video Preview",
+      "modal.videoErrorTitle": "Video File Not Found",
+      "modal.videoErrorDesc": "was not found in the project directory.<br>Please verify the file path.",
+      "footer.copyright": '&copy; 2026 Crafted by <strong>Umut Yazıcı</strong>',
+      "footer.sub": "Design & Development: Umut Yazıcı — Specially designed for Hayrunisa Hacıismailoğlu."
     }
   };
 
-  let currentLang = localStorage.getItem('hayrunisa-portfolio-lang') || 'tr';
+  let currentLang = localStorage.getItem('portfolio-lang') || 'tr';
   let currentFilter = 'all';
 
   function applyTranslations(lang) {
@@ -122,13 +181,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 
-    document.title = lang === 'en'
-      ? "Hayrunisa Hacıismailoğlu | Portfolio"
-      : "Hayrunisa Hacıismailoğlu | Portfolyo";
+    document.title = lang === 'en' 
+      ? "Hayrunisa Hacıismailoğlu | Filmmaker · Videographer · Editor" 
+      : "Hayrunisa Hacıismailoğlu | Video Editörü · İçerik Üreticisi · Seslendirme Sanatçısı";
 
     if (typeof PROJECTS_DATA !== 'undefined') {
-      const filtered = currentFilter === 'all'
-        ? PROJECTS_DATA
+      const filtered = currentFilter === 'all' 
+        ? PROJECTS_DATA 
         : PROJECTS_DATA.filter(p => p.category === currentFilter);
       renderProjects(filtered);
     }
@@ -141,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetLang = btn.getAttribute('data-lang');
       if (targetLang !== currentLang) {
         currentLang = targetLang;
-        localStorage.setItem('hayrunisa-portfolio-lang', currentLang);
+        localStorage.setItem('portfolio-lang', currentLang);
         applyTranslations(currentLang);
       }
     });
@@ -159,15 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
       profileSub: { tr: 'Bağlantıyı Aç', en: 'Open Link' }
     };
     const u = url.toLowerCase();
-    if (u.includes('linkedin.com')) {
-      return {
-        type: 'generic',
-        name: 'LinkedIn',
-        icon: 'fa-brands fa-linkedin',
-        label: { tr: "LinkedIn'de İncele", en: 'View on LinkedIn' },
-        profileSub: { tr: "LinkedIn'de İncele", en: 'View on LinkedIn' }
-      };
-    }
     if (u.includes('youtube.com/shorts') || u.includes('youtu.be') || u.includes('youtube.com')) {
       const isShorts = u.includes('/shorts');
       return {
@@ -197,10 +247,10 @@ document.addEventListener('DOMContentLoaded', () => {
         name: 'Instagram',
         icon: 'fa-brands fa-instagram',
         label: {
-          tr: isReel ? "Instagram'da Gönderiyi Aç" : "Instagram'da İncele",
-          en: isReel ? 'View on Instagram' : 'View on Instagram'
+          tr: isReel ? "Instagram'da Gönderiyi Aç" : "Instagram'da İzle",
+          en: isReel ? 'View on Instagram' : 'Watch on Instagram'
         },
-        profileSub: { tr: "Instagram'da İncele", en: 'View on Instagram' }
+        profileSub: { tr: "Instagram'da İzle", en: 'View on Instagram' }
       };
     }
     return {
@@ -234,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const title = typeof project.title === 'object' ? (project.title[currentLang] || project.title.tr) : project.title;
       const description = typeof project.description === 'object' ? (project.description[currentLang] || project.description.tr) : project.description;
-
+      
       let tagsList = [];
       if (project.tags) {
         if (Array.isArray(project.tags)) {
@@ -245,19 +295,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const hasVideo = Boolean(project.videoSrc && project.videoSrc.trim() !== '');
-      const isWeb = project.category === 'web';
+      const isWeb = project.category === 'web' || !hasVideo;
+      
+      const isVideoEdit = tagsList.some(t => t.toLowerCase().includes('video') || t.toLowerCase().includes('kurgu') || t.toLowerCase().includes('edit') || t.toLowerCase().includes('film') || t.toLowerCase().includes('belgesel'));
+      
+      let badgeText = dict["projects.badgeWeb"] || 'Web / Proje';
+      if (hasVideo) {
+        badgeText = isVideoEdit ? (dict["projects.badgeVideo"] || 'Video / Prodüksiyon') : (dict["projects.badgeAe"] || 'Video');
+      } else if (project.category === 'web') {
+        badgeText = dict["projects.badgeWeb"] || 'Web / Bağlantı';
+      } else {
+        badgeText = 'Bağlantı';
+      }
 
-      let badgeText = isWeb ? (dict["projects.badgeWeb"] || 'Sosyal Medya / Tasarım') : (dict["projects.badgeVideo"] || 'Video & Dublaj');
-      const badgeClass = isWeb ? 'bg-web' : 'bg-ae';
-      const glowColor = isWeb ? 'rgba(6,182,212,0.15)' : 'rgba(168,85,247,0.15)';
+      const badgeClass = hasVideo ? 'bg-ae' : 'bg-web';
+      const glowColor = hasVideo ? 'rgba(236,72,153,0.18)' : 'rgba(251,113,133,0.18)';
 
-      const directLink = (project.link && project.link.trim() !== '')
-        ? project.link.trim()
+      const directLink = (project.link && project.link.trim() !== '') 
+        ? project.link.trim() 
         : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
 
       let actionHtml = '';
 
       if (hasVideo) {
+
         let linkBtnHtml = '';
         if (directLink) {
           const platform = detectPlatform(directLink);
@@ -277,15 +338,18 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
       } else {
+
         const targetUrl = directLink || '#';
         const platform = detectPlatform(targetUrl);
-        const btnLabel = platform.type !== 'generic' || targetUrl.includes('linkedin.com')
-          ? (platform.label[currentLang] || platform.label.tr)
-          : (dict["projects.btnOpen"] || 'Projeyi İncele');
+        const isFolderProject = targetUrl.startsWith('../') || targetUrl.startsWith('./');
+        const btnLabel = isFolderProject 
+          ? (dict["projects.btnInspect"] || 'Klasörü İncele') 
+          : (platform.type !== 'generic' ? (platform.label[currentLang] || platform.label.tr) : (dict["projects.btnOpen"] || 'Projeyi Aç'));
+        const btnIcon = isFolderProject ? 'fa-folder-open' : platform.icon;
 
         actionHtml = `
           <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="card-btn">
-            ${btnLabel} <i class="${platform.icon}"></i>
+            ${btnLabel} <i class="${platform.icon.startsWith('fa-brands') ? platform.icon : 'fa-solid ' + btnIcon}"></i>
           </a>
         `;
       }
@@ -296,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="card-image-wrapper">
           <div class="card-badge ${badgeClass}">${badgeText}</div>
           <div class="card-bg-glow" style="background: radial-gradient(circle, ${glowColor} 0%, transparent 70%);"></div>
-          <i class="fa-solid ${project.icon || 'fa-film'} card-icon" style="color: ${isWeb ? 'var(--secondary)' : 'var(--primary)'}"></i>
+          <i class="fa-solid ${project.icon} card-icon" style="color: ${isWeb ? 'var(--secondary)' : 'var(--primary)'}"></i>
         </div>
         <div class="card-body">
           <h3 class="card-title">${title}</h3>
@@ -317,13 +381,13 @@ document.addEventListener('DOMContentLoaded', () => {
       filterButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
       currentFilter = button.getAttribute('data-filter');
-
+      
       projectsGrid.style.opacity = '0';
       projectsGrid.style.transform = 'translateY(10px)';
-
+      
       setTimeout(() => {
-        const filtered = currentFilter === 'all'
-          ? PROJECTS_DATA
+        const filtered = currentFilter === 'all' 
+          ? PROJECTS_DATA 
           : PROJECTS_DATA.filter(p => p.category === currentFilter);
         renderProjects(filtered);
         projectsGrid.style.opacity = '1';
@@ -342,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalInstagramBtn = document.getElementById('modalInstagramBtn');
   const modalVideoCounter = document.getElementById('modalVideoCounter');
   const closeBtn = document.getElementById('closeModalBtn');
-
+  
   const videoTapOverlay = document.getElementById('videoTapOverlay');
   const playerCenterIcon = document.getElementById('playerCenterIcon');
   const videoProgressContainer = document.getElementById('videoProgressContainer');
@@ -350,6 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ctrlPlayPauseBtn = document.getElementById('ctrlPlayPauseBtn');
   const ctrlMuteBtn = document.getElementById('ctrlMuteBtn');
   const ctrlVolumeSlider = document.getElementById('ctrlVolumeSlider');
+  const cineVolumeContainer = document.getElementById('cineVolumeContainer');
   const videoTime = document.getElementById('videoTime');
   const ctrlFullscreenBtn = document.getElementById('ctrlFullscreenBtn');
 
@@ -420,6 +485,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function updateMuteUI(isMuted) {
+    const currentVol = (modalVideo && !isNaN(modalVideo.volume)) ? modalVideo.volume : userVolume;
+    updateVolumeUI(currentVol, isMuted);
+  }
+
   function setVideoVolume(newVol, showFeedback = false) {
     if (!modalVideo) return;
     const clamped = Math.max(0, Math.min(1, parseFloat(newVol)));
@@ -468,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = typeof project.title === 'object' ? (project.title[currentLang] || project.title.tr) : project.title;
     const desc = typeof project.description === 'object' ? (project.description[currentLang] || project.description.tr) : (project.description || '');
 
-    if (modalTitle) modalTitle.textContent = title || 'Video Prodüksiyon';
+    if (modalTitle) modalTitle.textContent = title || 'Video Edit';
     if (modalDescription) modalDescription.textContent = desc;
 
     if (modalTagsBox) {
@@ -476,18 +546,25 @@ document.addEventListener('DOMContentLoaded', () => {
       if (project.tags) {
         tagsList = Array.isArray(project.tags) ? project.tags : (project.tags[currentLang] || project.tags.tr || []);
       }
-      modalTagsBox.innerHTML = tagsList.map(tag => `<span><i class="fa-solid fa-film"></i> ${tag}</span>`).join('');
+      if (tagsList.length === 0) tagsList = ["After Effects", "Motion Design", "Video Edit"];
+      
+      modalTagsBox.innerHTML = tagsList.map(tag => {
+        const icon = tag.toLowerCase().includes('color') ? 'fa-palette' 
+          : tag.toLowerCase().includes('music') || tag.toLowerCase().includes('müzik') || tag.toLowerCase().includes('ses') ? 'fa-music'
+          : tag.toLowerCase().includes('edit') ? 'fa-film' : 'fa-wand-magic-sparkles';
+        return `<span><i class="fa-solid ${icon}"></i> ${tag}</span>`;
+      }).join('');
     }
 
-    const authorHandle = project.author || 'Hayrunisa Hacıismailoğlu';
-    if (modalAuthor) modalAuthor.textContent = authorHandle;
+    const authorHandle = project.author || 'drayeditss';
+    if (modalAuthor) modalAuthor.textContent = '@' + authorHandle.replace(/^@+/, '');
 
     if (modalVideoCounter && videoProjectsList.length > 0) {
       modalVideoCounter.textContent = `Video ${currentVideoIndex + 1} / ${videoProjectsList.length}`;
     }
 
     const modalDirectLinkBtn = document.getElementById('modalDirectLinkBtn');
-    const directLink = (project.link && project.link.trim() !== '') ? project.link.trim() : '';
+    const directLink = (project.link && project.link.trim() !== '') ? project.link.trim() : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
 
     if (modalDirectLinkBtn) {
       if (directLink) {
@@ -501,8 +578,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    const cleanHandle = authorHandle.replace(/^@+/, '');
+    const modalPlatformIcon = document.getElementById('modalPlatformIcon');
+    const modalPlatformSub = document.getElementById('modalPlatformSub');
+    const platform = detectPlatform(directLink);
+
+    if (modalPlatformIcon) {
+      modalPlatformIcon.className = `${platform.icon} insta-icon`;
+    }
+    if (modalPlatformSub) {
+      modalPlatformSub.textContent = platform.profileSub[currentLang] || platform.profileSub.tr;
+    }
+
     if (modalInstagramBtn) {
-      modalInstagramBtn.href = project.instagramUrl || directLink || 'https://www.linkedin.com/in/hayrunisa-hac%C4%B1ismailo%C4%9Flu-3a606b3a1/';
+      if (directLink && (directLink.includes('youtube.com') || directLink.includes('youtu.be') || directLink.includes('tiktok.com'))) {
+        modalInstagramBtn.href = directLink;
+      } else {
+        modalInstagramBtn.href = project.instagramUrl || `https://www.instagram.com/${cleanHandle}/`;
+      }
     }
 
     videoSource.src = project.videoSrc || '';
@@ -706,19 +799,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const modeToggle = document.getElementById('modeToggle');
   const modeIcon = document.getElementById('modeIcon');
 
-  const savedMode = localStorage.getItem('hayrunisa-portfolio-mode');
-  if (savedMode === 'light') {
+  const savedMode = localStorage.getItem('portfolio-mode') || 'light';
+  if (savedMode === 'dark') {
+    document.body.classList.add('dark-mode');
+    document.body.classList.remove('light-mode');
+    if (modeIcon) modeIcon.className = 'fa-solid fa-moon';
+  } else {
     document.body.classList.add('light-mode');
+    document.body.classList.remove('dark-mode');
     if (modeIcon) modeIcon.className = 'fa-solid fa-sun';
   }
 
   if (modeToggle) {
     modeToggle.addEventListener('click', () => {
-      const isLight = document.body.classList.toggle('light-mode');
+      const isDark = document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle('light-mode', !isDark);
       if (modeIcon) {
-        modeIcon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        modeIcon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
       }
-      localStorage.setItem('hayrunisa-portfolio-mode', isLight ? 'light' : 'dark');
+      localStorage.setItem('portfolio-mode', isDark ? 'dark' : 'light');
     });
   }
 
@@ -732,7 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function type() {
     if (!typewriterElement) return;
     const currentWord = activeWords[wordIndex % activeWords.length];
-
+    
     if (isDeleting) {
       typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
@@ -764,40 +863,69 @@ document.addEventListener('DOMContentLoaded', () => {
     type();
   }
 
-  const laptop3D = document.getElementById('laptop3D');
-  const laptopStage = document.getElementById('laptopStageWrapper');
+  const camera3D = document.getElementById('camera3D') || document.getElementById('laptop3D');
+  const cameraStage = document.getElementById('cameraStageWrapper') || document.getElementById('laptopStageWrapper');
+  const shutterBtn = document.getElementById('cameraShutterBtn');
+  const flashFx = document.getElementById('cameraFlashFx');
 
-  if (laptop3D && laptopStage) {
-    const CODE_FILES = {
-      "produksiyon.js": `<span class="c-kw">const</span> <span class="c-var">profil</span> = {
-  <span class="c-prop">isim</span>: <span class="c-str">'Hayrunisa Hacıismailoğlu'</span>,
-  <span class="c-prop">uzmanlik</span>: <span class="c-str">'Video Kurgu & Prodüksiyon'</span>,
-  <span class="c-prop">alanlar</span>: [<span class="c-str">'Belgesel'</span>, <span class="c-str">'Dublaj'</span>, <span class="c-str">'Sosyal Medya'</span>],
-  <span class="c-prop">araclar</span>: [<span class="c-str">'Premiere Pro'</span>, <span class="c-str">'InDesign'</span>, <span class="c-str">'Photoshop'</span>]
-};`,
-      "projeler.js": `<span class="c-kw">const</span> <span class="c-var">calismalar</span> = [
-  <span class="c-str">'Köfteci İsmail 1928 Belgeseli'</span>,
-  <span class="c-str">'Ayaz Kauçuk (Melasty) Tanıtım'</span>,
-  <span class="c-str">'Kuleşov Etkisi Kısa Film'</span>,
-  <span class="c-str">'Rivaİstanbul & Jungle Coffee'</span>
-];`
-    };
+  function triggerCameraShutter() {
+    if (flashFx) {
+      flashFx.classList.remove('flashing');
+      void flashFx.offsetWidth;
+      flashFx.classList.add('flashing');
+      setTimeout(() => flashFx.classList.remove('flashing'), 600);
+    }
 
-    const codeElement = document.getElementById('laptopCode');
-    const editorTabs = document.querySelectorAll('.editor-tab');
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) {
+        const ctx = new AudioCtx();
 
-    editorTabs.forEach(tab => {
-      tab.addEventListener('click', (e) => {
-        e.stopPropagation();
-        editorTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const fileKey = tab.dataset.file;
-        if (CODE_FILES[fileKey] && codeElement) {
-          codeElement.innerHTML = CODE_FILES[fileKey];
-        }
-      });
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(850, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.07);
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.09);
+
+        setTimeout(() => {
+          const osc2 = ctx.createOscillator();
+          const gain2 = ctx.createGain();
+          osc2.type = 'square';
+          osc2.frequency.setValueAtTime(400, ctx.currentTime);
+          osc2.frequency.exponentialRampToValueAtTime(90, ctx.currentTime + 0.06);
+          gain2.gain.setValueAtTime(0.18, ctx.currentTime);
+          gain2.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.07);
+          osc2.connect(gain2);
+          gain2.connect(ctx.destination);
+          osc2.start();
+          osc2.stop(ctx.currentTime + 0.08);
+        }, 55);
+      }
+    } catch (err) {
+
+    }
+  }
+
+  if (shutterBtn) {
+    shutterBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      triggerCameraShutter();
     });
+  }
 
+  if (camera3D) {
+    camera3D.addEventListener('click', () => {
+      triggerCameraShutter();
+    });
+  }
+
+  if (camera3D && cameraStage) {
     let currentProgress = 0;
     let targetProgress = 0;
     let mouseX = 0;
@@ -805,7 +933,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMouseX = 0;
     let currentMouseY = 0;
 
-    let currentRotY = -22;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragRotX = 0;
+    let dragRotY = 0;
+    let targetDragRotX = 0;
+    let targetDragRotY = 0;
+
+    let currentRotY = -20;
     let currentRotX = 12;
     let currentRotZ = -3;
     let currentTransX = 0;
@@ -821,38 +957,65 @@ document.addEventListener('DOMContentLoaded', () => {
     updateScrollTarget();
 
     window.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-      mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+      if (!isDragging) {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+      } else {
+        const deltaX = e.clientX - dragStartX;
+        const deltaY = e.clientY - dragStartY;
+        targetDragRotY = deltaX * 0.35;
+        targetDragRotX = -deltaY * 0.35;
+      }
     }, { passive: true });
 
-    function render3DLaptop() {
-      time += 0.035;
+    camera3D.addEventListener('mousedown', (e) => {
+      if (e.target.closest('#cameraShutterBtn')) return;
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      camera3D.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        camera3D.style.cursor = 'pointer';
+        targetDragRotX = 0;
+        targetDragRotY = 0;
+      }
+    });
+
+    function render3DCamera() {
+      time += 0.038;
       currentProgress += (targetProgress - currentProgress) * 0.075;
-      currentMouseX += (mouseX - currentMouseX) * 0.05;
-      currentMouseY += (mouseY - currentMouseY) * 0.05;
+      currentMouseX += (mouseX - currentMouseX) * 0.06;
+      currentMouseY += (mouseY - currentMouseY) * 0.06;
 
-      const targetRotY = -24 + (currentProgress * 58) + (currentMouseX * 7);
-      const targetRotX = 13 - (currentProgress * 8) - (currentMouseY * 6);
-      const targetRotZ = -4 + (currentProgress * 9) + (currentMouseX * 2);
+      dragRotX += (targetDragRotX - dragRotX) * 0.1;
+      dragRotY += (targetDragRotY - dragRotY) * 0.1;
 
-      const floatY = Math.sin(time) * 7;
-      const targetTransX = (currentProgress * -30) + (currentMouseX * 12);
-      const targetTransY = floatY + (currentMouseY * 8);
+      const targetRotY = -20 + (currentProgress * 55) + (currentMouseX * 18) + dragRotY;
+      const targetRotX = 12 - (currentProgress * 8) - (currentMouseY * 16) + dragRotX;
+      const targetRotZ = -3 + (currentProgress * 9) + (currentMouseX * 4);
 
-      currentRotY += (targetRotY - currentRotY) * 0.08;
-      currentRotX += (targetRotX - currentRotX) * 0.08;
-      currentRotZ += (targetRotZ - currentRotZ) * 0.08;
-      currentTransX += (targetTransX - currentTransX) * 0.08;
-      currentTransY += (targetTransY - currentTransY) * 0.08;
+      const floatY = Math.sin(time) * 10;
+      const floatX = Math.cos(time * 0.7) * 4;
+      const targetTransX = (currentProgress * -35) + (currentMouseX * 18) + floatX;
+      const targetTransY = floatY + (currentMouseY * 12);
 
-      laptop3D.style.transform = `translate3d(${currentTransX.toFixed(2)}px, ${currentTransY.toFixed(2)}px, 0px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) rotateZ(${currentRotZ.toFixed(2)}deg)`;
+      currentRotY += (targetRotY - currentRotY) * 0.085;
+      currentRotX += (targetRotX - currentRotX) * 0.085;
+      currentRotZ += (targetRotZ - currentRotZ) * 0.085;
+      currentTransX += (targetTransX - currentTransX) * 0.085;
+      currentTransY += (targetTransY - currentTransY) * 0.085;
 
-      requestAnimationFrame(render3DLaptop);
+      camera3D.style.transform = `translate3d(${currentTransX.toFixed(2)}px, ${currentTransY.toFixed(2)}px, 0px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) rotateZ(${currentRotZ.toFixed(2)}deg)`;
+
+      requestAnimationFrame(render3DCamera);
     }
 
-    render3DLaptop();
+    render3DCamera();
   }
 
   applyTranslations(currentLang);
 });
-
