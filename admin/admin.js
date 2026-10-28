@@ -1,19 +1,6 @@
-/* ==========================================================================
-   PORTFOLYO YÖNETİM PANELİ — İSTEMCİ SCRIPTI (VANILLA JS)
-   - Proje listeleme & arama & filtreleme
-   - Sürükle-bırak ile sıralama değiştirme
-   - Drawer içinde proje/video düzenleme
-   - Büyük video yükleme (chunk/stream ilerleme çubuğu ile)
-   - Kolay etiket yönetimi (Enter ile ekle, tıkla sil)
-   - projects.js'e kaydetme & otomatik yedekleme
-   ========================================================================== */
-
 (function () {
     'use strict';
 
-    // --------------------------------------------------------------------------
-    // İkon Listesi (Hazır font-awesome seçenekleri)
-    // --------------------------------------------------------------------------
     const POPULAR_ICONS = [
         'fa-clapperboard', 'fa-film', 'fa-video', 'fa-play', 'fa-wand-magic-sparkles',
         'fa-music', 'fa-camera', 'fa-mountain', 'fa-store', 'fa-cart-shopping',
@@ -21,20 +8,14 @@
         'fa-database', 'fa-layer-group', 'fa-palette', 'fa-bolt', 'fa-fire'
     ];
 
-    // --------------------------------------------------------------------------
-    // Durum (State)
-    // --------------------------------------------------------------------------
-    let projects = [];              // Sunucudan gelen / üzerinde çalışılan liste
-    let initialProjectsJson = '[]'; // Değişiklik var mı kontrolü için
-    let activeFilter = 'all';       // 'all' | 'ae' | 'web'
+    let projects = [];
+    let initialProjectsJson = '[]';
+    let activeFilter = 'all';
     let searchQuery = '';
-    let editingId = null;           // number (düzenlenen id) veya 'new' (yeni proje)
+    let editingId = null;
     let currentUploadXhr = null;
     let dragSrcIndex = null;
 
-    // --------------------------------------------------------------------------
-    // DOM Elementleri
-    // --------------------------------------------------------------------------
     const $ = (id) => document.getElementById(id);
     const grid = $('projectGrid');
     const emptyState = $('emptyState');
@@ -47,18 +28,15 @@
     const searchInput = $('searchInput');
     const filterTabs = $('filterTabs');
 
-    // Drawer
     const drawer = $('drawer');
     const drawerBackdrop = $('drawerBackdrop');
     const drawerClose = $('drawerClose');
     const drawerTitle = $('drawerTitle');
     const drawerKicker = $('drawerKicker');
-    const projectForm = $('projectForm');
     const applyEditBtn = $('applyEditBtn');
     const cancelEditBtn = $('cancelEditBtn');
     const deleteProjectBtn = $('deleteProjectBtn');
 
-    // Form inputs
     const catAe = $('catAe');
     const catWeb = $('catWeb');
     const titleTr = $('titleTr');
@@ -74,7 +52,6 @@
     const tagsEnEl = $('tagsEn');
     const videoField = $('videoField');
 
-    // Video dropzone & preview
     const dropzone = $('dropzone');
     const fileInput = $('fileInput');
     const videoPreview = $('videoPreview');
@@ -88,7 +65,6 @@
     const uploadFill = $('uploadFill');
     const cancelUploadBtn = $('cancelUploadBtn');
 
-    // Dialog & Toasts & Page Drop
     const confirmDialog = $('confirmDialog');
     const confirmTitle = $('confirmTitle');
     const confirmText = $('confirmText');
@@ -100,7 +76,6 @@
     const pageDrop = $('pageDrop');
     const toasts = $('toasts');
 
-    // Stats
     const statTotal = $('statTotal');
     const statVideo = $('statVideo');
     const statWeb = $('statWeb');
@@ -109,10 +84,7 @@
     let tagsTrList = [];
     let tagsEnList = [];
 
-    // --------------------------------------------------------------------------
-    // Bildirimler (Toasts)
-    // --------------------------------------------------------------------------
-    function showToast(message, type = 'success', duration = 3200) {
+    function showToast(message, type = 'success', duration = 3000) {
         const icons = {
             success: 'fa-circle-check',
             error: 'fa-circle-exclamation',
@@ -135,9 +107,6 @@
         })[m]);
     }
 
-    // --------------------------------------------------------------------------
-    // Sunucu İletişimi
-    // --------------------------------------------------------------------------
     async function fetchProjects() {
         loadingState.hidden = false;
         serverError.hidden = true;
@@ -151,7 +120,7 @@
             loadingState.hidden = true;
             render();
         } catch (err) {
-            console.error('Projeler yüklenemedi:', err);
+            console.error(err);
             loadingState.hidden = true;
             serverError.hidden = false;
         }
@@ -159,7 +128,7 @@
 
     async function persistProjects() {
         saveBtn.disabled = true;
-        saveBtn.innerHTML = '<span class="spinner"></span> Kaydediliyor…';
+        saveBtn.innerHTML = '<span class="spinner"></span> Kaydediliyor...';
         try {
             const res = await fetch('/api/projects', {
                 method: 'PUT',
@@ -172,7 +141,7 @@
             initialProjectsJson = JSON.stringify(projects);
             checkDirty();
             render();
-            showToast('Değişiklikler kaydedildi ve projects.js güncellendi!', 'success');
+            showToast('Değişiklikler kaydedildi.', 'success');
         } catch (err) {
             showToast(err.message || 'Kayıt sırasında hata oluştu', 'error', 5000);
         } finally {
@@ -181,24 +150,14 @@
         }
     }
 
-    // --------------------------------------------------------------------------
-    // Değişiklik Takibi
-    // --------------------------------------------------------------------------
     function isDirty() {
         return JSON.stringify(projects) !== initialProjectsJson;
     }
 
     function checkDirty() {
-        if (isDirty()) {
-            saveBar.classList.add('show');
-        } else {
-            saveBar.classList.remove('show');
-        }
+        saveBar.classList.toggle('show', isDirty());
     }
 
-    // --------------------------------------------------------------------------
-    // İkon Seçici Oluşturma
-    // --------------------------------------------------------------------------
     function initIconGrid() {
         iconGrid.innerHTML = POPULAR_ICONS.map(ic => `
             <button type="button" class="icon-choice ${ic === currentIcon ? 'active' : ''}" data-icon="${ic}" title="${ic}">
@@ -222,15 +181,12 @@
         });
     }
 
-    // --------------------------------------------------------------------------
-    // Etiket (Chip) Yönetimi
-    // --------------------------------------------------------------------------
     function renderChips(container, list, onChange) {
         container.innerHTML = '';
         list.forEach((tag, idx) => {
             const chip = document.createElement('span');
             chip.className = 'chip';
-            chip.title = 'Silmek için tıklayın';
+            chip.title = 'Silmek için tıkla';
             chip.innerHTML = `${escapeHtml(tag)} <i class="fa-solid fa-xmark"></i>`;
             chip.addEventListener('click', () => {
                 list.splice(idx, 1);
@@ -242,7 +198,7 @@
 
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = list.length === 0 ? 'Etiket yazıp Enter’a bas…' : '+ etiket';
+        input.placeholder = list.length === 0 ? 'Etiket yazıp Enter\'a bas...' : '+ etiket';
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ',') {
                 e.preventDefault();
@@ -262,16 +218,12 @@
         container.appendChild(input);
     }
 
-    // --------------------------------------------------------------------------
-    // Drawer (Düzenleme Paneli) Yönetimi
-    // --------------------------------------------------------------------------
     function openDrawer(mode, projectData) {
         editingId = mode === 'new' ? 'new' : projectData.id;
         drawerKicker.textContent = mode === 'new' ? 'Yeni Proje' : `Düzenle · #${projectData.id}`;
         drawerTitle.textContent = mode === 'new' ? 'Yeni Proje Oluştur' : (getLocalized(projectData.title, 'tr') || 'Proje');
         deleteProjectBtn.hidden = mode === 'new';
 
-        // Form alanlarını doldur
         const isAe = projectData ? projectData.category === 'ae' : true;
         if (isAe) catAe.checked = true; else catWeb.checked = true;
         updateCategoryFields();
@@ -285,19 +237,14 @@
         authorInput.value = projectData ? (projectData.author || '') : 'drayeditss';
         videoSrcInput.value = projectData ? (projectData.videoSrc || '') : '';
 
-        // Etiketler
         tagsTrList = projectData ? extractTags(projectData.tags, 'tr') : [];
         tagsEnList = projectData ? extractTags(projectData.tags, 'en') : [];
         renderChips(tagsTrEl, tagsTrList, () => {});
         renderChips(tagsEnEl, tagsEnList, () => {});
 
-        // İkon
         selectIcon(projectData ? (projectData.icon || (isAe ? 'fa-film' : 'fa-globe')) : 'fa-film');
-
-        // Video önizleme durumu
         setVideoSource(videoSrcInput.value);
 
-        // Dil sekmelerini sıfırla (TR göster)
         document.querySelectorAll('.lang-tabs').forEach(tabsGroup => {
             const group = tabsGroup.dataset.group;
             tabsGroup.querySelectorAll('.lang-tab').forEach(t => t.classList.toggle('active', t.dataset.lang === 'tr'));
@@ -344,10 +291,8 @@
         const isAe = catAe.checked;
         document.querySelectorAll('[data-only="ae"]').forEach(el => el.hidden = !isAe);
         videoField.hidden = !isAe;
-        if (!isAe) {
-            if (currentIcon === 'fa-film' || currentIcon === 'fa-clapperboard') {
-                selectIcon('fa-globe');
-            }
+        if (!isAe && (currentIcon === 'fa-film' || currentIcon === 'fa-clapperboard')) {
+            selectIcon('fa-globe');
         }
     }
 
@@ -368,19 +313,15 @@
         }
     }
 
-    // --------------------------------------------------------------------------
-    // Video Yükleme (Drag & Drop + Input)
-    // --------------------------------------------------------------------------
     function uploadVideoFile(file) {
         if (!file) return;
         const ext = '.' + file.name.split('.').pop().toLowerCase();
         const allowed = ['.mp4', '.webm', '.mov', '.m4v', '.ogg'];
         if (!allowed.includes(ext)) {
-            showToast(`Desteklenmeyen dosya türü (${ext}). MP4, WEBM veya MOV kullanın.`, 'error');
+            showToast(`Desteklenmeyen dosya türü (${ext}).`, 'error');
             return;
         }
 
-        // Eğer başlık boşsa dosya adından otomatik doldur
         if (!titleTr.value.trim()) {
             const cleanTitle = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]+/g, ' ');
             titleTr.value = cleanTitle.charAt(0).toUpperCase() + cleanTitle.slice(1);
@@ -425,7 +366,7 @@
 
         xhr.addEventListener('error', () => {
             currentUploadXhr = null;
-            showToast('Yükleme sırasında ağ hatası oluştu', 'error');
+            showToast('Yükleme sırasında hata oluştu', 'error');
             setVideoSource('');
         });
 
@@ -440,15 +381,12 @@
         xhr.send(file);
     }
 
-    // --------------------------------------------------------------------------
-    // Formu Kaydetme / Projeye Uygulama
-    // --------------------------------------------------------------------------
     function applyForm() {
         const titleTrVal = titleTr.value.trim();
         if (!titleTrVal) {
             titleTr.classList.add('invalid');
             titleTr.focus();
-            showToast('Lütfen proje başlığı girin', 'error');
+            showToast('Proje başlığı girin', 'error');
             return;
         }
         titleTr.classList.remove('invalid');
@@ -458,14 +396,9 @@
         const descEnVal = descEn.value.trim();
         const categoryVal = catAe.checked ? 'ae' : 'web';
 
-        // Başlık ve açıklama nesneleri
         const titleObj = titleEnVal ? { tr: titleTrVal, en: titleEnVal } : { tr: titleTrVal, en: titleTrVal };
         const descObj = descEnVal ? { tr: descTrVal, en: descEnVal } : { tr: descTrVal, en: descTrVal };
-
-        // Etiketler
-        const tagsObj = tagsEnList.length > 0
-            ? { tr: tagsTrList, en: tagsEnList }
-            : { tr: tagsTrList, en: tagsTrList };
+        const tagsObj = tagsEnList.length > 0 ? { tr: tagsTrList, en: tagsEnList } : { tr: tagsTrList, en: tagsTrList };
 
         if (editingId === 'new') {
             const nextId = projects.length > 0 ? Math.max(...projects.map(p => p.id || 0)) + 1 : 1;
@@ -483,16 +416,10 @@
             if (categoryVal === 'ae') {
                 newProject.instagramUrl = instagramInput.value.trim() || 'https://www.instagram.com/drayeditss/';
                 newProject.author = authorInput.value.trim() || 'drayeditss';
-                newProject.stats = {
-                    likes: '10K',
-                    views: '100K',
-                    comments: '200',
-                    shares: '1K'
-                };
             }
 
-            projects.unshift(newProject); // En başa ekle (sitede ilk görünsün)
-            showToast('Yeni proje listeye eklendi! Kalıcı olması için "Kaydet"e tıklayın.', 'info');
+            projects.unshift(newProject);
+            showToast('Proje eklendi. Kaydetmeyi unutma.', 'info');
         } else {
             const target = projects.find(p => p.id === editingId);
             if (target) {
@@ -517,14 +444,10 @@
         render();
     }
 
-    // --------------------------------------------------------------------------
-    // Silme Onayı
-    // --------------------------------------------------------------------------
     function askDeleteProject(project) {
         confirmTitle.textContent = `"${getLocalized(project.title, 'tr')}" silinsin mi?`;
-        confirmText.textContent = 'Bu proje listeden kaldırılacak. Değişiklik "Kaydet" butonuna bastığınızda kalıcı olur.';
+        confirmText.textContent = 'Bu proje listeden kaldırılacak. Kaydet butonuna bastığında kalıcı olur.';
 
-        // Eğer videos/ klasöründe özel yüklenmiş bir videosu varsa fiziksel silme seçeneği sun
         const hasCustomVideo = project.videoSrc && project.videoSrc.startsWith('videos/');
         if (hasCustomVideo) {
             confirmCheckWrap.hidden = false;
@@ -543,7 +466,6 @@
             if (hasCustomVideo && confirmCheck.checked) {
                 try {
                     await fetch(`/api/video?path=${encodeURIComponent(project.videoSrc)}`, { method: 'DELETE' });
-                    showToast('Video dosyası diskten silindi.', 'info');
                 } catch (e) {
                     console.error(e);
                 }
@@ -570,17 +492,12 @@
         confirmCancel.addEventListener('click', onCancel);
     }
 
-    // --------------------------------------------------------------------------
-    // Kart Listesini Render Etme
-    // --------------------------------------------------------------------------
     function render() {
-        // İstatistikler
         statTotal.textContent = projects.length;
         statVideo.textContent = projects.filter(p => p.category === 'ae').length;
         statWeb.textContent = projects.filter(p => p.category === 'web').length;
 
-        // Filtreleme & Arama
-        const filtered = projects.filter((p, index) => {
+        const filtered = projects.filter((p) => {
             if (activeFilter === 'ae' && p.category !== 'ae') return false;
             if (activeFilter === 'web' && p.category !== 'web') return false;
             if (searchQuery) {
@@ -594,20 +511,13 @@
         });
 
         grid.innerHTML = '';
-
-        if (filtered.length === 0) {
-            emptyState.hidden = false;
-        } else {
-            emptyState.hidden = true;
-        }
+        emptyState.hidden = filtered.length > 0;
 
         filtered.forEach((p) => {
             const realIndex = projects.indexOf(p);
-            const card = createCardElement(p, realIndex);
-            grid.appendChild(card);
+            grid.appendChild(createCardElement(p, realIndex));
         });
 
-        // "+ Yeni Proje" kartı (filtre aktif olsa da en sona eklenebilir)
         const addTile = document.createElement('button');
         addTile.type = 'button';
         addTile.className = 'add-tile';
@@ -628,16 +538,18 @@
         const tags = extractTags(p.tags, 'tr');
         const icon = p.icon || (isAe ? 'fa-film' : 'fa-globe');
 
-        // Hafif ve yüksek performanslı kart görseli (Kasılmayı önler)
         let mediaHtml = '';
         if (isAe) {
-            const fileName = p.videoSrc ? p.videoSrc.split('/').pop() : 'Video Yok';
+            const fileName = p.videoSrc ? p.videoSrc.split('/').pop() : '';
+            const fileTag = p.videoSrc
+                ? `<span class="video-file-tag"><i class="fa-solid fa-play"></i> ${escapeHtml(fileName)}</span>`
+                : (p.link ? `<span class="video-file-tag"><i class="fa-brands fa-youtube"></i> Video Bağlantısı</span>` : '<span class="video-file-tag warning"><i class="fa-solid fa-link"></i> Link veya Video Yok</span>');
             mediaHtml = `
                 <div class="card-media ae-tile">
                     <div class="media-icon-wrap">
                         <i class="fa-solid ${icon}"></i>
                     </div>
-                    ${p.videoSrc ? `<span class="video-file-tag"><i class="fa-solid fa-play"></i> ${escapeHtml(fileName)}</span>` : '<span class="video-file-tag warning"><i class="fa-solid fa-triangle-exclamation"></i> Video atanmadı</span>'}
+                    ${fileTag}
                 </div>
             `;
         } else {
@@ -646,7 +558,7 @@
                     <div class="media-icon-wrap">
                         <i class="fa-solid ${icon}"></i>
                     </div>
-                    <span class="video-file-tag"><i class="fa-solid fa-arrow-up-right-from-square"></i> Canlı Proje</span>
+                    <span class="video-file-tag"><i class="fa-solid fa-globe"></i> Web / Bağlantı</span>
                 </div>
             `;
         }
@@ -654,7 +566,7 @@
         card.innerHTML = `
             ${mediaHtml}
             <span class="badge badge-${p.category}">${isAe ? 'Video' : 'Web'}</span>
-            <div class="drag-handle" title="Sıralamak için sürükleyin"><i class="fa-solid fa-grip-vertical"></i></div>
+            <div class="drag-handle" title="Sıralamak için sürükle"><i class="fa-solid fa-grip-vertical"></i></div>
             <span class="order-num">#${realIndex + 1}</span>
             <div class="card-body">
                 <h3 class="card-title"><i class="fa-solid ${icon}"></i> ${escapeHtml(title)}</h3>
@@ -669,7 +581,6 @@
             </div>
         `;
 
-        // Tıklama olayları
         card.querySelector('.edit-btn').addEventListener('click', (e) => {
             e.stopPropagation();
             openDrawer('edit', p);
@@ -680,9 +591,7 @@
         });
         card.addEventListener('click', () => openDrawer('edit', p));
 
-        // Sürükle-Bırak Sıralama (Drag & Drop Reordering)
         setupCardDragDrop(card, realIndex);
-
         return card;
     }
 
@@ -706,13 +615,8 @@
             e.dataTransfer.dropEffect = 'move';
             const rect = card.getBoundingClientRect();
             const midpoint = rect.left + rect.width / 2;
-            if (e.clientX < midpoint) {
-                card.classList.add('drop-before');
-                card.classList.remove('drop-after');
-            } else {
-                card.classList.add('drop-after');
-                card.classList.remove('drop-before');
-            }
+            card.classList.toggle('drop-before', e.clientX < midpoint);
+            card.classList.toggle('drop-after', e.clientX >= midpoint);
         });
 
         card.addEventListener('dragleave', () => {
@@ -732,13 +636,10 @@
 
             checkDirty();
             render();
-            showToast('Sıralama güncellendi. Kaydetmeyi unutmayın!', 'info', 2500);
+            showToast('Sıralama güncellendi.', 'info', 2000);
         });
     }
 
-    // --------------------------------------------------------------------------
-    // Tüm Sayfaya Video Sürükleme (Global Drag & Drop)
-    // --------------------------------------------------------------------------
     let dragCounter = 0;
 
     window.addEventListener('dragenter', (e) => {
@@ -765,7 +666,6 @@
 
         if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
             const file = e.dataTransfer.files[0];
-            // Eğer drawer kapalıysa yeni proje olarak aç ve yüklemeyi başlat
             if (!drawer.classList.contains('open')) {
                 openDrawer('new', null);
             }
@@ -775,14 +675,8 @@
         }
     });
 
-    // --------------------------------------------------------------------------
-    // Olay Dinleyicileri (Event Listeners)
-    // --------------------------------------------------------------------------
     function initEvents() {
-        // Yeni Proje butonu
         newProjectBtn.addEventListener('click', () => openDrawer('new', null));
-
-        // Kaydet & Geri Al
         saveBtn.addEventListener('click', persistProjects);
         discardBtn.addEventListener('click', () => {
             projects = JSON.parse(initialProjectsJson);
@@ -791,7 +685,6 @@
             showToast('Değişiklikler geri alındı.', 'info');
         });
 
-        // Arama & Filtre
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value.trim();
             render();
@@ -806,7 +699,6 @@
             });
         });
 
-        // Drawer butonları
         drawerClose.addEventListener('click', closeDrawer);
         drawerBackdrop.addEventListener('click', closeDrawer);
         cancelEditBtn.addEventListener('click', closeDrawer);
@@ -816,11 +708,9 @@
             if (target) askDeleteProject(target);
         });
 
-        // Kategori değişimi
         catAe.addEventListener('change', updateCategoryFields);
         catWeb.addEventListener('change', updateCategoryFields);
 
-        // Dil Sekmeleri (TR / EN)
         document.querySelectorAll('.lang-tabs').forEach(tabsGroup => {
             const group = tabsGroup.dataset.group;
             tabsGroup.querySelectorAll('.lang-tab').forEach(tab => {
@@ -834,7 +724,6 @@
             });
         });
 
-        // Dropzone tıklama & sürükleme
         dropzone.addEventListener('click', () => fileInput.click());
         fileInput.addEventListener('change', (e) => {
             if (e.target.files && e.target.files[0]) {
@@ -867,9 +756,7 @@
             setVideoSource(e.target.value.trim());
         });
 
-        // Klavye kısayolları
         window.addEventListener('keydown', (e) => {
-            // Ctrl + S: Kaydet
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
                 e.preventDefault();
                 if (drawer.classList.contains('open')) {
@@ -878,7 +765,6 @@
                     persistProjects();
                 }
             }
-            // Escape: Drawer veya dialog kapat
             if (e.key === 'Escape') {
                 if (!confirmDialog.hidden) {
                     confirmDialog.hidden = true;
@@ -888,7 +774,6 @@
             }
         });
 
-        // Sayfadan ayrılma uyarısı
         window.addEventListener('beforeunload', (e) => {
             if (isDirty()) {
                 e.preventDefault();
@@ -897,11 +782,7 @@
         });
     }
 
-    // --------------------------------------------------------------------------
-    // Başlangıç
-    // --------------------------------------------------------------------------
     initIconGrid();
     initEvents();
     fetchProjects();
-
 })();

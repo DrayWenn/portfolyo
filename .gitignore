@@ -1,5 +1,6 @@
 # Admin otomatik yedekleri
 admin/yedekler/
+hayrunisa/admin/yedekler/
 
 # Sistem ve Editör dosyaları
 .DS_Store

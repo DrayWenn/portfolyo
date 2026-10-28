@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Umut Yazıcı | Web Geliştirici & Motion Designer</title>
+  <title>Umut Yazıcı | Portfolyo</title>
   <meta name="description" content="Umut Yazıcı — Web geliştirme, e-ticaret altyapıları, After Effects motion design ve dijital içerik üretimi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,6 @@
 </head>
 <body>
 
-  <!-- 3D Laptop Stage -->
   <div class="laptop-stage-wrapper" id="laptopStageWrapper" aria-hidden="true">
     <div class="laptop-3d" id="laptop3D">
       <div class="laptop-lid">
@@ -27,8 +26,8 @@
                 <span class="traffic-dot green"></span>
               </div>
               <div class="editor-tabs">
-                <div class="editor-tab active" data-file="developer.js">
-                  <i class="fa-brands fa-js" style="color: #f7df1e;"></i> developer.js
+                <div class="editor-tab active" data-file="umut.js">
+                  <i class="fa-brands fa-js" style="color: #f7df1e;"></i> umut.js
                 </div>
                 <div class="editor-tab" data-file="yildizforma.js">
                   <i class="fa-brands fa-js" style="color: #f7df1e;"></i> yildizforma.js
@@ -44,17 +43,17 @@
                 <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
                 <span>06</span><span>07</span><span>08</span><span>09</span><span>10</span>
               </div>
-              <pre class="code-content"><code id="laptopCode"><span class="c-kw">const</span> <span class="c-var">developer</span> = {
-  <span class="c-prop">name</span>: <span class="c-str">'Umut Yazıcı'</span>,
-  <span class="c-prop">role</span>: <span class="c-str">'Frontend & Motion Designer'</span>,
-  <span class="c-prop">projects</span>: [<span class="c-str">'Yıldız Forma'</span>, <span class="c-str">'FormaArena'</span>],
-  <span class="c-prop">status</span>: <span class="c-str">'Open to Work 🚀'</span>,
-  <span class="c-fn">build</span>: () => <span class="c-str">'Clean Code & Smooth UI ✨'</span>
+              <pre class="code-content"><code id="laptopCode"><span class="c-kw">const</span> <span class="c-var">umutYazici</span> = {
+  <span class="c-prop">ad</span>: <span class="c-str">'Umut Yazıcı'</span>,
+  <span class="c-prop">alan</span>: <span class="c-str">'Web & Motion Design'</span>,
+  <span class="c-prop">projeler</span>: [<span class="c-str">'Yıldız Forma'</span>, <span class="c-str">'FormaArena'</span>],
+  <span class="c-prop">konum</span>: <span class="c-str">'İstanbul'</span>,
+  <span class="c-fn">stack</span>: () => [<span class="c-str">'PHP'</span>, <span class="c-str">'JS'</span>, <span class="c-str">'After Effects'</span>]
 };</code></pre>
             </div>
 
             <div class="editor-terminal">
-              <span class="terminal-status"><i class="fa-solid fa-circle-check"></i> System: Ready</span>
+              <span class="terminal-status"><i class="fa-solid fa-circle-check"></i> umut@portfolyo:~</span>
             </div>
             <div class="screen-glare"></div>
           </div>
@@ -77,7 +76,6 @@
     </div>
   </div>
 
-  <!-- Navbar -->
   <header class="navbar">
     <div class="nav-container">
       <a href="#" class="logo" title="Umut Yazıcı">
@@ -90,19 +88,18 @@
         <a href="#iletisim" class="nav-link" data-i18n="nav.contact">İletişim</a>
       </nav>
       <div class="nav-actions">
-        <div class="lang-switch" id="langSwitch" role="group" aria-label="Language selector">
+        <div class="lang-switch" id="langSwitch" role="group" aria-label="Dil seçimi">
           <button class="lang-btn active" data-lang="tr" title="Türkçe">TR</button>
           <span class="lang-divider">/</span>
           <button class="lang-btn" data-lang="en" title="English">EN</button>
         </div>
-        <button class="mode-toggle" id="modeToggle" title="Dark / Light Mod">
+        <button class="mode-toggle" id="modeToggle" title="Tema Değiştir">
           <i class="fa-solid fa-moon" id="modeIcon"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge">
@@ -110,7 +107,7 @@
         <span data-i18n="hero.statusBadge">Yeni Projelere & İş Tekliflerine Açık</span>
       </div>
       <h1 class="hero-title">
-        <span data-i18n="hero.greetingPrefix">Merhaba, Ben</span> <span class="text-gradient">Umut Yazıcı</span> 👋
+        <span data-i18n="hero.greetingPrefix">Merhaba, Ben</span> <span class="text-gradient">Umut Yazıcı</span>
       </h1>
       <p class="hero-subtitle">
         <span data-i18n="hero.subtitlePrefix">Modern web teknolojileriyle </span><span id="typewriter" class="typewriter-text"></span><span data-i18n="hero.subtitleSuffix"> tasarlıyor ve kodluyorum.</span>
@@ -140,12 +137,11 @@
     </div>
   </section>
 
-  <!-- About & CV -->
   <section id="hakkimda" class="about-section">
     <div class="about-card">
       <div class="about-avatar-top">
         <div class="about-avatar-container">
-          <img src="avatar.png" alt="Umut Yazıcı" class="about-avatar" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=umut'">
+          <img src="avatar.png" alt="Umut Yazıcı" class="about-avatar">
           <div class="avatar-glow"></div>
         </div>
         <div class="about-name-center">
@@ -158,7 +154,7 @@
 
       <div class="about-body">
         <p class="about-text" data-i18n="about.bio">
-          Modern web standartlarına uygun, hızlı ve kullanıcı odaklı dijital deneyimler geliştiriyorum. Özel mimarili <strong>PHP ve JavaScript</strong> projelerinde <strong>Sanal POS (iyzico/PayTR)</strong> ve <strong>Kargo API</strong> entegrasyonlarını uçtan uca kurarak e-ticaret süreçlerini otomatize ettim. Aynı zamanda <strong>Adobe After Effects</strong> ile reklam ve sosyal medya kanalları için yüksek etkileşimli motion grafikler üretiyor; teknik kodlama becerilerimi estetik görsel tasarımla birleştiriyorum.
+          Hızlı ve kullanıcı odaklı web projeleri geliştiriyorum. Özel mimarili <strong>PHP ve JavaScript</strong> projelerinde <strong>Sanal POS (iyzico/PayTR)</strong> ve <strong>Kargo API</strong> entegrasyonlarını kurarak e-ticaret süreçlerini uçtan uca yürüttüm. Aynı zamanda <strong>Adobe After Effects</strong> ile sosyal medya ve reklam içerikleri için dinamik kurgular ve motion grafikler hazırlıyorum.
         </p>
         <div class="skills-mini">
           <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</div>
@@ -180,22 +176,22 @@
           <div class="tech-card">
             <div class="tech-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
             <h4 data-i18n="about.card1Title">Modern Web Geliştirme</h4>
-            <p data-i18n="about.card1Desc">JavaScript (ES6+), HTML5, CSS3, PHP (Özel Mimari), Temiz Kod Mimarisi, REST API, MySQL & SQLite</p>
+            <p data-i18n="about.card1Desc">JavaScript (ES6+), HTML5, CSS3, PHP (Özel Mimari), REST API, MySQL & SQLite</p>
           </div>
           <div class="tech-card">
             <div class="tech-card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
             <h4 data-i18n="about.card2Title">E-Ticaret & Ödeme Sistemleri</h4>
-            <p data-i18n="about.card2Desc">Güvenli Sanal POS Entegrasyonları (iyzico / PayTR), Otomatik Kargo API'leri, Stok & Sipariş Yönetimi</p>
+            <p data-i18n="about.card2Desc">Sanal POS Entegrasyonları (iyzico / PayTR), Kargo API'leri, Stok & Sipariş Yönetimi</p>
           </div>
           <div class="tech-card">
             <div class="tech-card-icon"><i class="fa-solid fa-chart-line"></i></div>
             <h4 data-i18n="about.card3Title">Performans & Dijital Büyüme</h4>
-            <p data-i18n="about.card3Desc">Google Ads (PMax & Arama Ağı), Dönüşüm Takibi, SEO Temelleri, Veri Odaklı Sosyal Medya Yönetimi</p>
+            <p data-i18n="about.card3Desc">Google Ads (PMax & Arama Ağı), Dönüşüm Takibi, SEO Temelleri, Sosyal Medya Yönetimi</p>
           </div>
           <div class="tech-card">
             <div class="tech-card-icon"><i class="fa-solid fa-photo-film"></i></div>
             <h4 data-i18n="about.card4Title">Motion Graphics & Video Kurgu</h4>
-            <p data-i18n="about.card4Desc">Adobe After Effects, Motion Design, Dinamik Video Kurgusu, Ses Senkronizasyonu, Adobe Photoshop, UI/UX</p>
+            <p data-i18n="about.card4Desc">Adobe After Effects, Motion Design, Dinamik Video Kurgusu, Ses Senkronizasyonu, Photoshop</p>
           </div>
         </div>
       </div>
@@ -217,7 +213,7 @@
               <p class="timeline-org" data-i18n="cv.item1Org">Freelance / Girişimci</p>
               <ul class="timeline-bullet-list">
                 <li data-i18n="cv.item1Bullet1">Sıfırdan kurulan e-ticaret markasının uçtan uca yazılım (Custom PHP/JS), ödeme ve kargo altyapılarının kurulumu.</li>
-                <li data-i18n="cv.item1Bullet2">Adobe After Effects ile sosyal medya kanalları ve reklam kampanyaları için yüksek dönüşümlü video/animasyon içeriklerinin üretilmesi.</li>
+                <li data-i18n="cv.item1Bullet2">Adobe After Effects ile sosyal medya kanalları ve reklam kampanyaları için video/animasyon içeriklerinin üretilmesi.</li>
                 <li data-i18n="cv.item1Bullet3">Google Ads (PMax) kampanyalarının kurgulanması, reklam bütçesinin optimizasyonu ve satış trafiğinin artırılması.</li>
               </ul>
             </div>
@@ -274,24 +270,22 @@
     </div>
   </section>
 
-  <!-- Projects -->
   <section id="projeler" class="projects-section">
     <div class="section-header">
       <h2 class="section-title" data-i18n="projects.heading">Projelerim</h2>
       <div class="filter-tabs">
         <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tümü</button>
-        <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb">Site Projeleri</button>
-        <button class="filter-btn" data-filter="ae" data-i18n="projects.filterAe">After Effects Projeleri</button>
+        <button class="filter-btn" data-filter="ae" data-i18n="projects.filterAe"><i class="fa-solid fa-film"></i> Videolar</button>
+        <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb"><i class="fa-solid fa-globe"></i> Web / Siteler</button>
       </div>
     </div>
     <div class="projects-grid" id="projectsGrid"></div>
   </section>
 
-  <!-- Contact -->
   <section id="iletisim" class="contact-section">
     <div class="contact-container">
       <h2 class="contact-title" data-i18n="contact.heading">Birlikte Çalışalım</h2>
-      <p class="contact-subtitle" data-i18n="contact.subtitle">Bir sonraki projenizi birlikte hayata geçirelim veya ekibiniz için değer yaratalım. Bir tık uzağınızdayım.</p>
+      <p class="contact-subtitle" data-i18n="contact.subtitle">Yeni bir proje veya iş birliği için aşağıdaki bağlantılardan bana ulaşabilirsiniz.</p>
       <div class="contact-links">
         <a href="mailto:obumut8@gmail.com" class="contact-card email">
           <i class="fa-solid fa-envelope"></i>
@@ -305,9 +299,8 @@
         </a>
       </div>
     </div>
+  </section>
 
-
-  <!-- Video Showcase Modal -->
   <div id="videoModal" class="modal">
     <div class="cinestudio-modal-wrapper">
       <button class="cinestudio-close-btn" id="closeModalBtn" title="Kapat">&times;</button>
@@ -373,7 +366,6 @@
             </div>
           </div>
 
-          <!-- Direct Link to Project / Post -->
           <a id="modalDirectLinkBtn" href="#" target="_blank" rel="noopener noreferrer" class="studio-direct-link-btn" style="display: none;">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <span id="modalDirectLinkText">Bağlantıyı Aç</span>
@@ -409,7 +401,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
       <p data-i18n="footer.copyright">&copy; 2026 Umut Yazıcı. Tüm Hakları Saklıdır.</p>

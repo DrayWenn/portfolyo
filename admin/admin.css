@@ -1,7 +1,3 @@
-/* ==========================================================================
-   PORTFOLYO YÖNETİM PANELİ — STİLLER (OPERA & CHROMIUM 120 FPS ULTRA HAFİF)
-   Sıfır kasma, sıfır lag, GPU dostu saf performans tasarımı.
-   ========================================================================== */
 :root {
     --bg: #07080c;
     --bg-elev: #0f111a;
@@ -37,7 +33,6 @@ body {
 code, .mono { font-family: 'Fira Code', monospace; }
 code { background: #171b29; padding: 2px 6px; border-radius: 6px; font-size: 0.85em; color: var(--secondary); }
 
-/* ---------- Buttons ---------- */
 .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     padding: 9px 16px; border-radius: 10px;
@@ -57,10 +52,12 @@ code { background: #171b29; padding: 2px 6px; border-radius: 6px; font-size: 0.8
 .btn-danger:hover { background: #dc2626; }
 .btn-danger-ghost { background: transparent; color: #f87171; border-color: rgba(239,68,68,0.3); }
 .btn-danger-ghost:hover { background: rgba(239,68,68,0.12); border-color: var(--danger); }
+
 kbd {
     font: 500 0.7rem 'Fira Code', monospace; padding: 2px 5px; border-radius: 4px;
     background: #07080c; border: 1px solid var(--border); margin-left: 4px;
 }
+
 .icon-btn {
     width: 36px; height: 36px; border-radius: 8px; display: grid; place-items: center;
     background: #171b29; border: 1px solid var(--border); color: var(--text-2);
@@ -68,7 +65,6 @@ kbd {
 }
 .icon-btn:hover { color: var(--text); border-color: var(--border-hover); background: #1f2438; }
 
-/* ---------- Topbar ---------- */
 .topbar {
     position: sticky; top: 0; z-index: 50;
     display: flex; justify-content: space-between; align-items: center;
@@ -78,15 +74,11 @@ kbd {
 }
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--secondary); }
-.brand-tag {
-    font: 600 0.95rem 'Fira Code', monospace;
-    color: var(--secondary);
-}
+.brand-tag { font: 600 0.95rem 'Fira Code', monospace; color: var(--secondary); }
 .brand-sep { color: var(--text-3); }
 .brand-title { font: 600 1.05rem var(--font-h); letter-spacing: -0.2px; }
 .topbar-actions { display: flex; gap: 10px; }
 
-/* ---------- Layout ---------- */
 .layout { max-width: 1280px; margin: 0 auto; padding: 24px 24px 120px; }
 
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -95,10 +87,7 @@ kbd {
     display: flex; flex-direction: column; padding: 8px 16px; min-width: 85px;
     background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
 }
-.stat-num {
-    font: 800 1.4rem/1.1 var(--font-h);
-    color: #fff;
-}
+.stat-num { font: 800 1.4rem/1.1 var(--font-h); color: #fff; }
 .stat-label { font-size: 0.72rem; color: var(--text-3); font-weight: 500; }
 
 .toolbar-right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
@@ -121,7 +110,6 @@ kbd {
 
 .hint { font-size: 0.78rem; color: var(--text-3); margin-bottom: 16px; display: flex; gap: 6px; align-items: center; }
 
-/* ---------- Grid & Cards (Ultra Fast) ---------- */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 
 .card {
@@ -152,13 +140,8 @@ kbd {
     background: #0d0f18;
 }
 
-.card-media.ae-tile {
-    background: linear-gradient(135deg, #161226 0%, #0d0f18 100%);
-}
-
-.card-media.web-tile {
-    background: linear-gradient(135deg, #0f1c24 0%, #0d0f18 100%);
-}
+.card-media.ae-tile { background: linear-gradient(135deg, #161226 0%, #0d0f18 100%); }
+.card-media.web-tile { background: linear-gradient(135deg, #0f1c24 0%, #0d0f18 100%); }
 
 .media-icon-wrap {
     width: 48px;
@@ -237,7 +220,6 @@ kbd {
 .card-actions .icon-btn { width: 34px; height: 34px; font-size: 0.8rem; }
 .card-actions .icon-btn.danger:hover { color: #f87171; border-color: var(--danger); background: rgba(239,68,68,0.15); }
 
-/* New card tile */
 .add-tile {
     border: 2px dashed var(--border); border-radius: var(--radius); min-height: 240px;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
@@ -247,7 +229,6 @@ kbd {
 .add-tile:hover { border-color: var(--primary); color: var(--text); background: rgba(168,85,247,0.04); }
 .add-tile:hover i { background: var(--grad); color: #fff; }
 
-/* ---------- States ---------- */
 .empty, .loading, .error-box { text-align: center; padding: 60px 20px; color: var(--text-2); }
 .empty i { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
 .empty h2 { font: 700 1.2rem var(--font-h); color: var(--text); margin-bottom: 6px; }
@@ -261,7 +242,6 @@ kbd {
 .error-box i { font-size: 1.6rem; color: #f87171; }
 .error-box h2 { font: 700 1.05rem var(--font-h); color: var(--text); margin-bottom: 4px; }
 
-/* ---------- Save bar ---------- */
 .savebar {
     position: fixed; left: 50%; bottom: 20px; z-index: 60;
     transform: translate(-50%, 140%); opacity: 0;
@@ -276,7 +256,6 @@ kbd {
 .savebar-text i { color: #f59e0b; }
 .savebar-actions { display: flex; gap: 8px; }
 
-/* ---------- Drawer ---------- */
 .drawer-backdrop {
     position: fixed; inset: 0; z-index: 70; background: rgba(0,0,0,0.7);
     opacity: 0; pointer-events: none; transition: opacity .2s ease;
@@ -297,7 +276,6 @@ kbd {
 .drawer-footer { display: flex; justify-content: space-between; gap: 10px; padding: 14px 24px; border-top: 1px solid var(--border); background: #0a0b12; }
 .drawer-footer-right { display: flex; gap: 8px; }
 
-/* ---------- Form ---------- */
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .field-grid .field:first-child { grid-column: 1 / -1; }
@@ -328,7 +306,6 @@ kbd {
 .cat-option input:checked + span { border-color: var(--primary); color: #fff; background: rgba(168,85,247,0.18); }
 .cat-option input[value="web"]:checked + span { border-color: var(--secondary); background: rgba(6,182,212,0.18); }
 
-/* Video zone */
 .dropzone {
     border: 2px dashed var(--border-hover); border-radius: 12px; padding: 24px 16px; text-align: center;
     color: var(--text-2); cursor: pointer; transition: .15s ease; background: #131622;
@@ -353,7 +330,6 @@ kbd {
 
 .advanced summary { font-size: 0.76rem; color: var(--text-3); cursor: pointer; margin: 3px 0 6px; user-select: none; }
 
-/* Chips */
 .chips {
     display: flex; flex-wrap: wrap; gap: 5px; padding: 6px; min-height: 40px; border-radius: 9px;
     background: var(--bg-input); border: 1px solid var(--border); cursor: text;
@@ -368,7 +344,6 @@ kbd {
 .chip:hover { background: rgba(239,68,68,0.2); border-color: var(--danger); color: #fecaca; }
 .chips input { flex: 1; min-width: 100px; background: none; border: none; outline: none; color: var(--text); font: 500 0.84rem var(--font-b); padding: 2px; }
 
-/* Icon picker */
 .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 5px; }
 .icon-choice {
     aspect-ratio: 1; border-radius: 8px; display: grid; place-items: center; font-size: 0.95rem;
@@ -377,7 +352,6 @@ kbd {
 .icon-choice:hover { color: var(--text); border-color: var(--border-hover); }
 .icon-choice.active { background: var(--grad); color: #fff; border-color: transparent; }
 
-/* ---------- Dialog ---------- */
 .dialog-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: rgba(0,0,0,0.75); }
 .dialog {
     width: min(400px, 90vw); padding: 24px; border-radius: 16px; text-align: center;
@@ -390,7 +364,6 @@ kbd {
 .checkbox { display: flex; gap: 8px; align-items: center; justify-content: center; font-size: 0.82rem; color: var(--text-2); margin-bottom: 12px; cursor: pointer; }
 .checkbox input { accent-color: var(--danger); }
 
-/* ---------- Page drop overlay ---------- */
 .page-drop {
     position: fixed; inset: 0; z-index: 90; display: grid; place-items: center;
     background: rgba(5,5,5,0.9);
@@ -404,7 +377,6 @@ kbd {
 .page-drop-inner i { font-size: 2.5rem; margin-bottom: 10px; color: var(--primary); }
 .page-drop-inner p { font: 600 1.1rem var(--font-h); }
 
-/* ---------- Toasts ---------- */
 .toasts { position: fixed; top: 70px; right: 20px; z-index: 120; display: flex; flex-direction: column; gap: 8px; }
 .toast {
     display: flex; gap: 8px; align-items: center; min-width: 240px; max-width: 360px;
@@ -416,7 +388,6 @@ kbd {
 .toast.error i { color: var(--danger); }
 .toast.info i { color: var(--secondary); }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 720px) {
     .topbar { padding: 10px 14px; }
     .brand-sep, .brand-tag { display: none; }

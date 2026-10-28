@@ -53,7 +53,6 @@ body {
   display: none !important;
 }
 
-/* 3D Laptop Stage */
 .laptop-stage-wrapper {
   position: fixed;
   top: 50%;
@@ -367,7 +366,6 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -542,7 +540,6 @@ body.light-mode .btn-secondary {
   background: rgba(0, 0, 0, 0.04);
 }
 
-/* Hero Section */
 .hero {
   background-color: transparent;
   min-height: 85vh;
@@ -691,7 +688,6 @@ body.light-mode .btn-secondary {
   margin-left: 6px;
 }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -736,7 +732,6 @@ body.light-mode .btn-secondary {
   border-radius: 8px;
 }
 
-/* About Section */
 .about-section {
   max-width: 1000px;
   margin: 0 auto;
@@ -1030,7 +1025,6 @@ body.light-mode .btn-secondary {
   color: var(--primary);
 }
 
-/* Timeline */
 .cv-container {
   display: flex;
   flex-direction: column;
@@ -1144,7 +1138,6 @@ body.light-mode .btn-secondary {
   line-height: 1.6;
 }
 
-/* Projects Section */
 .projects-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -1389,7 +1382,6 @@ body.light-mode .btn-secondary {
   color: var(--text-primary);
 }
 
-/* Contact Section */
 .contact-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -1471,7 +1463,6 @@ body.light-mode .btn-secondary {
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -1768,7 +1759,6 @@ body.modal-open .laptop-stage-wrapper {
   letter-spacing: 0.5px;
 }
 
-/* CineStudio Volume Controller */
 .cine-volume-container {
   display: inline-flex;
   align-items: center;
@@ -1956,7 +1946,6 @@ body.modal-open .laptop-stage-wrapper {
   transform: translateY(-1px);
 }
 
-/* Platform-Specific Styles (YouTube, TikTok, Instagram) */
 .studio-direct-link-btn.platform-youtube {
   background: linear-gradient(135deg, rgba(255, 0, 0, 0.18) 0%, rgba(220, 38, 38, 0.22) 100%);
   border-color: rgba(255, 0, 0, 0.45);
@@ -2158,7 +2147,6 @@ body.modal-open .laptop-stage-wrapper {
   }
 }
 
-/* Footer */
 .footer {
   border-top: 1px solid var(--border-color);
   padding: 40px 24px;
@@ -2192,7 +2180,6 @@ body.modal-open .laptop-stage-wrapper {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
 @media (max-width: 1200px) {
   .laptop-stage-wrapper {
     right: 2%;

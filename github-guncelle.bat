@@ -1,20 +1,12 @@
 @echo off
 chcp 65001 >nul
-title GitHub Portfolyo Guncelleyici
-echo ===================================================
-echo   PORTFOLYO GITHUB GUNCELLEYICI (DrayWenn)
-echo ===================================================
-echo.
-echo Değişiklikler GitHub'a yükleniyor, lütfen bekleyin...
-echo.
+title Umut Yazici - GitHub Guncelleme
 
+echo Degisiklikler GitHub'a gonderiliyor...
 git add .
-git commit -m "Portfolyo Guncelleme: %date% %time%"
+git commit -m "guncelleme: %date% %time%"
 git push origin main
 
 echo.
-echo ===================================================
-echo   ISLEM TAMAMLANDI! GitHub basariyla guncellendi.
-echo ===================================================
-echo.
+echo Tamamlandi.
 pause

@@ -22,18 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       "about.badge": "Frontend Geliştirici & Motion Designer",
       "about.location": '<i class="fa-solid fa-location-dot"></i> İstanbul, Türkiye',
-      "about.bio": "Modern web standartlarına uygun, hızlı ve kullanıcı odaklı dijital deneyimler geliştiriyorum. Özel mimarili <strong>PHP ve JavaScript</strong> projelerinde <strong>Sanal POS (iyzico/PayTR)</strong> ve <strong>Kargo API</strong> entegrasyonlarını uçtan uca kurarak e-ticaret süreçlerini otomatize ettim. Aynı zamanda <strong>Adobe After Effects</strong> ile reklam ve sosyal medya kanalları için yüksek etkileşimli motion grafikler üretiyor; teknik kodlama becerilerimi estetik görsel tasarımla birleştiriyorum.",
+      "about.bio": "Hızlı ve kullanıcı odaklı web projeleri geliştiriyorum. Özel mimarili <strong>PHP ve JavaScript</strong> projelerinde <strong>Sanal POS (iyzico/PayTR)</strong> ve <strong>Kargo API</strong> entegrasyonlarını kurarak e-ticaret süreçlerini uçtan uca yürüttüm. Aynı zamanda <strong>Adobe After Effects</strong> ile sosyal medya ve reklam içerikleri için dinamik kurgular ve motion grafikler hazırlıyorum.",
       "about.skillCustomPhp": "PHP (Özel Mimari)",
       "about.skillSocial": "Sosyal Medya Yönetimi",
       "about.techHeading": "Teknik Yetkinlik Alanları",
       "about.card1Title": "Modern Web Geliştirme",
-      "about.card1Desc": "JavaScript (ES6+), HTML5, CSS3, PHP (Özel Mimari), Temiz Kod Mimarisi, REST API, MySQL & SQLite",
+      "about.card1Desc": "JavaScript (ES6+), HTML5, CSS3, PHP (Özel Mimari), REST API, MySQL & SQLite",
       "about.card2Title": "E-Ticaret & Ödeme Sistemleri",
-      "about.card2Desc": "Güvenli Sanal POS Entegrasyonları (iyzico / PayTR), Otomatik Kargo API'leri, Stok & Sipariş Yönetimi",
+      "about.card2Desc": "Sanal POS Entegrasyonları (iyzico / PayTR), Kargo API'leri, Stok & Sipariş Yönetimi",
       "about.card3Title": "Performans & Dijital Büyüme",
-      "about.card3Desc": "Google Ads (PMax & Arama Ağı), Dönüşüm Takibi, SEO Temelleri, Veri Odaklı Sosyal Medya Yönetimi",
+      "about.card3Desc": "Google Ads (PMax & Arama Ağı), Dönüşüm Takibi, SEO Temelleri, Sosyal Medya Yönetimi",
       "about.card4Title": "Motion Graphics & Video Kurgu",
-      "about.card4Desc": "Adobe After Effects, Motion Design, Dinamik Video Kurgusu, Ses Senkronizasyonu, Adobe Photoshop, UI/UX",
+      "about.card4Desc": "Adobe After Effects, Motion Design, Dinamik Video Kurgusu, Ses Senkronizasyonu, Photoshop",
       "cv.heading": "Deneyim & Eğitim",
       "cv.downloadBtn": "CV Yazdır / PDF İndir",
       "cv.liveBadge": "Canlı Proje",
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "cv.item1Title": "Frontend & E-Ticaret Geliştirici | Dijital İçerik Uzmanı",
       "cv.item1Org": "Freelance / Girişimci",
       "cv.item1Bullet1": "Sıfırdan kurulan e-ticaret markasının uçtan uca yazılım (Custom PHP/JS), ödeme ve kargo altyapılarının kurulumu.",
-      "cv.item1Bullet2": "Adobe After Effects ile sosyal medya kanalları ve reklam kampanyaları için yüksek dönüşümlü video/animasyon içeriklerinin üretilmesi.",
+      "cv.item1Bullet2": "Adobe After Effects ile sosyal medya kanalları ve reklam kampanyaları için video/animasyon içeriklerinin üretilmesi.",
       "cv.item1Bullet3": "Google Ads (PMax) kampanyalarının kurgulanması, reklam bütçesinin optimizasyonu ve satış trafiğinin artırılması.",
       "cv.item2Date": "2023 - 2024",
       "cv.item2Title": "Özel Altyapılı E-Ticaret Platformu",
@@ -63,18 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
       "skills.item4": "Sonuç Odaklı Çalışma",
       "projects.heading": "Projelerim",
       "projects.filterAll": "Tümü",
-      "projects.filterWeb": "Site Projeleri",
-      "projects.filterAe": "After Effects Projeleri",
-      "projects.badgeWeb": "Web Projesi",
+      "projects.filterWeb": "Web / Siteler",
+      "projects.filterAe": "Videolar",
+      "projects.badgeWeb": "Web / Proje",
       "projects.badgeAe": "After Effects",
-      "projects.badgeVideo": "Video Edit",
+      "projects.badgeVideo": "Video",
       "projects.btnOpen": "Projeyi Aç",
       "projects.btnInspect": "Klasörü İncele",
       "projects.btnPlay": "Videoyu Oynat",
       "projects.btnOpenLink": "Bağlantıyı Aç",
       "projects.empty": "Bu kategoride henüz proje bulunamadı.",
       "contact.heading": "Birlikte Çalışalım",
-      "contact.subtitle": "Bir sonraki projenizi birlikte hayata geçirelim veya ekibiniz için değer yaratalım. Bir tık uzağınızdayım.",
+      "contact.subtitle": "Yeni bir proje veya iş birliği için aşağıdaki bağlantılardan bana ulaşabilirsiniz.",
       "contact.emailLabel": "E-Posta",
       "contact.githubLabel": "GitHub",
       "contact.viewProfile": "Profili İncele",
@@ -106,27 +106,27 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       "about.badge": "Frontend Developer & Motion Designer",
       "about.location": '<i class="fa-solid fa-location-dot"></i> Istanbul, Turkey',
-      "about.bio": "I build fast, responsive, and user-centric digital experiences adhering to modern web standards. Developed end-to-end custom <strong>PHP & JavaScript</strong> platforms integrated with <strong>Virtual POS (iyzico/PayTR)</strong> and <strong>Shipping APIs</strong> to automate e-commerce operations. Concurrently produce engaging motion graphics with <strong>Adobe After Effects</strong> for ads and social media campaigns, bridging technical code with high-end visual design.",
+      "about.bio": "I build fast, responsive, and user-centric web projects. Developed end-to-end custom <strong>PHP & JavaScript</strong> platforms integrated with <strong>Virtual POS (iyzico/PayTR)</strong> and <strong>Shipping APIs</strong> to automate e-commerce operations. I also produce dynamic edits and motion graphics with <strong>Adobe After Effects</strong> for social media and digital campaigns.",
       "about.skillCustomPhp": "PHP (Custom Architecture)",
       "about.skillSocial": "Social Media Management",
       "about.techHeading": "Core Technical Competencies",
       "about.card1Title": "Modern Web Development",
-      "about.card1Desc": "JavaScript (ES6+), HTML5, CSS3, PHP (Custom Architecture), Clean Code Architecture, REST API, MySQL & SQLite",
+      "about.card1Desc": "JavaScript (ES6+), HTML5, CSS3, PHP (Custom Architecture), REST API, MySQL & SQLite",
       "about.card2Title": "E-Commerce & Payment Systems",
-      "about.card2Desc": "Secure Virtual POS Integration (iyzico / PayTR), Automated Shipping APIs, Inventory & Order Management",
+      "about.card2Desc": "Virtual POS Integration (iyzico / PayTR), Shipping APIs, Inventory & Order Management",
       "about.card3Title": "Performance & Digital Growth",
-      "about.card3Desc": "Google Ads (PMax & Search), Conversion Tracking, SEO Fundamentals, Data-Driven Social Media Management",
+      "about.card3Desc": "Google Ads (PMax & Search), Conversion Tracking, SEO Fundamentals, Social Media Management",
       "about.card4Title": "Motion Graphics & Video Editing",
-      "about.card4Desc": "Adobe After Effects, Motion Design, Dynamic Transitions, Audio Syncing, Adobe Photoshop, UI/UX",
+      "about.card4Desc": "Adobe After Effects, Motion Design, Dynamic Transitions, Audio Syncing, Photoshop",
       "cv.heading": "Experience & Education",
       "cv.downloadBtn": "Print CV / Download PDF",
       "cv.liveBadge": "Live Project",
       "cv.item1Date": "2022 - Present (4+ Yrs)",
       "cv.item1Title": "Frontend & E-Commerce Developer | Digital Specialist",
       "cv.item1Org": "Freelance / Entrepreneur",
-      "cv.item1Bullet1": "End-to-end full-stack software (Custom PHP/JS), payment gateway, and shipping infrastructure for e-commerce brands.",
-      "cv.item1Bullet2": "Produced high-converting video and animation assets using Adobe After Effects for campaigns and social media.",
-      "cv.item1Bullet3": "Executed Google Ads (PMax) campaigns, optimizing ad spend to drive sales and qualified traffic.",
+      "cv.item1Bullet1": "End-to-end software (Custom PHP/JS), payment gateway, and shipping infrastructure for e-commerce brands.",
+      "cv.item1Bullet2": "Produced video and animation assets using Adobe After Effects for campaigns and social media.",
+      "cv.item1Bullet3": "Executed Google Ads (PMax) campaigns, optimizing ad spend to drive sales and traffic.",
       "cv.item2Date": "2023 - 2024",
       "cv.item2Title": "Custom E-Commerce Platform",
       "cv.item2Bullet1": "Custom-built live e-commerce platform developed from scratch without ready CMS, using PHP & JavaScript.",
@@ -135,20 +135,20 @@ document.addEventListener('DOMContentLoaded', () => {
       "cv.item3Date": "2021 - 2025",
       "cv.item3Title": "Social Media Manager",
       "cv.item3Bullet1": "Over 3 years of social media page management, content strategies, and client communication.",
-      "cv.item3Bullet2": "Visual and motion edits created with After Effects and Photoshop to maximize engagement rates.",
+      "cv.item3Bullet2": "Visual and motion edits created with After Effects and Photoshop to increase engagement rates.",
       "cv.item4Date": "Ongoing",
       "cv.item4Title": "Computer Programming (Associate)",
       "cv.item4Org": "Atatürk University — Distance Education",
-      "cv.item4Desc": "Undergraduate education in software development fundamentals and modern web technologies.",
+      "cv.item4Desc": "Associate degree studies in software development and web technologies.",
       "skills.heading": "Personal Competencies",
       "skills.item1": "Analytical Thinking & Problem Solving",
       "skills.item2": "Project & Time Management",
       "skills.item3": "Rapid Adaptability & Self-Learning",
       "skills.item4": "Result-Driven Execution",
-      "projects.heading": "Featured Projects",
+      "projects.heading": "Projects",
       "projects.filterAll": "All",
       "projects.filterWeb": "Web Sites",
-      "projects.filterAe": "After Effects",
+      "projects.filterAe": "Videos",
       "projects.badgeWeb": "Web Project",
       "projects.badgeAe": "After Effects",
       "projects.badgeVideo": "Video Edit",
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "projects.btnOpenLink": "Open Link",
       "projects.empty": "No projects found in this category.",
       "contact.heading": "Let's Work Together",
-      "contact.subtitle": "Let's bring your next project to life or create measurable value for your team. I'm just a click away.",
+      "contact.subtitle": "Feel free to reach out via the links below for new projects or collaborations.",
       "contact.emailLabel": "Email",
       "contact.githubLabel": "GitHub",
       "contact.viewProfile": "View Profile",
@@ -186,13 +186,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 
-    document.title = lang === 'en' 
-      ? "Umut Yazıcı | Web Developer & Motion Designer" 
-      : "Umut Yazıcı | Web Geliştirici & Dijital İçerik Uzmanı";
+    document.title = lang === 'en'
+      ? "Umut Yazıcı | Portfolio"
+      : "Umut Yazıcı | Portfolyo";
 
     if (typeof PROJECTS_DATA !== 'undefined') {
-      const filtered = currentFilter === 'all' 
-        ? PROJECTS_DATA 
+      const filtered = currentFilter === 'all'
+        ? PROJECTS_DATA
         : PROJECTS_DATA.filter(p => p.category === currentFilter);
       renderProjects(filtered);
     }
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const title = typeof project.title === 'object' ? (project.title[currentLang] || project.title.tr) : project.title;
       const description = typeof project.description === 'object' ? (project.description[currentLang] || project.description.tr) : project.description;
-      
+
       let tagsList = [];
       if (project.tags) {
         if (Array.isArray(project.tags)) {
@@ -299,29 +299,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      const isWeb = project.category === 'web';
-      const isVideoEdit = tagsList.some(t => t.toLowerCase().includes('video') || t.toLowerCase().includes('kurgu'));
-      
-      let badgeText = dict["projects.badgeWeb"];
-      if (!isWeb) {
-        badgeText = isVideoEdit ? dict["projects.badgeVideo"] : dict["projects.badgeAe"];
+      const hasVideo = Boolean(project.videoSrc && project.videoSrc.trim() !== '');
+      const isWeb = project.category === 'web' || !hasVideo;
+      const isAfterEffects = tagsList.some(t => t.toLowerCase().includes('after effects'));
+
+      let badgeText = dict["projects.badgeWeb"] || 'Web Projesi';
+      if (hasVideo) {
+        badgeText = isAfterEffects ? (dict["projects.badgeAe"] || 'After Effects') : (dict["projects.badgeVideo"] || 'Video');
+      } else if (project.category === 'web') {
+        badgeText = dict["projects.badgeWeb"] || 'Web Projesi';
+      } else {
+        badgeText = 'Bağlantı';
       }
 
-      const badgeClass = isWeb ? 'bg-web' : 'bg-ae';
-      const glowColor = isWeb ? 'rgba(6,182,212,0.15)' : 'rgba(168,85,247,0.15)';
+      const badgeClass = hasVideo ? 'bg-ae' : 'bg-web';
+      const glowColor = hasVideo ? 'rgba(168,85,247,0.15)' : 'rgba(6,182,212,0.15)';
+
+      const directLink = (project.link && project.link.trim() !== '')
+        ? project.link.trim()
+        : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
 
       let actionHtml = '';
-      if (isWeb) {
-        const isFolderProject = project.link && (project.link.startsWith('../') || project.link.startsWith('./'));
-        const btnLabel = isFolderProject ? dict["projects.btnInspect"] : dict["projects.btnOpen"];
-        const btnIcon = isFolderProject ? 'fa-folder-open' : 'fa-arrow-up-right-from-square';
-        actionHtml = `
-          <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="card-btn">
-            ${btnLabel} <i class="fa-solid ${btnIcon}"></i>
-          </a>
-        `;
-      } else {
-        const directLink = (project.link && project.link.trim() !== '') ? project.link.trim() : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
+
+      if (hasVideo) {
         let linkBtnHtml = '';
         if (directLink) {
           const platform = detectPlatform(directLink);
@@ -335,10 +335,24 @@ document.addEventListener('DOMContentLoaded', () => {
         actionHtml = `
           <div class="card-btn-group">
             <button class="card-btn play-video-btn" data-id="${project.id}" data-video-src="${project.videoSrc}" data-title="${title}">
-              ${dict["projects.btnPlay"]} <i class="fa-solid fa-play"></i>
+              ${dict["projects.btnPlay"] || 'Videoyu Oynat'} <i class="fa-solid fa-play"></i>
             </button>
             ${linkBtnHtml}
           </div>
+        `;
+      } else {
+        const targetUrl = directLink || '#';
+        const platform = detectPlatform(targetUrl);
+        const isFolderProject = targetUrl.startsWith('../') || targetUrl.startsWith('./');
+        const btnLabel = isFolderProject
+          ? (dict["projects.btnInspect"] || 'Klasörü İncele')
+          : (platform.type !== 'generic' ? (platform.label[currentLang] || platform.label.tr) : (dict["projects.btnOpen"] || 'Projeyi Aç'));
+        const btnIcon = isFolderProject ? 'fa-folder-open' : platform.icon;
+
+        actionHtml = `
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="card-btn">
+            ${btnLabel} <i class="${platform.icon.startsWith('fa-brands') ? platform.icon : 'fa-solid ' + btnIcon}"></i>
+          </a>
         `;
       }
 
@@ -369,13 +383,13 @@ document.addEventListener('DOMContentLoaded', () => {
       filterButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
       currentFilter = button.getAttribute('data-filter');
-      
+
       projectsGrid.style.opacity = '0';
       projectsGrid.style.transform = 'translateY(10px)';
-      
+
       setTimeout(() => {
-        const filtered = currentFilter === 'all' 
-          ? PROJECTS_DATA 
+        const filtered = currentFilter === 'all'
+          ? PROJECTS_DATA
           : PROJECTS_DATA.filter(p => p.category === currentFilter);
         renderProjects(filtered);
         projectsGrid.style.opacity = '1';
@@ -384,7 +398,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Modal & Video Showcase
   const modal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
   const videoSource = document.getElementById('videoSource');
@@ -395,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalInstagramBtn = document.getElementById('modalInstagramBtn');
   const modalVideoCounter = document.getElementById('modalVideoCounter');
   const closeBtn = document.getElementById('closeModalBtn');
-  
+
   const videoTapOverlay = document.getElementById('videoTapOverlay');
   const playerCenterIcon = document.getElementById('playerCenterIcon');
   const videoProgressContainer = document.getElementById('videoProgressContainer');
@@ -403,7 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const ctrlPlayPauseBtn = document.getElementById('ctrlPlayPauseBtn');
   const ctrlMuteBtn = document.getElementById('ctrlMuteBtn');
   const ctrlVolumeSlider = document.getElementById('ctrlVolumeSlider');
-  const cineVolumeContainer = document.getElementById('cineVolumeContainer');
   const videoTime = document.getElementById('videoTime');
   const ctrlFullscreenBtn = document.getElementById('ctrlFullscreenBtn');
 
@@ -474,11 +486,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function updateMuteUI(isMuted) {
-    const currentVol = (modalVideo && !isNaN(modalVideo.volume)) ? modalVideo.volume : userVolume;
-    updateVolumeUI(currentVol, isMuted);
-  }
-
   function setVideoVolume(newVol, showFeedback = false) {
     if (!modalVideo) return;
     const clamped = Math.max(0, Math.min(1, parseFloat(newVol)));
@@ -536,9 +543,9 @@ document.addEventListener('DOMContentLoaded', () => {
         tagsList = Array.isArray(project.tags) ? project.tags : (project.tags[currentLang] || project.tags.tr || []);
       }
       if (tagsList.length === 0) tagsList = ["After Effects", "Motion Design", "Video Edit"];
-      
+
       modalTagsBox.innerHTML = tagsList.map(tag => {
-        const icon = tag.toLowerCase().includes('color') ? 'fa-palette' 
+        const icon = tag.toLowerCase().includes('color') ? 'fa-palette'
           : tag.toLowerCase().includes('music') || tag.toLowerCase().includes('müzik') || tag.toLowerCase().includes('ses') ? 'fa-music'
           : tag.toLowerCase().includes('edit') ? 'fa-film' : 'fa-wand-magic-sparkles';
         return `<span><i class="fa-solid ${icon}"></i> ${tag}</span>`;
@@ -552,7 +559,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modalVideoCounter.textContent = `Video ${currentVideoIndex + 1} / ${videoProjectsList.length}`;
     }
 
-    // Direct Project Link (YouTube / TikTok / Instagram / Web)
     const modalDirectLinkBtn = document.getElementById('modalDirectLinkBtn');
     const directLink = (project.link && project.link.trim() !== '') ? project.link.trim() : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
 
@@ -786,7 +792,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Dark / Light Mode Toggle
   const modeToggle = document.getElementById('modeToggle');
   const modeIcon = document.getElementById('modeIcon');
 
@@ -806,7 +811,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Typewriter
   const typewriterElement = document.getElementById('typewriter');
   let typewriterTimeout = null;
   let wordIndex = 0;
@@ -817,7 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function type() {
     if (!typewriterElement) return;
     const currentWord = activeWords[wordIndex % activeWords.length];
-    
+
     if (isDeleting) {
       typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
@@ -849,24 +853,23 @@ document.addEventListener('DOMContentLoaded', () => {
     type();
   }
 
-  // 3D Laptop Scroll Reactive Engine
   const laptop3D = document.getElementById('laptop3D');
   const laptopStage = document.getElementById('laptopStageWrapper');
 
   if (laptop3D && laptopStage) {
     const CODE_FILES = {
-      "developer.js": `<span class="c-kw">const</span> <span class="c-var">developer</span> = {
-  <span class="c-prop">name</span>: <span class="c-str">'Umut Yazıcı'</span>,
-  <span class="c-prop">role</span>: <span class="c-str">'Frontend & Motion Designer'</span>,
-  <span class="c-prop">projects</span>: [<span class="c-str">'Yıldız Forma'</span>, <span class="c-str">'FormaArena'</span>],
-  <span class="c-prop">status</span>: <span class="c-str">'Open to Work 🚀'</span>,
-  <span class="c-fn">build</span>: () => <span class="c-str">'Clean Code & Smooth UI ✨'</span>
+      "umut.js": `<span class="c-kw">const</span> <span class="c-var">umutYazici</span> = {
+  <span class="c-prop">ad</span>: <span class="c-str">'Umut Yazıcı'</span>,
+  <span class="c-prop">alan</span>: <span class="c-str">'Web & Motion Design'</span>,
+  <span class="c-prop">projeler</span>: [<span class="c-str">'Yıldız Forma'</span>, <span class="c-str">'FormaArena'</span>],
+  <span class="c-prop">konum</span>: <span class="c-str">'İstanbul'</span>,
+  <span class="c-fn">stack</span>: () => [<span class="c-str">'PHP'</span>, <span class="c-str">'JS'</span>, <span class="c-str">'After Effects'</span>]
 };`,
       "yildizforma.js": `<span class="c-kw">import</span> { <span class="c-var">renderStore</span> } <span class="c-kw">from</span> <span class="c-str">'./yildizforma-ui'</span>;
 
 <span class="c-kw">export const</span> <span class="c-fn">initYildizForma</span> = (<span class="c-arg">config</span>) => {
   <span class="c-kw">const</span> <span class="c-var">store</span> = <span class="c-fn">renderStore</span>({
-    <span class="c-prop">catalog</span>: <span class="c-str">'Special Jerseys'</span>,
+    <span class="c-prop">catalog</span>: <span class="c-str">'Özel Formalar'</span>,
     <span class="c-prop">coupons</span>: <span class="c-kw">true</span>,
     <span class="c-prop">responsive</span>: <span class="c-kw">true</span>
   });
@@ -925,7 +928,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetRotY = -24 + (currentProgress * 58) + (currentMouseX * 7);
       const targetRotX = 13 - (currentProgress * 8) - (currentMouseY * 6);
       const targetRotZ = -4 + (currentProgress * 9) + (currentMouseX * 2);
-      
+
       const floatY = Math.sin(time) * 7;
       const targetTransX = (currentProgress * -30) + (currentMouseX * 12);
       const targetTransY = floatY + (currentMouseY * 8);
