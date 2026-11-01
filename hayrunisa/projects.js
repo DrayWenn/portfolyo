@@ -1,5 +1,3 @@
-// Hayrunisa Hacıismailoğlu Portfolyo - Proje Verileri
-
 const PROJECTS_DATA = [
     {
         "id": 1,

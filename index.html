@@ -93,7 +93,7 @@
           <span class="lang-divider">/</span>
           <button class="lang-btn" data-lang="en" title="English">EN</button>
         </div>
-        <button class="mode-toggle" id="modeToggle" title="Tema Değiştir">
+        <button class="mode-toggle" id="modeToggle" title="Açık / Koyu Mod">
           <i class="fa-solid fa-moon" id="modeIcon"></i>
         </button>
       </div>
@@ -101,6 +101,7 @@
   </header>
 
   <section class="hero">
+    <div id="heroFlowCanvas" class="hero-flow-canvas" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="hero-badge">
         <span class="pulse-dot"></span>
@@ -173,22 +174,22 @@
       <div class="tech-section">
         <h3 class="cv-subheading"><i class="fa-solid fa-code"></i> <span data-i18n="about.techHeading">Teknik Yetkinlik Alanları</span></h3>
         <div class="tech-grid">
-          <div class="tech-card">
+          <div class="tech-card reveal-on-scroll">
             <div class="tech-card-icon"><i class="fa-solid fa-laptop-code"></i></div>
             <h4 data-i18n="about.card1Title">Modern Web Geliştirme</h4>
             <p data-i18n="about.card1Desc">JavaScript (ES6+), HTML5, CSS3, PHP (Özel Mimari), REST API, MySQL & SQLite</p>
           </div>
-          <div class="tech-card">
+          <div class="tech-card reveal-on-scroll">
             <div class="tech-card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
             <h4 data-i18n="about.card2Title">E-Ticaret & Ödeme Sistemleri</h4>
             <p data-i18n="about.card2Desc">Sanal POS Entegrasyonları (iyzico / PayTR), Kargo API'leri, Stok & Sipariş Yönetimi</p>
           </div>
-          <div class="tech-card">
+          <div class="tech-card reveal-on-scroll">
             <div class="tech-card-icon"><i class="fa-solid fa-chart-line"></i></div>
             <h4 data-i18n="about.card3Title">Performans & Dijital Büyüme</h4>
             <p data-i18n="about.card3Desc">Google Ads (PMax & Arama Ağı), Dönüşüm Takibi, SEO Temelleri, Sosyal Medya Yönetimi</p>
           </div>
-          <div class="tech-card">
+          <div class="tech-card reveal-on-scroll">
             <div class="tech-card-icon"><i class="fa-solid fa-photo-film"></i></div>
             <h4 data-i18n="about.card4Title">Motion Graphics & Video Kurgu</h4>
             <p data-i18n="about.card4Desc">Adobe After Effects, Motion Design, Dinamik Video Kurgusu, Ses Senkronizasyonu, Photoshop</p>
@@ -205,7 +206,7 @@
         </div>
 
         <div class="timeline">
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-date" data-i18n="cv.item1Date">2022 - Günümüz (4+ Yıl)</div>
             <div class="timeline-content">
@@ -219,7 +220,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-date">2023 - 2024</div>
             <div class="timeline-content">
@@ -233,7 +234,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-date">2021 - 2025</div>
             <div class="timeline-content">
@@ -246,7 +247,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-date" data-i18n="cv.item4Date">Devam Ediyor</div>
             <div class="timeline-content">
@@ -261,17 +262,17 @@
       <div class="personal-skills-section">
         <h3 class="cv-subheading"><i class="fa-solid fa-star"></i> <span data-i18n="skills.heading">Kişisel Beceriler</span></h3>
         <div class="personal-skills-grid">
-          <span class="skill-badge-card"><i class="fa-solid fa-brain"></i> <span data-i18n="skills.item1">Analitik Düşünme & Problem Çözme</span></span>
-          <span class="skill-badge-card"><i class="fa-solid fa-list-check"></i> <span data-i18n="skills.item2">Proje & Zaman Yönetimi</span></span>
-          <span class="skill-badge-card"><i class="fa-solid fa-bolt"></i> <span data-i18n="skills.item3">Hızlı Adaptasyon & Kendi Kendine Öğrenme</span></span>
-          <span class="skill-badge-card"><i class="fa-solid fa-bullseye"></i> <span data-i18n="skills.item4">Sonuç Odaklı Çalışma</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-brain"></i> <span data-i18n="skills.item1">Analitik Düşünme & Problem Çözme</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-list-check"></i> <span data-i18n="skills.item2">Proje & Zaman Yönetimi</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-bolt"></i> <span data-i18n="skills.item3">Hızlı Adaptasyon & Kendi Kendine Öğrenme</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-bullseye"></i> <span data-i18n="skills.item4">Sonuç Odaklı Çalışma</span></span>
         </div>
       </div>
     </div>
   </section>
 
   <section id="projeler" class="projects-section">
-    <div class="section-header">
+    <div class="section-header reveal-on-scroll">
       <h2 class="section-title" data-i18n="projects.heading">Projelerim</h2>
       <div class="filter-tabs">
         <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tümü</button>
@@ -287,12 +288,12 @@
       <h2 class="contact-title" data-i18n="contact.heading">Birlikte Çalışalım</h2>
       <p class="contact-subtitle" data-i18n="contact.subtitle">Yeni bir proje veya iş birliği için aşağıdaki bağlantılardan bana ulaşabilirsiniz.</p>
       <div class="contact-links">
-        <a href="mailto:obumut8@gmail.com" class="contact-card email">
+        <a href="mailto:obumut8@gmail.com" class="contact-card email reveal-on-scroll">
           <i class="fa-solid fa-envelope"></i>
           <span data-i18n="contact.emailLabel">E-Posta</span>
           <span class="contact-detail">obumut8@gmail.com</span>
         </a>
-        <a href="https://github.com/DrayWenn" target="_blank" rel="noopener noreferrer" class="contact-card github">
+        <a href="https://github.com/DrayWenn" target="_blank" rel="noopener noreferrer" class="contact-card github reveal-on-scroll">
           <i class="fa-brands fa-github"></i>
           <span>GitHub</span>
           <span class="contact-detail" data-i18n="contact.viewProfile">Profili İncele</span>
@@ -408,6 +409,8 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="flowfield.js"></script>
   <script src="projects.js"></script>
   <script src="app.js"></script>
 </body>

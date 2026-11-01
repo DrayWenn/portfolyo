@@ -1,6 +1,3 @@
-// Umut Yazıcı Portfolyo - Yerel Yönetim Sunucusu
-// Çalıştırmak için: node admin/server.js
-
 const http = require('http');
 const fs = require('fs');
 const fsp = fs.promises;
@@ -46,7 +43,7 @@ const MIME = {
     '.ogg': 'video/ogg'
 };
 
-const PROJECTS_HEADER = `// Hayrunisa Hacıismailoğlu Portfolyo - Proje Verileri\n\n`;
+const PROJECTS_HEADER = '';
 
 function isInside(child, parent) {
     const rel = path.relative(parent, child);

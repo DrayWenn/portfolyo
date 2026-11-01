@@ -267,6 +267,47 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  let revealObserver = null;
+
+  function observeScrollReveal() {
+    const groups = [
+      document.querySelectorAll('.tech-grid .reveal-on-scroll'),
+      document.querySelectorAll('.timeline .reveal-on-scroll'),
+      document.querySelectorAll('.personal-skills-grid .reveal-on-scroll'),
+      document.querySelectorAll('.contact-links .reveal-on-scroll')
+    ];
+
+    groups.forEach(group => {
+      group.forEach((el, idx) => {
+        if (!el.style.getPropertyValue('--reveal-delay')) {
+          el.style.setProperty('--reveal-delay', `${idx * 90}ms`);
+        }
+      });
+    });
+
+    const targets = document.querySelectorAll('.reveal-on-scroll:not(.is-visible)');
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+    }
+
+    targets.forEach(el => revealObserver.observe(el));
+  }
+
   function renderProjects(projectsToRender) {
     if (!projectsGrid) return;
     projectsGrid.innerHTML = '';
@@ -282,9 +323,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    projectsToRender.forEach(project => {
+    projectsToRender.forEach((project, idx) => {
       const card = document.createElement('div');
-      card.className = 'project-card';
+      card.className = 'project-card reveal-on-scroll';
+      card.style.setProperty('--reveal-delay', `${(idx % 3) * 90}ms`);
       card.setAttribute('data-category', project.category);
 
       const title = typeof project.title === 'object' ? (project.title[currentLang] || project.title.tr) : project.title;
@@ -313,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const badgeClass = hasVideo ? 'bg-ae' : 'bg-web';
-      const glowColor = hasVideo ? 'rgba(168,85,247,0.15)' : 'rgba(6,182,212,0.15)';
+      const glowColor = hasVideo ? 'rgba(var(--primary-rgb), 0.16)' : 'rgba(var(--secondary-rgb), 0.16)';
 
       const directLink = (project.link && project.link.trim() !== '')
         ? project.link.trim()
@@ -376,6 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     attachVideoListeners();
+    observeScrollReveal();
   }
 
   filterButtons.forEach(button => {
@@ -469,7 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ctrlVolumeSlider) {
       ctrlVolumeSlider.value = effectiveVol;
       const pct = Math.round(effectiveVol * 100);
-      ctrlVolumeSlider.style.background = `linear-gradient(to right, #06b6d4 0%, #a855f7 ${pct}%, rgba(255, 255, 255, 0.22) ${pct}%, rgba(255, 255, 255, 0.22) 100%)`;
+      ctrlVolumeSlider.style.background = `linear-gradient(to right, var(--secondary) 0%, var(--primary) ${pct}%, rgba(255, 255, 255, 0.22) ${pct}%, rgba(255, 255, 255, 0.22) 100%)`;
       ctrlVolumeSlider.title = `Ses: %${pct}`;
     }
     if (ctrlMuteBtn) {
@@ -899,11 +942,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMouseX = 0;
     let currentMouseY = 0;
 
-    let currentRotY = -22;
-    let currentRotX = 12;
-    let currentRotZ = -3;
-    let currentTransX = 0;
-    let currentTransY = 0;
+    let currentRotY = -42;
+    let currentRotX = 24;
+    let currentRotZ = -10;
+    let currentTransX = 40;
+    let currentTransY = 30;
     let time = 0;
 
     const updateScrollTarget = () => {
@@ -920,26 +963,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     function render3DLaptop() {
-      time += 0.035;
-      currentProgress += (targetProgress - currentProgress) * 0.075;
-      currentMouseX += (mouseX - currentMouseX) * 0.05;
-      currentMouseY += (mouseY - currentMouseY) * 0.05;
+      if (!document.hidden) {
+        time += 0.035;
+        currentProgress += (targetProgress - currentProgress) * 0.08;
+        currentMouseX += (mouseX - currentMouseX) * 0.06;
+        currentMouseY += (mouseY - currentMouseY) * 0.06;
 
-      const targetRotY = -24 + (currentProgress * 58) + (currentMouseX * 7);
-      const targetRotX = 13 - (currentProgress * 8) - (currentMouseY * 6);
-      const targetRotZ = -4 + (currentProgress * 9) + (currentMouseX * 2);
+        const targetRotY = -24 + (currentProgress * 58) + (currentMouseX * 8);
+        const targetRotX = 13 - (currentProgress * 8) - (currentMouseY * 7);
+        const targetRotZ = -4 + (currentProgress * 9) + (currentMouseX * 2.5);
 
-      const floatY = Math.sin(time) * 7;
-      const targetTransX = (currentProgress * -30) + (currentMouseX * 12);
-      const targetTransY = floatY + (currentMouseY * 8);
+        const floatY = Math.sin(time) * 7.5;
+        const targetTransX = (currentProgress * -30) + (currentMouseX * 14);
+        const targetTransY = floatY + (currentMouseY * 9);
 
-      currentRotY += (targetRotY - currentRotY) * 0.08;
-      currentRotX += (targetRotX - currentRotX) * 0.08;
-      currentRotZ += (targetRotZ - currentRotZ) * 0.08;
-      currentTransX += (targetTransX - currentTransX) * 0.08;
-      currentTransY += (targetTransY - currentTransY) * 0.08;
+        currentRotY += (targetRotY - currentRotY) * 0.08;
+        currentRotX += (targetRotX - currentRotX) * 0.08;
+        currentRotZ += (targetRotZ - currentRotZ) * 0.08;
+        currentTransX += (targetTransX - currentTransX) * 0.08;
+        currentTransY += (targetTransY - currentTransY) * 0.08;
 
-      laptop3D.style.transform = `translate3d(${currentTransX.toFixed(2)}px, ${currentTransY.toFixed(2)}px, 0px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) rotateZ(${currentRotZ.toFixed(2)}deg)`;
+        laptop3D.style.transform = `translate3d(${currentTransX.toFixed(2)}px, ${currentTransY.toFixed(2)}px, 0px) rotateX(${currentRotX.toFixed(2)}deg) rotateY(${currentRotY.toFixed(2)}deg) rotateZ(${currentRotZ.toFixed(2)}deg)`;
+      }
 
       requestAnimationFrame(render3DLaptop);
     }
