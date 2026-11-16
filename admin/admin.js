@@ -46,6 +46,7 @@
     const linkInput = $('linkInput');
     const instagramInput = $('instagramInput');
     const authorInput = $('authorInput');
+    const imageInput = $('imageInput');
     const videoSrcInput = $('videoSrcInput');
     const iconGrid = $('iconGrid');
     const tagsTrEl = $('tagsTr');
@@ -235,6 +236,7 @@
         linkInput.value = projectData ? (projectData.link || '') : '';
         instagramInput.value = projectData ? (projectData.instagramUrl || '') : '';
         authorInput.value = projectData ? (projectData.author || '') : 'drayeditss';
+        imageInput.value = projectData ? (projectData.image || '') : '';
         videoSrcInput.value = projectData ? (projectData.videoSrc || '') : '';
 
         tagsTrList = projectData ? extractTags(projectData.tags, 'tr') : [];
@@ -410,6 +412,7 @@
                 tags: tagsObj,
                 link: linkInput.value.trim() || (categoryVal === 'ae' ? 'https://www.instagram.com/drayeditss/' : '#'),
                 icon: currentIcon || (categoryVal === 'ae' ? 'fa-film' : 'fa-globe'),
+                image: imageInput.value.trim(),
                 videoSrc: categoryVal === 'ae' ? videoSrcInput.value.trim() : ''
             };
 
@@ -429,6 +432,7 @@
                 target.tags = tagsObj;
                 target.link = linkInput.value.trim();
                 target.icon = currentIcon;
+                target.image = imageInput.value.trim();
                 target.videoSrc = categoryVal === 'ae' ? videoSrcInput.value.trim() : '';
 
                 if (categoryVal === 'ae') {
@@ -539,7 +543,13 @@
         const icon = p.icon || (isAe ? 'fa-film' : 'fa-globe');
 
         let mediaHtml = '';
-        if (isAe) {
+        if (p.image && p.image.trim()) {
+            mediaHtml = `
+                <div class="card-media has-image" style="background-image: url('${escapeHtml(p.image)}'); background-size: cover; background-position: center;">
+                    <span class="video-file-tag"><i class="fa-solid fa-image"></i> Görsel Eklendi</span>
+                </div>
+            `;
+        } else if (isAe) {
             const fileName = p.videoSrc ? p.videoSrc.split('/').pop() : '';
             const fileTag = p.videoSrc
                 ? `<span class="video-file-tag"><i class="fa-solid fa-play"></i> ${escapeHtml(fileName)}</span>`

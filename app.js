@@ -56,23 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
       "cv.item4Title": "Bilgisayar Programcılığı",
       "cv.item4Org": "Atatürk Üniversitesi — Uzaktan Eğitim",
       "cv.item4Desc": "Yazılım geliştirme ve web teknolojileri altyapısı üzerine önlisans öğrenimi.",
-      "skills.heading": "Kişisel Beceriler",
+      "skills.heading": "Kişisel Beceriler & Profesyonel Yetkinlikler",
       "skills.item1": "Analitik Düşünme & Problem Çözme",
       "skills.item2": "Proje & Zaman Yönetimi",
       "skills.item3": "Hızlı Adaptasyon & Kendi Kendine Öğrenme",
-      "skills.item4": "Sonuç Odaklı Çalışma",
+      "skills.item4": "Sonuç Odaklı Çalışma & İnisiyatif Alma",
+      "skills.item5": "Performans Odaklılık & Kod Optimizasyonu",
+      "skills.item6": "Ürün Odaklı UX/UI & Görsel Vizyon",
+      "skills.item7": "Sistem Mimarisi & Hata Yönetimi",
+      "skills.item8": "Müşteri Odaklı Teslim & Güçlü İletişim",
       "projects.heading": "Projelerim",
-      "projects.filterAll": "Tümü",
-      "projects.filterWeb": "Web / Siteler",
-      "projects.filterAe": "Videolar",
-      "projects.badgeWeb": "Web / Proje",
+      "projects.lead": "Geliştirdiğim web yazılımları, scriptler, oyun mekanikleri ve After Effects video kurguları.",
+      "projects.catWebTag": "Yazılım & Web",
+      "projects.catWebTitle": "Siteler, Botlar & Oyun Scriptleri",
+      "projects.catAeTag": "Motion & Video",
+      "projects.catAeTitle": "After Effects & Video Kurguları",
+      "projects.badgeWeb": "Web & Script",
       "projects.badgeAe": "After Effects",
       "projects.badgeVideo": "Video",
       "projects.btnOpen": "Projeyi Aç",
       "projects.btnInspect": "Klasörü İncele",
       "projects.btnPlay": "Videoyu Oynat",
       "projects.btnOpenLink": "Bağlantıyı Aç",
-      "projects.empty": "Bu kategoride henüz proje bulunamadı.",
+      "projects.emptyWeb": "Bu kategoride henüz yazılım/script projesi eklenmedi.",
+      "projects.emptyAe": "Bu kategoride henüz video kurgusu eklenmedi.",
+      "projects.countFormat": "{n} Proje",
+      "projects.videoCountFormat": "{n} Video",
       "contact.heading": "Birlikte Çalışalım",
       "contact.subtitle": "Yeni bir proje veya iş birliği için aşağıdaki bağlantılardan bana ulaşabilirsiniz.",
       "contact.emailLabel": "E-Posta",
@@ -140,23 +149,32 @@ document.addEventListener('DOMContentLoaded', () => {
       "cv.item4Title": "Computer Programming (Associate)",
       "cv.item4Org": "Atatürk University — Distance Education",
       "cv.item4Desc": "Associate degree studies in software development and web technologies.",
-      "skills.heading": "Personal Competencies",
+      "skills.heading": "Personal Competencies & Professional Strengths",
       "skills.item1": "Analytical Thinking & Problem Solving",
       "skills.item2": "Project & Time Management",
       "skills.item3": "Rapid Adaptability & Self-Learning",
-      "skills.item4": "Result-Driven Execution",
+      "skills.item4": "Result-Driven Execution & Initiative",
+      "skills.item5": "Performance Focus & Code Optimization",
+      "skills.item6": "Product UX/UI & Creative Vision",
+      "skills.item7": "System Architecture & Error Handling",
+      "skills.item8": "Client-Centric Delivery & Communication",
       "projects.heading": "Projects",
-      "projects.filterAll": "All",
-      "projects.filterWeb": "Web Sites",
-      "projects.filterAe": "Videos",
-      "projects.badgeWeb": "Web Project",
+      "projects.lead": "Web apps, custom scripts, game mechanics, and After Effects motion edits.",
+      "projects.catWebTag": "Software & Web",
+      "projects.catWebTitle": "Websites, Bots & Game Scripts",
+      "projects.catAeTag": "Motion & Video",
+      "projects.catAeTitle": "After Effects & Video Edits",
+      "projects.badgeWeb": "Web & Script",
       "projects.badgeAe": "After Effects",
       "projects.badgeVideo": "Video Edit",
       "projects.btnOpen": "Open Project",
       "projects.btnInspect": "View Folder",
       "projects.btnPlay": "Play Video",
       "projects.btnOpenLink": "Open Link",
-      "projects.empty": "No projects found in this category.",
+      "projects.emptyWeb": "No software/script projects added yet.",
+      "projects.emptyAe": "No video edits added yet.",
+      "projects.countFormat": "{n} Projects",
+      "projects.videoCountFormat": "{n} Videos",
       "contact.heading": "Let's Work Together",
       "contact.subtitle": "Feel free to reach out via the links below for new projects or collaborations.",
       "contact.emailLabel": "Email",
@@ -191,10 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
       : "Umut Yazıcı | Portfolyo";
 
     if (typeof PROJECTS_DATA !== 'undefined') {
-      const filtered = currentFilter === 'all'
-        ? PROJECTS_DATA
-        : PROJECTS_DATA.filter(p => p.category === currentFilter);
-      renderProjects(filtered);
+      renderAllProjects();
     }
 
     restartTypewriter(lang);
@@ -211,8 +226,181 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const projectsGrid = document.getElementById('projectsGrid');
-  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectsGridWeb = document.getElementById('projectsGridWeb');
+  const projectsGridAe = document.getElementById('projectsGridAe');
+  const webCountBadge = document.getElementById('webCountBadge');
+  const aeCountBadge = document.getElementById('aeCountBadge');
+
+  function createProjectCard(project, idx, dict) {
+    const card = document.createElement('div');
+    card.className = 'project-card reveal-on-scroll';
+    card.style.setProperty('--reveal-delay', `${(idx % 3) * 90}ms`);
+    card.setAttribute('data-category', project.category);
+
+    const title = typeof project.title === 'object' ? (project.title[currentLang] || project.title.tr) : project.title;
+    const description = typeof project.description === 'object' ? (project.description[currentLang] || project.description.tr) : project.description;
+
+    let tagsList = [];
+    if (project.tags) {
+      if (Array.isArray(project.tags)) {
+        tagsList = project.tags;
+      } else if (typeof project.tags === 'object') {
+        tagsList = project.tags[currentLang] || project.tags.tr || [];
+      }
+    }
+
+    const hasVideo = Boolean(project.videoSrc && project.videoSrc.trim() !== '');
+    const isWeb = project.category === 'web' || !hasVideo;
+    const isAfterEffects = tagsList.some(t => t.toLowerCase().includes('after effects'));
+
+    let badgeText = dict["projects.badgeWeb"] || 'Web Projesi';
+    if (hasVideo) {
+      badgeText = isAfterEffects ? (dict["projects.badgeAe"] || 'After Effects') : (dict["projects.badgeVideo"] || 'Video');
+    } else if (project.category === 'web') {
+      badgeText = dict["projects.badgeWeb"] || 'Web & Script';
+    } else {
+      badgeText = 'Bağlantı';
+    }
+
+    const badgeClass = hasVideo ? 'bg-ae' : 'bg-web';
+    const glowColor = hasVideo ? 'rgba(var(--primary-rgb), 0.16)' : 'rgba(var(--secondary-rgb), 0.16)';
+
+    const directLink = (project.link && project.link.trim() !== '')
+      ? project.link.trim()
+      : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
+
+    let actionHtml = '';
+
+    if (hasVideo) {
+      let linkBtnHtml = '';
+      if (directLink) {
+        const platform = detectPlatform(directLink);
+        linkBtnHtml = `
+          <a href="${directLink}" target="_blank" rel="noopener noreferrer" class="card-btn-icon card-platform-${platform.type}" title="${platform.label[currentLang] || platform.label.tr}">
+            <i class="${platform.icon}"></i>
+          </a>
+        `;
+      }
+
+      actionHtml = `
+        <div class="card-btn-group">
+          <button class="card-btn play-video-btn" data-id="${project.id}" data-video-src="${project.videoSrc}" data-title="${title}">
+            ${dict["projects.btnPlay"] || 'Videoyu Oynat'} <i class="fa-solid fa-play"></i>
+          </button>
+          ${linkBtnHtml}
+        </div>
+      `;
+    } else {
+      if (directLink) {
+        const targetUrl = directLink;
+        const platform = detectPlatform(targetUrl);
+        const isFolderProject = targetUrl.startsWith('../') || targetUrl.startsWith('./');
+        const btnLabel = isFolderProject
+          ? (dict["projects.btnInspect"] || 'Klasörü İncele')
+          : (platform.type !== 'generic' ? (platform.label[currentLang] || platform.label.tr) : (dict["projects.btnOpen"] || 'Projeyi Aç'));
+        const btnIcon = isFolderProject ? 'fa-folder-open' : platform.icon;
+
+        actionHtml = `
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="card-btn">
+            ${btnLabel} <i class="${platform.icon.startsWith('fa-brands') ? platform.icon : 'fa-solid ' + btnIcon}"></i>
+          </a>
+        `;
+      } else {
+        actionHtml = `
+          <div class="card-badge-sold">
+            <i class="fa-solid fa-lock"></i> Özel Lisanslı Proje
+          </div>
+        `;
+      }
+    }
+
+    const tagsHtml = tagsList.map(tag => `<span>${tag}</span>`).join('');
+
+    let visualHtml = '';
+    const hasImage = Boolean(project.image && project.image.trim() !== '');
+
+    if (hasImage) {
+      visualHtml = `
+        <div class="card-image-wrapper has-thumb">
+          <img src="${project.image}" alt="${title}" class="card-thumb-img" loading="lazy">
+          <div class="card-badge ${badgeClass}">${badgeText}</div>
+          <div class="card-bg-glow" style="background: radial-gradient(circle, ${glowColor} 0%, transparent 70%);"></div>
+        </div>
+      `;
+    } else {
+      visualHtml = `
+        <div class="card-image-wrapper">
+          <div class="card-badge ${badgeClass}">${badgeText}</div>
+          <div class="card-bg-glow" style="background: radial-gradient(circle, ${glowColor} 0%, transparent 70%);"></div>
+          <i class="fa-solid ${project.icon || (isWeb ? 'fa-code' : 'fa-film')} card-icon" style="color: ${isWeb ? 'var(--secondary)' : 'var(--primary)'}"></i>
+        </div>
+      `;
+    }
+
+    card.innerHTML = `
+      ${visualHtml}
+      <div class="card-body">
+        <h3 class="card-title">${title}</h3>
+        <p class="card-desc">${description}</p>
+        <div class="card-tags">${tagsHtml}</div>
+        <div class="card-actions">${actionHtml}</div>
+      </div>
+    `;
+
+    return card;
+  }
+
+  function renderAllProjects() {
+    if (typeof PROJECTS_DATA === 'undefined') return;
+    const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.tr;
+
+    const webProjects = PROJECTS_DATA.filter(p => p.category === 'web' || (!p.videoSrc || p.videoSrc.trim() === ''));
+    const aeProjects = PROJECTS_DATA.filter(p => p.category === 'ae' || (p.videoSrc && p.videoSrc.trim() !== ''));
+
+    if (webCountBadge) {
+      const format = dict["projects.countFormat"] || '{n} Proje';
+      webCountBadge.textContent = format.replace('{n}', webProjects.length);
+    }
+    if (aeCountBadge) {
+      const format = dict["projects.videoCountFormat"] || '{n} Video';
+      aeCountBadge.textContent = format.replace('{n}', aeProjects.length);
+    }
+
+    if (projectsGridWeb) {
+      projectsGridWeb.innerHTML = '';
+      if (webProjects.length === 0) {
+        projectsGridWeb.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
+            <i class="fa-solid fa-folder-open" style="font-size: 3rem; margin-bottom: 12px; display: block; opacity: 0.5;"></i>
+            ${dict["projects.emptyWeb"]}
+          </div>
+        `;
+      } else {
+        webProjects.forEach((p, idx) => {
+          projectsGridWeb.appendChild(createProjectCard(p, idx, dict));
+        });
+      }
+    }
+
+    if (projectsGridAe) {
+      projectsGridAe.innerHTML = '';
+      if (aeProjects.length === 0) {
+        projectsGridAe.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
+            <i class="fa-solid fa-film" style="font-size: 3rem; margin-bottom: 12px; display: block; opacity: 0.5;"></i>
+            ${dict["projects.emptyAe"]}
+          </div>
+        `;
+      } else {
+        aeProjects.forEach((p, idx) => {
+          projectsGridAe.appendChild(createProjectCard(p, idx, dict));
+        });
+      }
+    }
+
+    attachVideoListeners();
+    observeScrollReveal();
+  }
 
   function detectPlatform(url) {
     if (!url) return {
@@ -308,138 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     targets.forEach(el => revealObserver.observe(el));
   }
 
-  function renderProjects(projectsToRender) {
-    if (!projectsGrid) return;
-    projectsGrid.innerHTML = '';
-    const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.tr;
 
-    if (!projectsToRender || projectsToRender.length === 0) {
-      projectsGrid.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
-          <i class="fa-solid fa-folder-open" style="font-size: 3rem; margin-bottom: 12px; display: block; opacity: 0.5;"></i>
-          ${dict["projects.empty"]}
-        </div>
-      `;
-      return;
-    }
-
-    projectsToRender.forEach((project, idx) => {
-      const card = document.createElement('div');
-      card.className = 'project-card reveal-on-scroll';
-      card.style.setProperty('--reveal-delay', `${(idx % 3) * 90}ms`);
-      card.setAttribute('data-category', project.category);
-
-      const title = typeof project.title === 'object' ? (project.title[currentLang] || project.title.tr) : project.title;
-      const description = typeof project.description === 'object' ? (project.description[currentLang] || project.description.tr) : project.description;
-
-      let tagsList = [];
-      if (project.tags) {
-        if (Array.isArray(project.tags)) {
-          tagsList = project.tags;
-        } else if (typeof project.tags === 'object') {
-          tagsList = project.tags[currentLang] || project.tags.tr || [];
-        }
-      }
-
-      const hasVideo = Boolean(project.videoSrc && project.videoSrc.trim() !== '');
-      const isWeb = project.category === 'web' || !hasVideo;
-      const isAfterEffects = tagsList.some(t => t.toLowerCase().includes('after effects'));
-
-      let badgeText = dict["projects.badgeWeb"] || 'Web Projesi';
-      if (hasVideo) {
-        badgeText = isAfterEffects ? (dict["projects.badgeAe"] || 'After Effects') : (dict["projects.badgeVideo"] || 'Video');
-      } else if (project.category === 'web') {
-        badgeText = dict["projects.badgeWeb"] || 'Web Projesi';
-      } else {
-        badgeText = 'Bağlantı';
-      }
-
-      const badgeClass = hasVideo ? 'bg-ae' : 'bg-web';
-      const glowColor = hasVideo ? 'rgba(var(--primary-rgb), 0.16)' : 'rgba(var(--secondary-rgb), 0.16)';
-
-      const directLink = (project.link && project.link.trim() !== '')
-        ? project.link.trim()
-        : (project.instagramUrl && project.instagramUrl.trim() !== '' ? project.instagramUrl.trim() : '');
-
-      let actionHtml = '';
-
-      if (hasVideo) {
-        let linkBtnHtml = '';
-        if (directLink) {
-          const platform = detectPlatform(directLink);
-          linkBtnHtml = `
-            <a href="${directLink}" target="_blank" rel="noopener noreferrer" class="card-btn-icon card-platform-${platform.type}" title="${platform.label[currentLang] || platform.label.tr}">
-              <i class="${platform.icon}"></i>
-            </a>
-          `;
-        }
-
-        actionHtml = `
-          <div class="card-btn-group">
-            <button class="card-btn play-video-btn" data-id="${project.id}" data-video-src="${project.videoSrc}" data-title="${title}">
-              ${dict["projects.btnPlay"] || 'Videoyu Oynat'} <i class="fa-solid fa-play"></i>
-            </button>
-            ${linkBtnHtml}
-          </div>
-        `;
-      } else {
-        const targetUrl = directLink || '#';
-        const platform = detectPlatform(targetUrl);
-        const isFolderProject = targetUrl.startsWith('../') || targetUrl.startsWith('./');
-        const btnLabel = isFolderProject
-          ? (dict["projects.btnInspect"] || 'Klasörü İncele')
-          : (platform.type !== 'generic' ? (platform.label[currentLang] || platform.label.tr) : (dict["projects.btnOpen"] || 'Projeyi Aç'));
-        const btnIcon = isFolderProject ? 'fa-folder-open' : platform.icon;
-
-        actionHtml = `
-          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="card-btn">
-            ${btnLabel} <i class="${platform.icon.startsWith('fa-brands') ? platform.icon : 'fa-solid ' + btnIcon}"></i>
-          </a>
-        `;
-      }
-
-      const tagsHtml = tagsList.map(tag => `<span>${tag}</span>`).join('');
-
-      card.innerHTML = `
-        <div class="card-image-wrapper">
-          <div class="card-badge ${badgeClass}">${badgeText}</div>
-          <div class="card-bg-glow" style="background: radial-gradient(circle, ${glowColor} 0%, transparent 70%);"></div>
-          <i class="fa-solid ${project.icon} card-icon" style="color: ${isWeb ? 'var(--secondary)' : 'var(--primary)'}"></i>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">${title}</h3>
-          <p class="card-desc">${description}</p>
-          <div class="card-tags">${tagsHtml}</div>
-          <div class="card-actions">${actionHtml}</div>
-        </div>
-      `;
-
-      projectsGrid.appendChild(card);
-    });
-
-    attachVideoListeners();
-    observeScrollReveal();
-  }
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      currentFilter = button.getAttribute('data-filter');
-
-      projectsGrid.style.opacity = '0';
-      projectsGrid.style.transform = 'translateY(10px)';
-
-      setTimeout(() => {
-        const filtered = currentFilter === 'all'
-          ? PROJECTS_DATA
-          : PROJECTS_DATA.filter(p => p.category === currentFilter);
-        renderProjects(filtered);
-        projectsGrid.style.opacity = '1';
-        projectsGrid.style.transform = 'translateY(0)';
-      }, 200);
-    });
-  });
 
   const modal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');

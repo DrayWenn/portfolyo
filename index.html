@@ -260,12 +260,16 @@
       </div>
 
       <div class="personal-skills-section">
-        <h3 class="cv-subheading"><i class="fa-solid fa-star"></i> <span data-i18n="skills.heading">Kişisel Beceriler</span></h3>
+        <h3 class="cv-subheading"><i class="fa-solid fa-star"></i> <span data-i18n="skills.heading">Kişisel Beceriler & Profesyonel Yetkinlikler</span></h3>
         <div class="personal-skills-grid">
           <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-brain"></i> <span data-i18n="skills.item1">Analitik Düşünme & Problem Çözme</span></span>
           <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-list-check"></i> <span data-i18n="skills.item2">Proje & Zaman Yönetimi</span></span>
           <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-bolt"></i> <span data-i18n="skills.item3">Hızlı Adaptasyon & Kendi Kendine Öğrenme</span></span>
-          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-bullseye"></i> <span data-i18n="skills.item4">Sonuç Odaklı Çalışma</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-bullseye"></i> <span data-i18n="skills.item4">Sonuç Odaklı Çalışma & İnisiyatif Alma</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-gauge-high"></i> <span data-i18n="skills.item5">Performans Odaklılık & Kod Optimizasyonu</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="skills.item6">Ürün Odaklı UX/UI & Görsel Vizyon</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="skills.item7">Sistem Mimarisi & Hata Yönetimi</span></span>
+          <span class="skill-badge-card reveal-on-scroll"><i class="fa-solid fa-handshake"></i> <span data-i18n="skills.item8">Müşteri Odaklı Teslim & Güçlü İletişim</span></span>
         </div>
       </div>
     </div>
@@ -274,13 +278,32 @@
   <section id="projeler" class="projects-section">
     <div class="section-header reveal-on-scroll">
       <h2 class="section-title" data-i18n="projects.heading">Projelerim</h2>
-      <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tümü</button>
-        <button class="filter-btn" data-filter="ae" data-i18n="projects.filterAe"><i class="fa-solid fa-film"></i> Videolar</button>
-        <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb"><i class="fa-solid fa-globe"></i> Web / Siteler</button>
-      </div>
+      <p class="section-lead" data-i18n="projects.lead">Geliştirdiğim web yazılımları, scriptler, oyun mekanikleri ve After Effects video kurguları.</p>
     </div>
-    <div class="projects-grid" id="projectsGrid"></div>
+
+    <!-- Bölüm 1: Siteler & Scriptler -->
+    <div class="project-category-block" id="blockWeb">
+      <div class="category-block-header reveal-on-scroll">
+        <div class="cat-header-title-wrap">
+          <span class="cat-pill"><i class="fa-solid fa-code"></i> <span data-i18n="projects.catWebTag">Yazılım & Web</span></span>
+          <h3 class="cat-title" data-i18n="projects.catWebTitle">Siteler, Botlar & Oyun Scriptleri</h3>
+        </div>
+        <span class="cat-count-badge" id="webCountBadge">0 Proje</span>
+      </div>
+      <div class="projects-grid" id="projectsGridWeb"></div>
+    </div>
+
+    <!-- Bölüm 2: Videolar & Kurgular -->
+    <div class="project-category-block" id="blockAe">
+      <div class="category-block-header reveal-on-scroll">
+        <div class="cat-header-title-wrap">
+          <span class="cat-pill cat-pill-ae"><i class="fa-solid fa-film"></i> <span data-i18n="projects.catAeTag">Motion & Video</span></span>
+          <h3 class="cat-title" data-i18n="projects.catAeTitle">After Effects & Video Kurguları</h3>
+        </div>
+        <span class="cat-count-badge" id="aeCountBadge">0 Video</span>
+      </div>
+      <div class="projects-grid" id="projectsGridAe"></div>
+    </div>
   </section>
 
   <section id="iletisim" class="contact-section">
