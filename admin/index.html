@@ -193,9 +193,36 @@
             </div>
 
             <div class="field">
-                <label class="label" for="imageInput">Kapak Fotoğrafı (Opsiyonel)</label>
-                <input type="text" class="input" id="imageInput" placeholder="images/ornek.jpg ya da https://...">
-                <small class="help">Kartın üzerinde görünecek resim. Boş bırakırsan varsayılan ikon gösterilir.</small>
+                <label class="label">Kapak Fotoğrafı (Thumbnail)</label>
+                <div class="image-uploader-box" id="imageUploaderBox">
+                    <div class="image-preview-wrap" id="imagePreviewWrap" hidden>
+                        <img id="imagePreviewImg" src="" alt="Önizleme">
+                        <div class="image-preview-actions">
+                            <span class="image-path-badge" id="imagePathLabel"></span>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-ghost btn-sm" id="replaceImageBtn"><i class="fa-solid fa-arrows-rotate"></i> Değiştir</button>
+                                <button type="button" class="btn btn-danger-ghost btn-sm" id="removeImageBtn"><i class="fa-solid fa-trash"></i> Kaldır</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-dropzone" id="imageDropzone">
+                        <i class="fa-solid fa-image"></i>
+                        <p><strong>Fotoğrafı buraya sürükle</strong> ya da <span class="link">dosya seç</span></p>
+                        <small>PNG, JPG, WEBP, GIF (Otomatik images/ klasörüne kaydedilir)</small>
+                    </div>
+                    <div class="upload-progress" id="imageUploadProgress" hidden>
+                        <div class="upload-row">
+                            <span id="imageUploadName">resim.jpg</span>
+                            <span id="imageUploadPercent">0%</span>
+                        </div>
+                        <div class="progress-track"><div class="progress-fill" id="imageUploadFill"></div></div>
+                    </div>
+                    <input type="file" id="imageFileInput" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml,.png,.jpg,.jpeg,.webp,.gif" hidden>
+                </div>
+                <details class="advanced" style="margin-top: 8px;">
+                    <summary>Resim yolunu / URL'yi elle gir</summary>
+                    <input type="text" class="input mono" id="imageInput" placeholder="images/ornek.jpg ya da https://...">
+                </details>
             </div>
 
             <div class="field">

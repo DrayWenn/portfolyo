@@ -66,6 +66,18 @@
     const uploadFill = $('uploadFill');
     const cancelUploadBtn = $('cancelUploadBtn');
 
+    const imageDropzone = $('imageDropzone');
+    const imageFileInput = $('imageFileInput');
+    const imagePreviewWrap = $('imagePreviewWrap');
+    const imagePreviewImg = $('imagePreviewImg');
+    const imagePathLabel = $('imagePathLabel');
+    const replaceImageBtn = $('replaceImageBtn');
+    const removeImageBtn = $('removeImageBtn');
+    const imageUploadProgress = $('imageUploadProgress');
+    const imageUploadName = $('imageUploadName');
+    const imageUploadPercent = $('imageUploadPercent');
+    const imageUploadFill = $('imageUploadFill');
+
     const confirmDialog = $('confirmDialog');
     const confirmTitle = $('confirmTitle');
     const confirmText = $('confirmText');
@@ -246,6 +258,7 @@
 
         selectIcon(projectData ? (projectData.icon || (isAe ? 'fa-film' : 'fa-globe')) : 'fa-film');
         setVideoSource(videoSrcInput.value);
+        setImageSource(imageInput.value);
 
         document.querySelectorAll('.lang-tabs').forEach(tabsGroup => {
             const group = tabsGroup.dataset.group;
@@ -313,6 +326,78 @@
             dropzone.hidden = false;
             uploadProgress.hidden = true;
         }
+    }
+
+    function setImageSource(src) {
+        imageInput.value = src || '';
+        if (src && src.trim()) {
+            imagePathLabel.textContent = src;
+            const fullUrl = (src.startsWith('http://') || src.startsWith('https://')) 
+                ? src 
+                : '/portfolyo/' + src.replace(/^(\.\.\/|\/)+/, '');
+            imagePreviewImg.src = fullUrl;
+            imagePreviewWrap.hidden = false;
+            imageDropzone.hidden = true;
+            imageUploadProgress.hidden = true;
+        } else {
+            imagePreviewImg.removeAttribute('src');
+            imagePreviewWrap.hidden = true;
+            imageDropzone.hidden = false;
+            imageUploadProgress.hidden = true;
+        }
+    }
+
+    function uploadImageFile(file) {
+        if (!file) return;
+        const ext = '.' + file.name.split('.').pop().toLowerCase();
+        const allowed = ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'];
+        if (!allowed.includes(ext)) {
+            showToast(`Desteklenmeyen resim türü (${ext}). PNG, JPG veya WEBP seçin.`, 'error');
+            return;
+        }
+
+        imageDropzone.hidden = true;
+        imagePreviewWrap.hidden = true;
+        imageUploadProgress.hidden = false;
+        imageUploadName.textContent = file.name;
+        imageUploadPercent.textContent = '0%';
+        imageUploadFill.style.width = '0%';
+
+        const xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener('progress', (e) => {
+            if (e.lengthComputable) {
+                const percent = Math.round((e.loaded / e.total) * 100);
+                imageUploadPercent.textContent = `${percent}%`;
+                imageUploadFill.style.width = `${percent}%`;
+            }
+        });
+
+        xhr.addEventListener('load', () => {
+            if (xhr.status === 200) {
+                try {
+                    const data = JSON.parse(xhr.responseText);
+                    setImageSource(data.path);
+                    showToast(`Kapak fotoğrafı yüklendi: ${data.name}`, 'success');
+                } catch {
+                    showToast('Görsel yanıtı okunamadı', 'error');
+                    setImageSource('');
+                }
+            } else {
+                let msg = 'Yükleme başarısız';
+                try { msg = JSON.parse(xhr.responseText).error || msg; } catch {}
+                showToast(msg, 'error');
+                setImageSource('');
+            }
+        });
+
+        xhr.addEventListener('error', () => {
+            showToast('Fotoğraf yüklenirken hata oluştu', 'error');
+            setImageSource('');
+        });
+
+        xhr.open('POST', '/api/upload-image');
+        xhr.setRequestHeader('X-Filename', encodeURIComponent(file.name));
+        xhr.send(file);
     }
 
     function uploadVideoFile(file) {
@@ -764,6 +849,35 @@
 
         videoSrcInput.addEventListener('input', (e) => {
             setVideoSource(e.target.value.trim());
+        });
+
+        imageDropzone.addEventListener('click', () => imageFileInput.click());
+        imageFileInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                uploadImageFile(e.target.files[0]);
+                e.target.value = '';
+            }
+        });
+
+        imageDropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            imageDropzone.classList.add('over');
+        });
+        imageDropzone.addEventListener('dragleave', () => imageDropzone.classList.remove('over'));
+        imageDropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            imageDropzone.classList.remove('over');
+            if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+                uploadImageFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        replaceImageBtn.addEventListener('click', () => imageFileInput.click());
+        removeImageBtn.addEventListener('click', () => setImageSource(''));
+
+        imageInput.addEventListener('input', (e) => {
+            setImageSource(e.target.value.trim());
         });
 
         window.addEventListener('keydown', (e) => {

@@ -14,6 +14,7 @@ const SITE_NAME = path.basename(SITE_DIR);
 const PROJECTS_FILE = path.join(SITE_DIR, 'projects.js');
 const BACKUP_DIR = path.join(__dirname, 'yedekler');
 const VIDEO_DIR = path.join(SITE_DIR, 'videos');
+const IMAGE_DIR = path.join(SITE_DIR, 'images');
 
 const ALLOWED_STATIC_DIRS = [
     SITE_DIR,
@@ -21,7 +22,9 @@ const ALLOWED_STATIC_DIRS = [
 ];
 
 const VIDEO_EXT = new Set(['.mp4', '.webm', '.mov', '.m4v', '.ogg']);
+const IMAGE_EXT = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 const MAX_UPLOAD_BYTES = 2 * 1024 * 1024 * 1024;
+const MAX_IMAGE_UPLOAD_BYTES = 25 * 1024 * 1024;
 
 const MIME = {
     '.html': 'text/html; charset=utf-8',
@@ -182,6 +185,41 @@ async function handleApi(req, res, url) {
                 failed = true;
                 fsp.unlink(target).catch(() => {});
                 sendJSON(res, 500, { error: 'Dosya yazılamadı: ' + e.message });
+            });
+            out.on('finish', () => {
+                if (failed) return;
+                const rel = path.relative(SITE_DIR, target).split(path.sep).join('/');
+                sendJSON(res, 200, { ok: true, path: rel, name: path.basename(target) });
+            });
+            return;
+        }
+
+        if (url.pathname === '/api/upload-image' && req.method === 'POST') {
+            const rawName = decodeURIComponent(req.headers['x-filename'] || 'image.jpg');
+            const { base, ext } = sanitizeFileName(rawName);
+            if (!IMAGE_EXT.has(ext)) {
+                return sendJSON(res, 400, { error: `Desteklenmeyen görsel türü: ${ext || '(uzantısız)'}. PNG, JPG, WEBP, GIF desteklenir.` });
+            }
+            const length = Number(req.headers['content-length'] || 0);
+            if (length > MAX_IMAGE_UPLOAD_BYTES) {
+                return sendJSON(res, 413, { error: 'Fotoğraf 25 MB sınırını aşıyor' });
+            }
+
+            await fsp.mkdir(IMAGE_DIR, { recursive: true });
+            const target = await uniquePath(IMAGE_DIR, base, ext);
+            const out = fs.createWriteStream(target);
+            let failed = false;
+
+            req.pipe(out);
+            req.on('aborted', () => {
+                failed = true;
+                out.destroy();
+                fsp.unlink(target).catch(() => {});
+            });
+            out.on('error', e => {
+                failed = true;
+                fsp.unlink(target).catch(() => {});
+                sendJSON(res, 500, { error: 'Görsel yazılamadı: ' + e.message });
             });
             out.on('finish', () => {
                 if (failed) return;

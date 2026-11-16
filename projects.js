@@ -1,5 +1,65 @@
 const PROJECTS_DATA = [
     {
+        "id": 2,
+        "title": {
+            "tr": "Yıldız Forma",
+            "en": "Yıldız Forma"
+        },
+        "description": {
+            "tr": "PHP ve SQLite veritabanı altyapısıyla geliştirilmiş, kupon sistemli, dinamik forma sipariş ve admin yönetim paneli.",
+            "en": "Dynamic jersey ordering and admin panel built with custom PHP and SQLite, featuring a coupon system."
+        },
+        "category": "web",
+        "tags": {
+            "tr": [
+                "PHP",
+                "SQLite",
+                "Yönetim Paneli",
+                "Veritabanı"
+            ],
+            "en": [
+                "PHP",
+                "SQLite",
+                "Admin Dashboard",
+                "Database"
+            ]
+        },
+        "link": "https://www.yildizforma.com",
+        "icon": "fa-gears",
+        "image": "images/gorsel_2026-11-16_151242444.png",
+        "videoSrc": ""
+    },
+    {
+        "id": 9,
+        "title": {
+            "tr": "Hayrunisa Hacıismailoğlu — Portfolyo Sitesi",
+            "en": "Hayrunisa Hacıismailoğlu — Portfolio Website"
+        },
+        "description": {
+            "tr": "3D interaktif fotoğraf makinesi sahnesi, özel video oynatıcı (CineStudio), çoklu dil desteği (TR/EN) ve pembe/koyu tema geçişleriyle geliştirdiğim kişisel portfolyo sitesi.",
+            "en": "Custom portfolio website built with an interactive 3D camera stage, CineStudio video player, TR/EN language support, and pink/dark mode."
+        },
+        "category": "web",
+        "tags": {
+            "tr": [
+                "HTML5 & CSS3",
+                "JavaScript",
+                "3D CSS",
+                "Responsive"
+            ],
+            "en": [
+                "HTML5 & CSS3",
+                "JavaScript",
+                "3D CSS",
+                "Responsive"
+            ]
+        },
+        "link": "hayrunisa/index.html",
+        "icon": "fa-camera-retro",
+        "image": "",
+        "videoSrc": ""
+    },
+    {
         "id": 12,
         "title": {
             "tr": "LyricFlow — Şarkılarla İngilizce Dikte & Dinleme Pratiği",
@@ -28,6 +88,36 @@ const PROJECTS_DATA = [
         },
         "link": "lyricflow/index.html",
         "icon": "fa-headphones",
+        "image": "",
+        "videoSrc": ""
+    },
+    {
+        "id": 10,
+        "title": {
+            "tr": "TimeClick — Refleks & Zaman Tahmin Oyunu",
+            "en": "TimeClick — Reflex & Time Estimation Game"
+        },
+        "description": {
+            "tr": "Görsel ipucu olmadan geçen süreyi tahmin etmeye ve hedef saniyeyi yakalamaya dayalı, çok oyunculu oda destekli web tabanlı refleks oyunu.",
+            "en": "Web-based reflex and time estimation game with blind timer modes, sound engine and multiplayer room support."
+        },
+        "category": "web",
+        "tags": {
+            "tr": [
+                "JavaScript",
+                "Oyun Geliştirme",
+                "Socket.IO",
+                "CSS Animasyon"
+            ],
+            "en": [
+                "JavaScript",
+                "Game Dev",
+                "Socket.IO",
+                "CSS Animation"
+            ]
+        },
+        "link": "TimeClick/index.html",
+        "icon": "fa-gamepad",
         "image": "",
         "videoSrc": ""
     },
@@ -124,96 +214,6 @@ const PROJECTS_DATA = [
         },
         "link": "",
         "icon": "fa-crosshairs",
-        "image": "",
-        "videoSrc": ""
-    },
-    {
-        "id": 2,
-        "title": {
-            "tr": "Yıldız Forma",
-            "en": "Yıldız Forma"
-        },
-        "description": {
-            "tr": "PHP ve SQLite veritabanı altyapısıyla geliştirilmiş, kupon sistemli, dinamik forma sipariş ve admin yönetim paneli.",
-            "en": "Dynamic jersey ordering and admin panel built with custom PHP and SQLite, featuring a coupon system."
-        },
-        "category": "web",
-        "tags": {
-            "tr": [
-                "PHP",
-                "SQLite",
-                "Yönetim Paneli",
-                "Veritabanı"
-            ],
-            "en": [
-                "PHP",
-                "SQLite",
-                "Admin Dashboard",
-                "Database"
-            ]
-        },
-        "link": "https://www.yildizforma.com",
-        "icon": "fa-gears",
-        "image": "",
-        "videoSrc": ""
-    },
-    {
-        "id": 10,
-        "title": {
-            "tr": "TimeClick — Refleks & Zaman Tahmin Oyunu",
-            "en": "TimeClick — Reflex & Time Estimation Game"
-        },
-        "description": {
-            "tr": "Görsel ipucu olmadan geçen süreyi tahmin etmeye ve hedef saniyeyi yakalamaya dayalı, çok oyunculu oda destekli web tabanlı refleks oyunu.",
-            "en": "Web-based reflex and time estimation game with blind timer modes, sound engine and multiplayer room support."
-        },
-        "category": "web",
-        "tags": {
-            "tr": [
-                "JavaScript",
-                "Oyun Geliştirme",
-                "Socket.IO",
-                "CSS Animasyon"
-            ],
-            "en": [
-                "JavaScript",
-                "Game Dev",
-                "Socket.IO",
-                "CSS Animation"
-            ]
-        },
-        "link": "TimeClick/index.html",
-        "icon": "fa-gamepad",
-        "image": "",
-        "videoSrc": ""
-    },
-    {
-        "id": 9,
-        "title": {
-            "tr": "Hayrunisa Hacıismailoğlu — Portfolyo Sitesi",
-            "en": "Hayrunisa Hacıismailoğlu — Portfolio Website"
-        },
-        "description": {
-            "tr": "3D interaktif fotoğraf makinesi sahnesi, özel video oynatıcı (CineStudio), çoklu dil desteği (TR/EN) ve pembe/koyu tema geçişleriyle geliştirdiğim kişisel portfolyo sitesi.",
-            "en": "Custom portfolio website built with an interactive 3D camera stage, CineStudio video player, TR/EN language support, and pink/dark mode."
-        },
-        "category": "web",
-        "tags": {
-            "tr": [
-                "HTML5 & CSS3",
-                "JavaScript",
-                "3D CSS",
-                "Responsive"
-            ],
-            "en": [
-                "HTML5 & CSS3",
-                "JavaScript",
-                "3D CSS",
-                "Responsive"
-            ]
-        },
-        "link": "hayrunisa/index.html",
-        "icon": "fa-camera-retro",
         "image": "",
         "videoSrc": ""
     },
